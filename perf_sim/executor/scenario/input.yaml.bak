@@ -1,0 +1,32 @@
+
+Scenario:
+    - loop        : 10
+      deadline    : 2 #ms
+      total tasks : 5 
+
+Core_0    :
+    - speed : 50 #MHz
+
+Core_1    :
+    - speed : 50 #MHz
+
+Task_0    :
+    - function   : Sampling
+      period     : 2 #ms
+
+Task_1    :
+    - function   : FIR
+      period     : 0.02 #ms
+
+Task_2    :
+    - function   : Peak_detection
+      period     : 0.02 #ms
+
+Task_3    :
+    - function   : Simple_math
+      period     : 2000 #ms
+
+Task_4    :
+    - function   : LCD_fucntion
+      period     : 2000 #ms
+

@@ -1,0 +1,5810 @@
+===================
+op1 = 2016 MOV(S) imm
+Cycle: 1
+===================
+op1 = A12D ADR
+Cycle: 2
+===================
+op1 = BEAB BRKT
+Cycle: 2
+===================
+op1 = 482C LDR
+Cycle: 4
+===================
+op1 = 6801 LDR imm
+Cycle: 6
+===================
+op1 = 2900 CMP imm
+Cycle: 7
+===================
+op1 = D101 BNE
+Cycle: 8
+===================
+branch taken
+Cycle: 10
+===================
+op1 = 6881 LDR imm
+Cycle: 12
+===================
+op1 = 68C2 LDR imm
+Cycle: 14
+===================
+op1 = 2900 CMP imm
+Cycle: 15
+===================
+op1 = D000 BEQ
+Cycle: 16
+===================
+branch not taken
+op1 = 468D MOV reg
+Cycle: 17
+===================
+op1 = 2A00 CMP imm
+Cycle: 18
+===================
+op1 = D002 BEQ
+Cycle: 19
+===================
+branch taken
+Cycle: 21
+===================
+op1 = 2100 MOV(S) imm
+Cycle: 22
+===================
+op1 = 468B MOV reg
+Cycle: 23
+===================
+op1 = 460F MOV reg
+Cycle: 24
+===================
+op1 = 4823 LDR
+Cycle: 26
+===================
+op1 = 4A24 LDR
+Cycle: 28
+===================
+op1 = 1A12 SUB reg
+Cycle: 29
+===================
+op1 = F000 op2 = FF99 BL 32
+Cycle: 32
+===================
+branch taken
+Cycle: 34
+===================
+op1 = B5F0 PUSH
+Cycle: 39
+===================
+op1 = 783 LSL(S) imm
+Cycle: 40
+===================
+op1 = D046 BEQ
+Cycle: 41
+===================
+branch taken
+Cycle: 43
+===================
+op1 = 1C14 ADD 3imm
+Cycle: 44
+===================
+op1 = 1C03 ADD 3imm
+Cycle: 45
+===================
+op1 = E7C5 B
+Cycle: 46
+===================
+branch taken
+Cycle: 48
+===================
+op1 = 2C03 CMP imm
+Cycle: 49
+===================
+op1 = D92B B (BEQ)(BPL)(BNE)
+Cycle: 50
+===================
+branch not taken
+op1 = 25FF MOV(S) imm
+Cycle: 51
+===================
+op1 = 400D AND reg
+Cycle: 52
+===================
+op1 = 22A LSL(S) imm
+Cycle: 53
+===================
+op1 = 4315 ORR
+Cycle: 54
+===================
+op1 = 42A LSL(S) imm
+Cycle: 55
+===================
+op1 = 4315 ORR
+Cycle: 56
+===================
+op1 = 2C0F CMP imm
+Cycle: 57
+===================
+op1 = D915 B (BEQ)(BPL)(BNE)
+Cycle: 58
+===================
+branch not taken
+op1 = 1C27 ADD 3imm
+Cycle: 59
+===================
+op1 = 3F10 SUB 8imm
+Cycle: 60
+===================
+op1 = 93F LSR imm
+Cycle: 61
+===================
+op1 = 1C1E ADD 3imm
+Cycle: 62
+===================
+op1 = 13A LSL(S) imm
+Cycle: 63
+===================
+op1 = 3610 ADD 8imm
+Cycle: 64
+===================
+op1 = 18B6 ADD reg
+Cycle: 65
+===================
+op1 = 1C1A ADD 3imm
+Cycle: 66
+===================
+op1 = 6015 STR imm
+Cycle: 68
+===================
+op1 = 6055 STR imm
+Cycle: 70
+===================
+op1 = 6095 STR imm
+Cycle: 72
+===================
+op1 = 60D5 STR imm
+Cycle: 74
+===================
+op1 = 3210 ADD 8imm
+Cycle: 75
+===================
+op1 = 42B2 CMP reg
+Cycle: 76
+===================
+op1 = D1F8 BNE
+Cycle: 77
+===================
+branch taken
+Cycle: 79
+===================
+op1 = 6015 STR imm
+Cycle: 81
+===================
+op1 = 6055 STR imm
+Cycle: 83
+===================
+op1 = 6095 STR imm
+Cycle: 85
+===================
+op1 = 60D5 STR imm
+Cycle: 87
+===================
+op1 = 3210 ADD 8imm
+Cycle: 88
+===================
+op1 = 42B2 CMP reg
+Cycle: 89
+===================
+op1 = D1F8 BNE
+Cycle: 90
+===================
+branch taken
+Cycle: 92
+===================
+branch not taken
+op1 = 3701 ADD 8imm
+Cycle: 93
+===================
+op1 = 13F LSL(S) imm
+Cycle: 94
+===================
+op1 = 220F MOV(S) imm
+Cycle: 95
+===================
+op1 = 19DB ADD reg
+Cycle: 96
+===================
+op1 = 4014 AND reg
+Cycle: 97
+===================
+op1 = 2C03 CMP imm
+Cycle: 98
+===================
+op1 = D90D B (BEQ)(BPL)(BNE)
+Cycle: 99
+===================
+branch taken
+Cycle: 101
+===================
+op1 = 2C00 CMP imm
+Cycle: 102
+===================
+op1 = D005 BEQ
+Cycle: 103
+===================
+branch taken
+Cycle: 105
+===================
+op1 = BDF0 POP
+Cycle: 110
+===================
+branch taken
+Cycle: 112
+===================
+op1 = F000 op2 = F877 BL 32
+Cycle: 115
+===================
+branch taken
+Cycle: 117
+===================
+op1 = B5F0 PUSH
+Cycle: 122
+===================
+op1 = 4D22 LDR
+Cycle: 124
+===================
+op1 = B085 SUB sp
+Cycle: 125
+===================
+op1 = 2303 MOV(S) imm
+Cycle: 126
+===================
+op1 = 9501 STR sp imm
+Cycle: 128
+===================
+op1 = 9303 STR sp imm
+Cycle: 130
+===================
+op1 = 2300 MOV(S) imm
+Cycle: 131
+===================
+op1 = AC01 ADD sp
+Cycle: 132
+===================
+op1 = 9302 STR sp imm
+Cycle: 134
+===================
+op1 = 2601 MOV(S) imm
+Cycle: 135
+===================
+op1 = 1C30 ADD 3imm
+Cycle: 136
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 137
+===================
+op1 = BEAB BRKT
+Cycle: 137
+===================
+op1 = 1C04 ADD 3imm
+Cycle: 138
+===================
+op1 = 4E1C LDR
+Cycle: 140
+===================
+op1 = 2303 MOV(S) imm
+Cycle: 141
+===================
+op1 = 9501 STR sp imm
+Cycle: 143
+===================
+op1 = 9303 STR sp imm
+Cycle: 145
+===================
+op1 = 2304 MOV(S) imm
+Cycle: 146
+===================
+op1 = 6034 STR imm
+Cycle: 148
+===================
+op1 = 9302 STR sp imm
+Cycle: 150
+===================
+op1 = AC01 ADD sp
+Cycle: 151
+===================
+op1 = 2701 MOV(S) imm
+Cycle: 152
+===================
+op1 = 1C38 ADD 3imm
+Cycle: 153
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 154
+===================
+op1 = BEAB BRKT
+Cycle: 154
+===================
+op1 = 1C04 ADD 3imm
+Cycle: 155
+===================
+op1 = 4F17 LDR
+Cycle: 157
+===================
+op1 = 2303 MOV(S) imm
+Cycle: 158
+===================
+op1 = 9501 STR sp imm
+Cycle: 160
+===================
+op1 = 9303 STR sp imm
+Cycle: 162
+===================
+op1 = 2308 MOV(S) imm
+Cycle: 163
+===================
+op1 = 603C STR imm
+Cycle: 165
+===================
+op1 = 9302 STR sp imm
+Cycle: 167
+===================
+op1 = AC01 ADD sp
+Cycle: 168
+===================
+op1 = 2501 MOV(S) imm
+Cycle: 169
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 170
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 171
+===================
+op1 = BEAB BRKT
+Cycle: 171
+===================
+op1 = 1C04 ADD 3imm
+Cycle: 172
+===================
+op1 = 4B11 LDR
+Cycle: 174
+===================
+op1 = 601C STR imm
+Cycle: 176
+===================
+op1 = 1C62 ADD 3imm
+Cycle: 177
+===================
+op1 = D014 BEQ
+Cycle: 178
+===================
+branch not taken
+op1 = 683D LDR imm
+Cycle: 180
+===================
+op1 = 4810 LDR
+Cycle: 182
+===================
+op1 = 2201 MOV(S) imm
+Cycle: 183
+===================
+op1 = 1C01 ADD 3imm
+Cycle: 184
+===================
+op1 = 1C03 ADD 3imm
+Cycle: 185
+===================
+op1 = 31A0 ADD 8imm
+Cycle: 186
+===================
+op1 = 4252 RSB imm
+Cycle: 187
+===================
+op1 = 601A STR imm
+Cycle: 189
+===================
+op1 = 3308 ADD 8imm
+Cycle: 190
+===================
+op1 = 428B CMP reg
+Cycle: 191
+===================
+op1 = D1FB BNE
+Cycle: 192
+===================
+branch taken
+Cycle: 194
+===================
+op1 = 601A STR imm
+Cycle: 196
+===================
+op1 = 3308 ADD 8imm
+Cycle: 197
+===================
+op1 = 428B CMP reg
+Cycle: 198
+===================
+op1 = D1FB BNE
+Cycle: 199
+===================
+branch taken
+Cycle: 201
+===================
+branch not taken
+op1 = 6836 LDR imm
+Cycle: 203
+===================
+op1 = 2300 MOV(S) imm
+Cycle: 204
+===================
+op1 = 6006 STR imm
+Cycle: 206
+===================
+op1 = 6043 STR imm
+Cycle: 208
+===================
+op1 = 6085 STR imm
+Cycle: 210
+===================
+op1 = 60C3 STR imm
+Cycle: 212
+===================
+op1 = 6104 STR imm
+Cycle: 214
+===================
+op1 = 6143 STR imm
+Cycle: 216
+===================
+op1 = B005 ADD sp
+Cycle: 217
+===================
+op1 = BDF0 POP
+Cycle: 222
+===================
+branch taken
+Cycle: 224
+===================
+op1 = 2015 MOV(S) imm
+Cycle: 225
+===================
+op1 = A122 ADR
+Cycle: 226
+===================
+op1 = BEAB BRKT
+Cycle: 226
+===================
+op1 = 4921 LDR
+Cycle: 228
+===================
+op1 = 2000 MOV(S) imm
+Cycle: 229
+===================
+op1 = B401 PUSH
+Cycle: 231
+===================
+op1 = 780B LDRB imm
+Cycle: 233
+===================
+op1 = 3101 ADD 8imm
+Cycle: 234
+===================
+op1 = 2B00 CMP imm
+Cycle: 235
+===================
+op1 = D015 BEQ
+Cycle: 236
+===================
+branch not taken
+op1 = 2B20 CMP imm
+Cycle: 237
+===================
+op1 = D0F9 BEQ
+Cycle: 238
+===================
+branch not taken
+op1 = 2B22 CMP imm
+Cycle: 239
+===================
+op1 = D001 BEQ
+Cycle: 240
+===================
+branch not taken
+op1 = 2B27 CMP imm
+Cycle: 241
+===================
+op1 = D101 BNE
+Cycle: 242
+===================
+branch taken
+Cycle: 244
+===================
+op1 = 2220 MOV(S) imm
+Cycle: 245
+===================
+op1 = 3901 SUB 8imm
+Cycle: 246
+===================
+op1 = B402 PUSH
+Cycle: 248
+===================
+op1 = 3001 ADD 8imm
+Cycle: 249
+===================
+op1 = 780B LDRB imm
+Cycle: 251
+===================
+op1 = 3101 ADD 8imm
+Cycle: 252
+===================
+op1 = 2B00 CMP imm
+Cycle: 253
+===================
+op1 = D005 BEQ
+Cycle: 254
+===================
+branch not taken
+op1 = 429A CMP reg
+Cycle: 255
+===================
+op1 = D1F9 BNE
+Cycle: 256
+===================
+branch taken
+Cycle: 258
+===================
+op1 = 780B LDRB imm
+Cycle: 260
+===================
+op1 = 3101 ADD 8imm
+Cycle: 261
+===================
+op1 = 2B00 CMP imm
+Cycle: 262
+===================
+op1 = D005 BEQ
+Cycle: 263
+===================
+branch not taken
+branch taken
+Cycle: 265
+===================
+op1 = 4669 MOV reg
+Cycle: 266
+===================
+op1 = 2 LSL(S) imm
+Cycle: 267
+===================
+op1 = 92 LSL(S) imm
+Cycle: 268
+===================
+op1 = 446A ADD reg
+Cycle: 269
+===================
+op1 = 466B MOV reg
+Cycle: 270
+===================
+op1 = 429A CMP reg
+Cycle: 271
+===================
+op1 = D906 B (BEQ)(BPL)(BNE)
+Cycle: 272
+===================
+branch not taken
+op1 = 3A04 SUB 8imm
+Cycle: 273
+===================
+op1 = 6814 LDR imm
+Cycle: 275
+===================
+op1 = 681D LDR imm
+Cycle: 277
+===================
+op1 = 6015 STR imm
+Cycle: 279
+===================
+op1 = 601C STR imm
+Cycle: 281
+===================
+op1 = 3304 ADD 8imm
+Cycle: 282
+===================
+op1 = E7F6 B
+Cycle: 283
+===================
+branch taken
+Cycle: 285
+===================
+op1 = 429A CMP reg
+Cycle: 286
+===================
+op1 = D906 B (BEQ)(BPL)(BNE)
+Cycle: 287
+===================
+branch taken
+Cycle: 289
+===================
+op1 = 466C MOV reg
+Cycle: 290
+===================
+op1 = 2507 MOV(S) imm
+Cycle: 291
+===================
+op1 = 43AC BIC
+Cycle: 292
+===================
+op1 = 46A5 MOV reg
+Cycle: 293
+===================
+op1 = 4 LSL(S) imm
+Cycle: 294
+===================
+op1 = D LSL(S) imm
+Cycle: 295
+===================
+op1 = 4808 LDR
+Cycle: 297
+===================
+op1 = F000 op2 = FB30 BL 32
+Cycle: 300
+===================
+branch taken
+Cycle: 302
+===================
+op1 = B508 PUSH
+Cycle: 304
+===================
+op1 = 1C01 ADD 3imm
+Cycle: 305
+===================
+op1 = 2200 MOV(S) imm
+Cycle: 306
+===================
+op1 = 2000 MOV(S) imm
+Cycle: 307
+===================
+op1 = 2300 MOV(S) imm
+Cycle: 308
+===================
+op1 = F000 op2 = FCF7 BL 32
+Cycle: 311
+===================
+branch taken
+Cycle: 313
+===================
+op1 = B5F0 PUSH
+Cycle: 318
+===================
+op1 = 464F MOV reg
+Cycle: 319
+===================
+op1 = 4646 MOV reg
+Cycle: 320
+===================
+op1 = B4C0 PUSH
+Cycle: 323
+===================
+op1 = 4698 MOV reg
+Cycle: 324
+===================
+op1 = 4B2B LDR
+Cycle: 326
+===================
+op1 = 25A4 MOV(S) imm
+Cycle: 327
+===================
+op1 = 681B LDR imm
+Cycle: 329
+===================
+op1 = 6D LSL(S) imm
+Cycle: 330
+===================
+op1 = 595C LDR reg
+Cycle: 332
+===================
+op1 = B083 SUB sp
+Cycle: 333
+===================
+op1 = 1C06 ADD 3imm
+Cycle: 334
+===================
+op1 = 1C0F ADD 3imm
+Cycle: 335
+===================
+op1 = 4691 MOV reg
+Cycle: 336
+===================
+op1 = 9301 STR sp imm
+Cycle: 338
+===================
+op1 = 2C00 CMP imm
+Cycle: 339
+===================
+op1 = D044 BEQ
+Cycle: 340
+===================
+branch taken
+Cycle: 342
+===================
+op1 = 1C1C ADD 3imm
+Cycle: 343
+===================
+op1 = 344D ADD 8imm
+Cycle: 344
+===================
+op1 = 34FF ADD 8imm
+Cycle: 345
+===================
+op1 = 515C STR reg
+Cycle: 347
+===================
+op1 = E7B5 B
+Cycle: 348
+===================
+branch taken
+Cycle: 350
+===================
+op1 = 6865 LDR imm
+Cycle: 352
+===================
+op1 = 2D1F CMP imm
+Cycle: 353
+===================
+op1 = DD1A B (BEQ)(BPL)(BNE)
+Cycle: 354
+===================
+branch taken
+Cycle: 356
+===================
+op1 = 2E00 CMP imm
+Cycle: 357
+===================
+op1 = D10A BNE
+Cycle: 358
+===================
+branch not taken
+op1 = 1C6B ADD 3imm
+Cycle: 359
+===================
+op1 = 3502 ADD 8imm
+Cycle: 360
+===================
+op1 = AD LSL(S) imm
+Cycle: 361
+===================
+op1 = 6063 STR imm
+Cycle: 363
+===================
+op1 = 2000 MOV(S) imm
+Cycle: 364
+===================
+op1 = 512F STR reg
+Cycle: 366
+===================
+op1 = B003 ADD sp
+Cycle: 367
+===================
+op1 = BC0C POP
+Cycle: 370
+===================
+op1 = 4690 MOV reg
+Cycle: 371
+===================
+op1 = 4699 MOV reg
+Cycle: 372
+===================
+op1 = BDF0 POP
+Cycle: 377
+===================
+branch taken
+Cycle: 379
+===================
+op1 = BD08 POP
+Cycle: 381
+===================
+branch taken
+Cycle: 383
+===================
+op1 = F000 op2 = FCB4 BL 32
+Cycle: 386
+===================
+branch taken
+Cycle: 388
+===================
+op1 = B570 PUSH
+Cycle: 392
+===================
+op1 = 4E0D LDR
+Cycle: 394
+===================
+op1 = 4D0D LDR
+Cycle: 396
+===================
+op1 = 2400 MOV(S) imm
+Cycle: 397
+===================
+op1 = 1BAD SUB reg
+Cycle: 398
+===================
+op1 = 10AD ASR imm
+Cycle: 399
+===================
+op1 = D005 BEQ
+Cycle: 400
+===================
+branch taken
+Cycle: 402
+===================
+op1 = F7FF op2 = FA67 BL 32
+Cycle: 405
+===================
+branch taken
+Cycle: 407
+===================
+op1 = B5F8 PUSH
+Cycle: 413
+===================
+op1 = 46C0 MOV reg
+Cycle: 414
+===================
+op1 = BCF8 POP
+Cycle: 420
+===================
+op1 = BC08 POP
+Cycle: 422
+===================
+op1 = 469E MOV reg
+Cycle: 423
+===================
+op1 = 4770 BX
+Cycle: 426
+===================
+branch taken
+Cycle: 428
+===================
+op1 = 4E08 LDR
+Cycle: 430
+===================
+op1 = 4D08 LDR
+Cycle: 432
+===================
+op1 = 2400 MOV(S) imm
+Cycle: 433
+===================
+op1 = 1BAD SUB reg
+Cycle: 434
+===================
+op1 = 10AD ASR imm
+Cycle: 435
+===================
+op1 = D005 BEQ
+Cycle: 436
+===================
+branch not taken
+op1 = A3 LSL(S) imm
+Cycle: 437
+===================
+op1 = 58F3 LDR reg
+Cycle: 439
+===================
+op1 = 3401 ADD 8imm
+Cycle: 440
+===================
+op1 = 4798 BLX reg
+Cycle: 441
+===================
+branch taken
+Cycle: 443
+===================
+op1 = B508 PUSH
+Cycle: 445
+===================
+op1 = 4B03 LDR
+Cycle: 447
+===================
+op1 = 2B00 CMP imm
+Cycle: 448
+===================
+op1 = D002 BEQ
+Cycle: 449
+===================
+branch taken
+Cycle: 451
+===================
+op1 = BD08 POP
+Cycle: 453
+===================
+branch taken
+Cycle: 455
+===================
+op1 = 42A5 CMP reg
+Cycle: 456
+===================
+op1 = D1F9 BNE
+Cycle: 457
+===================
+branch taken
+Cycle: 459
+===================
+branch taken
+Cycle: 461
+===================
+op1 = B508 PUSH
+Cycle: 463
+===================
+op1 = 4B09 LDR
+Cycle: 465
+===================
+op1 = 2B00 CMP imm
+Cycle: 466
+===================
+op1 = D003 BEQ
+Cycle: 467
+===================
+branch taken
+Cycle: 469
+===================
+op1 = 4808 LDR
+Cycle: 471
+===================
+op1 = 6803 LDR imm
+Cycle: 473
+===================
+op1 = 2B00 CMP imm
+Cycle: 474
+===================
+op1 = D003 BEQ
+Cycle: 475
+===================
+branch taken
+Cycle: 477
+===================
+op1 = F7FF op2 = FFC2 BL 32
+Cycle: 480
+===================
+branch taken
+Cycle: 482
+===================
+op1 = B508 PUSH
+Cycle: 484
+===================
+op1 = 4807 LDR
+Cycle: 486
+===================
+op1 = 4B07 LDR
+Cycle: 488
+===================
+op1 = 1A1B SUB reg
+Cycle: 489
+===================
+op1 = 109B ASR imm
+Cycle: 490
+===================
+op1 = FDA LSR imm
+Cycle: 491
+===================
+op1 = 18D3 ADD reg
+Cycle: 492
+===================
+op1 = 1059 ASR imm
+Cycle: 493
+===================
+op1 = D100 BNE
+Cycle: 494
+===================
+branch not taken
+op1 = BD08 POP
+Cycle: 496
+===================
+branch taken
+Cycle: 498
+===================
+op1 = BD08 POP
+Cycle: 500
+===================
+branch taken
+Cycle: 502
+===================
+branch not taken
+op1 = BD70 POP
+Cycle: 506
+===================
+branch taken
+Cycle: 508
+===================
+op1 = 20 LSL(S) imm
+Cycle: 509
+===================
+op1 = 29 LSL(S) imm
+Cycle: 510
+===================
+op1 = F001 op2 = FC0A BL 32
+Cycle: 513
+===================
+branch taken
+Cycle: 515
+===================
+op1 = B580 PUSH
+Cycle: 517
+===================
+op1 = AF00 ADD sp
+Cycle: 518
+===================
+op1 = 4B06 LDR
+Cycle: 520
+===================
+op1 = 1C18 ADD 3imm
+Cycle: 521
+===================
+op1 = F000 op2 = F83C BL 32
+Cycle: 524
+===================
+branch taken
+Cycle: 526
+===================
+op1 = B508 PUSH
+Cycle: 528
+===================
+op1 = 4B03 LDR
+Cycle: 530
+===================
+op1 = 1C01 ADD 3imm
+Cycle: 531
+===================
+op1 = 6818 LDR imm
+Cycle: 533
+===================
+op1 = F7FF op2 = FFCC BL 32
+Cycle: 536
+===================
+branch taken
+Cycle: 538
+===================
+op1 = B530 PUSH
+Cycle: 541
+===================
+op1 = 1C04 ADD 3imm
+Cycle: 542
+===================
+op1 = B089 SUB sp
+Cycle: 543
+===================
+op1 = 1C08 ADD 3imm
+Cycle: 544
+===================
+op1 = 1C0D ADD 3imm
+Cycle: 545
+===================
+op1 = F7FF op2 = FBE7 BL 32
+Cycle: 548
+===================
+branch taken
+Cycle: 550
+===================
+op1 = 2300 MOV(S) imm
+Cycle: 551
+===================
+op1 = 5CC2 LDRB reg
+Cycle: 553
+===================
+op1 = 3301 ADD 8imm
+Cycle: 554
+===================
+op1 = 2A00 CMP imm
+Cycle: 555
+===================
+op1 = D1FB BNE
+Cycle: 556
+===================
+branch taken
+Cycle: 558
+===================
+op1 = 5CC2 LDRB reg
+Cycle: 560
+===================
+op1 = 3301 ADD 8imm
+Cycle: 561
+===================
+op1 = 2A00 CMP imm
+Cycle: 562
+===================
+op1 = D1FB BNE
+Cycle: 563
+===================
+branch taken
+Cycle: 565
+===================
+branch not taken
+op1 = 1E58 SUB 3imm
+Cycle: 566
+===================
+op1 = 4770 BX
+Cycle: 569
+===================
+branch taken
+Cycle: 571
+===================
+op1 = 4A11 LDR
+Cycle: 573
+===================
+op1 = AB04 ADD sp
+Cycle: 574
+===================
+op1 = 68A1 LDR imm
+Cycle: 576
+===================
+op1 = 9206 STR sp imm
+Cycle: 578
+===================
+op1 = 9301 STR sp imm
+Cycle: 580
+===================
+op1 = 2201 MOV(S) imm
+Cycle: 581
+===================
+op1 = 2302 MOV(S) imm
+Cycle: 582
+===================
+op1 = 9207 STR sp imm
+Cycle: 584
+===================
+op1 = 9302 STR sp imm
+Cycle: 586
+===================
+op1 = 2280 MOV(S) imm
+Cycle: 587
+===================
+op1 = 898B LDRH imm
+Cycle: 589
+===================
+op1 = 9005 STR sp imm
+Cycle: 591
+===================
+op1 = 192 LSL(S) imm
+Cycle: 592
+===================
+op1 = 3001 ADD 8imm
+Cycle: 593
+===================
+op1 = 9504 STR sp imm
+Cycle: 595
+===================
+op1 = 9003 STR sp imm
+Cycle: 597
+===================
+op1 = 4213 TST
+Cycle: 598
+===================
+op1 = D105 BNE
+Cycle: 599
+===================
+branch not taken
+op1 = 4313 ORR
+Cycle: 600
+===================
+op1 = 818B STRH imm
+Cycle: 602
+===================
+op1 = 6E4A LDR imm
+Cycle: 604
+===================
+op1 = 4B07 LDR
+Cycle: 606
+===================
+op1 = 4013 AND reg
+Cycle: 607
+===================
+op1 = 664B STR imm
+Cycle: 609
+===================
+op1 = 1C20 ADD 3imm
+Cycle: 610
+===================
+op1 = AA01 ADD sp
+Cycle: 611
+===================
+op1 = F000 op2 = F815 BL 32
+Cycle: 614
+===================
+branch taken
+Cycle: 616
+===================
+op1 = B5F0 PUSH
+Cycle: 621
+===================
+op1 = 4656 MOV reg
+Cycle: 622
+===================
+op1 = 4644 MOV reg
+Cycle: 623
+===================
+op1 = 465F MOV reg
+Cycle: 624
+===================
+op1 = 464D MOV reg
+Cycle: 625
+===================
+op1 = B4F0 PUSH
+Cycle: 630
+===================
+op1 = B085 SUB sp
+Cycle: 631
+===================
+op1 = 9003 STR sp imm
+Cycle: 633
+===================
+op1 = 6890 LDR imm
+Cycle: 635
+===================
+op1 = 1C0C ADD 3imm
+Cycle: 636
+===================
+op1 = 4692 MOV reg
+Cycle: 637
+===================
+op1 = 2800 CMP imm
+Cycle: 638
+===================
+op1 = D024 BEQ
+Cycle: 639
+===================
+branch not taken
+op1 = 898B LDRH imm
+Cycle: 641
+===================
+op1 = 719 LSL(S) imm
+Cycle: 642
+===================
+op1 = D529 BPL
+Cycle: 643
+===================
+branch taken
+Cycle: 645
+===================
+op1 = 9803 LDR sp imm
+Cycle: 647
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 648
+===================
+op1 = F000 op2 = FBD4 BL 32
+Cycle: 651
+===================
+branch taken
+Cycle: 653
+===================
+op1 = 4B32 LDR
+Cycle: 655
+===================
+op1 = B570 PUSH
+Cycle: 659
+===================
+op1 = 1C06 ADD 3imm
+Cycle: 660
+===================
+op1 = 6818 LDR imm
+Cycle: 662
+===================
+op1 = 1C0C ADD 3imm
+Cycle: 663
+===================
+op1 = 2800 CMP imm
+Cycle: 664
+===================
+op1 = D002 BEQ
+Cycle: 665
+===================
+branch not taken
+op1 = 6B81 LDR imm
+Cycle: 667
+===================
+op1 = 2900 CMP imm
+Cycle: 668
+===================
+op1 = D03B BEQ
+Cycle: 669
+===================
+branch taken
+Cycle: 671
+===================
+op1 = F7FE op2 = FAB8 BL 32
+Cycle: 674
+===================
+branch taken
+Cycle: 676
+===================
+op1 = B5F8 PUSH
+Cycle: 682
+===================
+op1 = 4656 MOV reg
+Cycle: 683
+===================
+op1 = 4644 MOV reg
+Cycle: 684
+===================
+op1 = 465F MOV reg
+Cycle: 685
+===================
+op1 = 464D MOV reg
+Cycle: 686
+===================
+op1 = B4F0 PUSH
+Cycle: 691
+===================
+op1 = 6B84 LDR imm
+Cycle: 693
+===================
+op1 = 1C06 ADD 3imm
+Cycle: 694
+===================
+op1 = 2C00 CMP imm
+Cycle: 695
+===================
+op1 = D162 BNE
+Cycle: 696
+===================
+branch not taken
+op1 = 4B34 LDR
+Cycle: 698
+===================
+op1 = 2203 MOV(S) imm
+Cycle: 699
+===================
+op1 = 63C3 STR imm
+Cycle: 701
+===================
+op1 = 23B8 MOV(S) imm
+Cycle: 702
+===================
+op1 = 9B LSL(S) imm
+Cycle: 703
+===================
+op1 = 50C4 STR reg
+Cycle: 705
+===================
+op1 = 23B9 MOV(S) imm
+Cycle: 706
+===================
+op1 = 9B LSL(S) imm
+Cycle: 707
+===================
+op1 = 50C2 STR reg
+Cycle: 709
+===================
+op1 = 23BB MOV(S) imm
+Cycle: 710
+===================
+op1 = 9B LSL(S) imm
+Cycle: 711
+===================
+op1 = 6845 LDR imm
+Cycle: 713
+===================
+op1 = 18C2 ADD reg
+Cycle: 714
+===================
+op1 = 23BA MOV(S) imm
+Cycle: 715
+===================
+op1 = 9B LSL(S) imm
+Cycle: 716
+===================
+op1 = 50C2 STR reg
+Cycle: 718
+===================
+op1 = 2304 MOV(S) imm
+Cycle: 719
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 720
+===================
+op1 = 81AB STRH imm
+Cycle: 722
+===================
+op1 = 602C STR imm
+Cycle: 724
+===================
+op1 = 606C STR imm
+Cycle: 726
+===================
+op1 = 60AC STR imm
+Cycle: 728
+===================
+op1 = 666C STR imm
+Cycle: 730
+===================
+op1 = 81EC STRH imm
+Cycle: 732
+===================
+op1 = 612C STR imm
+Cycle: 734
+===================
+op1 = 616C STR imm
+Cycle: 736
+===================
+op1 = 61AC STR imm
+Cycle: 738
+===================
+op1 = 2100 MOV(S) imm
+Cycle: 739
+===================
+op1 = 2208 MOV(S) imm
+Cycle: 740
+===================
+op1 = 305C ADD 8imm
+Cycle: 741
+===================
+op1 = F000 op2 = FBC8 BL 32
+Cycle: 744
+===================
+branch taken
+Cycle: 746
+===================
+branch taken
+Cycle: 748
+===================
+op1 = 1F27 SUB 3imm
+Cycle: 749
+===================
+op1 = 8BF LSR imm
+Cycle: 750
+===================
+op1 = BA LSL(S) imm
+Cycle: 751
+===================
+op1 = 1D1E ADD 3imm
+Cycle: 752
+===================
+op1 = 18B6 ADD reg
+Cycle: 753
+===================
+op1 = 1C1A ADD 3imm
+Cycle: 754
+===================
+op1 = C220 STM
+Cycle: 756
+===================
+op1 = 42B2 CMP reg
+Cycle: 757
+===================
+op1 = D1FC BNE
+Cycle: 758
+===================
+branch taken
+Cycle: 760
+===================
+op1 = C220 STM
+Cycle: 762
+===================
+op1 = 42B2 CMP reg
+Cycle: 763
+===================
+op1 = D1FC BNE
+Cycle: 764
+===================
+branch not taken
+op1 = 3701 ADD 8imm
+Cycle: 765
+===================
+op1 = BF LSL(S) imm
+Cycle: 766
+===================
+op1 = 2203 MOV(S) imm
+Cycle: 767
+===================
+op1 = 19DB ADD reg
+Cycle: 768
+===================
+op1 = 4014 AND reg
+Cycle: 769
+===================
+op1 = 2C00 CMP imm
+Cycle: 770
+===================
+op1 = D005 BEQ
+Cycle: 771
+===================
+branch taken
+Cycle: 773
+===================
+branch taken
+Cycle: 775
+===================
+op1 = 4B25 LDR
+Cycle: 777
+===================
+op1 = 4F26 LDR
+Cycle: 779
+===================
+op1 = 469A MOV reg
+Cycle: 780
+===================
+op1 = 622B STR imm
+Cycle: 782
+===================
+op1 = 4B25 LDR
+Cycle: 784
+===================
+op1 = 61ED STR imm
+Cycle: 786
+===================
+op1 = 4699 MOV reg
+Cycle: 787
+===================
+op1 = 626B STR imm
+Cycle: 789
+===================
+op1 = 4B24 LDR
+Cycle: 791
+===================
+op1 = 62EF STR imm
+Cycle: 793
+===================
+op1 = 62AB STR imm
+Cycle: 795
+===================
+op1 = 68B5 LDR imm
+Cycle: 797
+===================
+op1 = 4698 MOV reg
+Cycle: 798
+===================
+op1 = 2309 MOV(S) imm
+Cycle: 799
+===================
+op1 = 81AB STRH imm
+Cycle: 801
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 802
+===================
+op1 = 2301 MOV(S) imm
+Cycle: 803
+===================
+op1 = 81EB STRH imm
+Cycle: 805
+===================
+op1 = 602C STR imm
+Cycle: 807
+===================
+op1 = 606C STR imm
+Cycle: 809
+===================
+op1 = 60AC STR imm
+Cycle: 811
+===================
+op1 = 666C STR imm
+Cycle: 813
+===================
+op1 = 612C STR imm
+Cycle: 815
+===================
+op1 = 616C STR imm
+Cycle: 817
+===================
+op1 = 61AC STR imm
+Cycle: 819
+===================
+op1 = 2100 MOV(S) imm
+Cycle: 820
+===================
+op1 = 2208 MOV(S) imm
+Cycle: 821
+===================
+op1 = 305C ADD 8imm
+Cycle: 822
+===================
+op1 = 469B MOV reg
+Cycle: 823
+===================
+op1 = F000 op2 = FBA9 BL 32
+Cycle: 826
+===================
+branch taken
+Cycle: 828
+===================
+branch taken
+Cycle: 830
+===================
+op1 = 4653 MOV reg
+Cycle: 831
+===================
+op1 = 622B STR imm
+Cycle: 833
+===================
+op1 = 464B MOV reg
+Cycle: 834
+===================
+op1 = 626B STR imm
+Cycle: 836
+===================
+op1 = 4643 MOV reg
+Cycle: 837
+===================
+op1 = 62AB STR imm
+Cycle: 839
+===================
+op1 = 61ED STR imm
+Cycle: 841
+===================
+op1 = 62EF STR imm
+Cycle: 843
+===================
+op1 = 68F5 LDR imm
+Cycle: 845
+===================
+op1 = 2312 MOV(S) imm
+Cycle: 846
+===================
+op1 = 81AB STRH imm
+Cycle: 848
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 849
+===================
+op1 = 2302 MOV(S) imm
+Cycle: 850
+===================
+op1 = 81EB STRH imm
+Cycle: 852
+===================
+op1 = 602C STR imm
+Cycle: 854
+===================
+op1 = 606C STR imm
+Cycle: 856
+===================
+op1 = 60AC STR imm
+Cycle: 858
+===================
+op1 = 666C STR imm
+Cycle: 860
+===================
+op1 = 612C STR imm
+Cycle: 862
+===================
+op1 = 616C STR imm
+Cycle: 864
+===================
+op1 = 61AC STR imm
+Cycle: 866
+===================
+op1 = 305C ADD 8imm
+Cycle: 867
+===================
+op1 = 2100 MOV(S) imm
+Cycle: 868
+===================
+op1 = 2208 MOV(S) imm
+Cycle: 869
+===================
+op1 = F000 op2 = FB8F BL 32
+Cycle: 872
+===================
+branch taken
+Cycle: 874
+===================
+branch taken
+Cycle: 876
+===================
+op1 = 4653 MOV reg
+Cycle: 877
+===================
+op1 = 622B STR imm
+Cycle: 879
+===================
+op1 = 464B MOV reg
+Cycle: 880
+===================
+op1 = 626B STR imm
+Cycle: 882
+===================
+op1 = 4643 MOV reg
+Cycle: 883
+===================
+op1 = 62AB STR imm
+Cycle: 885
+===================
+op1 = 465B MOV reg
+Cycle: 886
+===================
+op1 = 61ED STR imm
+Cycle: 888
+===================
+op1 = 62EF STR imm
+Cycle: 890
+===================
+op1 = 63B3 STR imm
+Cycle: 892
+===================
+op1 = BC3C POP
+Cycle: 897
+===================
+op1 = 4690 MOV reg
+Cycle: 898
+===================
+op1 = 4699 MOV reg
+Cycle: 899
+===================
+op1 = 46A2 MOV reg
+Cycle: 900
+===================
+op1 = 46AB MOV reg
+Cycle: 901
+===================
+op1 = BDF8 POP
+Cycle: 907
+===================
+branch taken
+Cycle: 909
+===================
+op1 = E7C0 B
+Cycle: 910
+===================
+branch taken
+Cycle: 912
+===================
+op1 = 89A5 LDRH imm
+Cycle: 914
+===================
+op1 = B2AB UXTH
+Cycle: 915
+===================
+op1 = 71A LSL(S) imm
+Cycle: 916
+===================
+op1 = D50D BPL
+Cycle: 917
+===================
+branch not taken
+op1 = 6922 LDR imm
+Cycle: 919
+===================
+op1 = 2A00 CMP imm
+Cycle: 920
+===================
+op1 = D015 BEQ
+Cycle: 921
+===================
+branch taken
+Cycle: 923
+===================
+op1 = 20A0 MOV(S) imm
+Cycle: 924
+===================
+op1 = 80 LSL(S) imm
+Cycle: 925
+===================
+op1 = 2180 MOV(S) imm
+Cycle: 926
+===================
+op1 = 4018 AND reg
+Cycle: 927
+===================
+op1 = 89 LSL(S) imm
+Cycle: 928
+===================
+op1 = 4288 CMP reg
+Cycle: 929
+===================
+op1 = D0E2 BEQ
+Cycle: 930
+===================
+branch not taken
+op1 = 1C30 ADD 3imm
+Cycle: 931
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 932
+===================
+op1 = F000 op2 = F836 BL 32
+Cycle: 935
+===================
+branch taken
+Cycle: 937
+===================
+op1 = B5F0 PUSH
+Cycle: 942
+===================
+op1 = 898B LDRH imm
+Cycle: 944
+===================
+op1 = B091 SUB sp
+Cycle: 945
+===================
+op1 = B29A UXTH
+Cycle: 946
+===================
+op1 = 1C05 ADD 3imm
+Cycle: 947
+===================
+op1 = 1C0C ADD 3imm
+Cycle: 948
+===================
+op1 = 790 LSL(S) imm
+Cycle: 949
+===================
+op1 = D440 B (BEQ)(BPL)(BNE)
+Cycle: 950
+===================
+branch not taken
+op1 = 200E MOV(S) imm
+Cycle: 951
+===================
+op1 = 5E09 LDRSH reg
+Cycle: 953
+===================
+op1 = 2900 CMP imm
+Cycle: 954
+===================
+op1 = DB1B B (BEQ)(BPL)(BNE)
+Cycle: 955
+===================
+branch not taken
+op1 = 1C28 ADD 3imm
+Cycle: 956
+===================
+op1 = AA01 ADD sp
+Cycle: 957
+===================
+op1 = F000 op2 = F860 BL 32
+Cycle: 960
+===================
+branch taken
+Cycle: 962
+===================
+op1 = B538 PUSH
+Cycle: 966
+===================
+op1 = 4C08 LDR
+Cycle: 968
+===================
+op1 = 2300 MOV(S) imm
+Cycle: 969
+===================
+op1 = 1C05 ADD 3imm
+Cycle: 970
+===================
+op1 = 1C08 ADD 3imm
+Cycle: 971
+===================
+op1 = 1C11 ADD 3imm
+Cycle: 972
+===================
+op1 = 6023 STR imm
+Cycle: 974
+===================
+op1 = F7FE op2 = F885 BL 32
+Cycle: 977
+===================
+branch taken
+Cycle: 979
+===================
+op1 = B538 PUSH
+Cycle: 983
+===================
+op1 = 223C MOV(S) imm
+Cycle: 984
+===================
+op1 = 1C05 ADD 3imm
+Cycle: 985
+===================
+op1 = 1C0C ADD 3imm
+Cycle: 986
+===================
+op1 = 1C08 ADD 3imm
+Cycle: 987
+===================
+op1 = 2100 MOV(S) imm
+Cycle: 988
+===================
+op1 = F000 op2 = FD84 BL 32
+Cycle: 991
+===================
+branch taken
+Cycle: 993
+===================
+branch not taken
+branch taken
+Cycle: 995
+===================
+branch taken
+Cycle: 997
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 998
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 999
+===================
+op1 = F7FF op2 = FFCE BL 32
+Cycle: 1002
+===================
+branch taken
+Cycle: 1004
+===================
+op1 = B570 PUSH
+Cycle: 1008
+===================
+op1 = 1C0D ADD 3imm
+Cycle: 1009
+===================
+op1 = F7FF op2 = FE64 BL 32
+Cycle: 1012
+===================
+branch taken
+Cycle: 1014
+===================
+op1 = 4B0B LDR
+Cycle: 1016
+===================
+op1 = B510 PUSH
+Cycle: 1018
+===================
+op1 = 1C04 ADD 3imm
+Cycle: 1019
+===================
+op1 = 6818 LDR imm
+Cycle: 1021
+===================
+op1 = 2800 CMP imm
+Cycle: 1022
+===================
+op1 = D002 BEQ
+Cycle: 1023
+===================
+branch not taken
+op1 = 6B83 LDR imm
+Cycle: 1025
+===================
+op1 = 2B00 CMP imm
+Cycle: 1026
+===================
+op1 = D008 BEQ
+Cycle: 1027
+===================
+branch not taken
+op1 = 2C13 CMP imm
+Cycle: 1028
+===================
+op1 = D80A B (BEQ)(BPL)(BNE)
+Cycle: 1029
+===================
+branch not taken
+op1 = 4807 LDR
+Cycle: 1031
+===================
+op1 = E4 LSL(S) imm
+Cycle: 1032
+===================
+op1 = 5823 LDR reg
+Cycle: 1034
+===================
+op1 = 3301 ADD 8imm
+Cycle: 1035
+===================
+op1 = D005 BEQ
+Cycle: 1036
+===================
+branch not taken
+op1 = 1900 ADD reg
+Cycle: 1037
+===================
+op1 = BD10 POP
+Cycle: 1039
+===================
+branch taken
+Cycle: 1041
+===================
+op1 = 1E04 SUB 3imm
+Cycle: 1042
+===================
+op1 = D018 BEQ
+Cycle: 1043
+===================
+branch not taken
+op1 = 686A LDR imm
+Cycle: 1045
+===================
+op1 = 2380 MOV(S) imm
+Cycle: 1046
+===================
+op1 = 19B LSL(S) imm
+Cycle: 1047
+===================
+op1 = 4313 ORR
+Cycle: 1048
+===================
+op1 = 606B STR imm
+Cycle: 1050
+===================
+op1 = 2380 MOV(S) imm
+Cycle: 1051
+===================
+op1 = DB LSL(S) imm
+Cycle: 1052
+===================
+op1 = 62EB STR imm
+Cycle: 1054
+===================
+op1 = 260C MOV(S) imm
+Cycle: 1055
+===================
+op1 = 1C30 ADD 3imm
+Cycle: 1056
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 1057
+===================
+op1 = BEAB BRKT
+Cycle: 1057
+===================
+op1 = 1C04 ADD 3imm
+Cycle: 1058
+===================
+op1 = 1C63 ADD 3imm
+Cycle: 1059
+===================
+op1 = D003 BEQ
+Cycle: 1060
+===================
+branch not taken
+op1 = 612C STR imm
+Cycle: 1062
+===================
+op1 = 2400 MOV(S) imm
+Cycle: 1063
+===================
+op1 = 1C20 ADD 3imm
+Cycle: 1064
+===================
+op1 = BD70 POP
+Cycle: 1068
+===================
+branch taken
+Cycle: 1070
+===================
+op1 = BD38 POP
+Cycle: 1074
+===================
+branch taken
+Cycle: 1076
+===================
+op1 = 1C43 ADD 3imm
+Cycle: 1077
+===================
+op1 = D000 BEQ
+Cycle: 1078
+===================
+branch not taken
+op1 = BD38 POP
+Cycle: 1082
+===================
+branch taken
+Cycle: 1084
+===================
+op1 = 2800 CMP imm
+Cycle: 1085
+===================
+op1 = DB13 B (BEQ)(BPL)(BNE)
+Cycle: 1086
+===================
+branch not taken
+op1 = 9A02 LDR sp imm
+Cycle: 1088
+===================
+op1 = 23F0 MOV(S) imm
+Cycle: 1089
+===================
+op1 = 21B LSL(S) imm
+Cycle: 1090
+===================
+op1 = 4013 AND reg
+Cycle: 1091
+===================
+op1 = 4A29 LDR
+Cycle: 1093
+===================
+op1 = 189F ADD reg
+Cycle: 1094
+===================
+op1 = 427A RSB imm
+Cycle: 1095
+===================
+op1 = 4157 ADC
+Cycle: 1096
+===================
+op1 = 2280 MOV(S) imm
+Cycle: 1097
+===================
+op1 = 212 LSL(S) imm
+Cycle: 1098
+===================
+op1 = 4293 CMP reg
+Cycle: 1099
+===================
+op1 = D034 BEQ
+Cycle: 1100
+===================
+branch not taken
+op1 = 89A2 LDRH imm
+Cycle: 1102
+===================
+op1 = 2380 MOV(S) imm
+Cycle: 1103
+===================
+op1 = 11B LSL(S) imm
+Cycle: 1104
+===================
+op1 = 4313 ORR
+Cycle: 1105
+===================
+op1 = 2680 MOV(S) imm
+Cycle: 1106
+===================
+op1 = 81A3 STRH imm
+Cycle: 1108
+===================
+op1 = F6 LSL(S) imm
+Cycle: 1109
+===================
+op1 = E009 B
+Cycle: 1110
+===================
+branch taken
+Cycle: 1112
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 1113
+===================
+op1 = 1C31 ADD 3imm
+Cycle: 1114
+===================
+op1 = F7FE op2 = FBD0 BL 32
+Cycle: 1117
+===================
+branch taken
+Cycle: 1119
+===================
+op1 = B5F0 PUSH
+Cycle: 1124
+===================
+op1 = 4656 MOV reg
+Cycle: 1125
+===================
+op1 = 4644 MOV reg
+Cycle: 1126
+===================
+op1 = 465F MOV reg
+Cycle: 1127
+===================
+op1 = 464D MOV reg
+Cycle: 1128
+===================
+op1 = B4F0 PUSH
+Cycle: 1133
+===================
+op1 = 1C0C ADD 3imm
+Cycle: 1134
+===================
+op1 = 340B ADD 8imm
+Cycle: 1135
+===================
+op1 = B083 SUB sp
+Cycle: 1136
+===================
+op1 = 1C06 ADD 3imm
+Cycle: 1137
+===================
+op1 = 2C16 CMP imm
+Cycle: 1138
+===================
+op1 = D92B B (BEQ)(BPL)(BNE)
+Cycle: 1139
+===================
+branch not taken
+op1 = 2307 MOV(S) imm
+Cycle: 1140
+===================
+op1 = 439C BIC
+Cycle: 1141
+===================
+op1 = D42B B (BEQ)(BPL)(BNE)
+Cycle: 1142
+===================
+branch not taken
+op1 = 42A1 CMP reg
+Cycle: 1143
+===================
+op1 = D829 B (BEQ)(BPL)(BNE)
+Cycle: 1144
+===================
+branch not taken
+op1 = 1C30 ADD 3imm
+Cycle: 1145
+===================
+op1 = F000 op2 = FAC0 BL 32
+Cycle: 1148
+===================
+branch taken
+Cycle: 1150
+===================
+op1 = 4770 BX
+Cycle: 1153
+===================
+branch taken
+Cycle: 1155
+===================
+op1 = 23F8 MOV(S) imm
+Cycle: 1156
+===================
+op1 = 33FF ADD 8imm
+Cycle: 1157
+===================
+op1 = 429C CMP reg
+Cycle: 1158
+===================
+op1 = D826 B (BEQ)(BPL)(BNE)
+Cycle: 1159
+===================
+branch taken
+Cycle: 1161
+===================
+op1 = A63 LSR imm
+Cycle: 1162
+===================
+op1 = D100 BNE
+Cycle: 1163
+===================
+branch taken
+Cycle: 1165
+===================
+op1 = 2B04 CMP imm
+Cycle: 1166
+===================
+op1 = D900 B (BEQ)(BPL)(BNE)
+Cycle: 1167
+===================
+branch taken
+Cycle: 1169
+===================
+op1 = 9A3 LSR imm
+Cycle: 1170
+===================
+op1 = 3338 ADD 8imm
+Cycle: 1171
+===================
+op1 = 469C MOV reg
+Cycle: 1172
+===================
+op1 = 59 LSL(S) imm
+Cycle: 1173
+===================
+op1 = 4DB2 LDR
+Cycle: 1175
+===================
+op1 = 89 LSL(S) imm
+Cycle: 1176
+===================
+op1 = 1869 ADD reg
+Cycle: 1177
+===================
+op1 = 68CF LDR imm
+Cycle: 1179
+===================
+op1 = 42B9 CMP reg
+Cycle: 1180
+===================
+op1 = D015 BEQ
+Cycle: 1181
+===================
+branch taken
+Cycle: 1183
+===================
+op1 = 2201 MOV(S) imm
+Cycle: 1184
+===================
+op1 = 4494 ADD reg
+Cycle: 1185
+===================
+op1 = 1C2B ADD 3imm
+Cycle: 1186
+===================
+op1 = 692F LDR imm
+Cycle: 1188
+===================
+op1 = 3308 ADD 8imm
+Cycle: 1189
+===================
+op1 = 429F CMP reg
+Cycle: 1190
+===================
+op1 = D100 BNE
+Cycle: 1191
+===================
+branch not taken
+op1 = E163 B
+Cycle: 1192
+===================
+branch taken
+Cycle: 1194
+===================
+op1 = 686A LDR imm
+Cycle: 1196
+===================
+op1 = E6B8 B
+Cycle: 1197
+===================
+branch taken
+Cycle: 1199
+===================
+op1 = 4661 MOV reg
+Cycle: 1200
+===================
+op1 = 108B ASR imm
+Cycle: 1201
+===================
+op1 = 2101 MOV(S) imm
+Cycle: 1202
+===================
+op1 = 4099 LSL
+Cycle: 1203
+===================
+op1 = 4291 CMP reg
+Cycle: 1204
+===================
+op1 = D855 B (BEQ)(BPL)(BNE)
+Cycle: 1205
+===================
+branch taken
+Cycle: 1207
+===================
+op1 = 68AF LDR imm
+Cycle: 1209
+===================
+op1 = 2303 MOV(S) imm
+Cycle: 1210
+===================
+op1 = 6878 LDR imm
+Cycle: 1212
+===================
+op1 = 4398 BIC
+Cycle: 1213
+===================
+op1 = 4681 MOV reg
+Cycle: 1214
+===================
+op1 = 42A0 CMP reg
+Cycle: 1215
+===================
+op1 = D303 BCC
+Cycle: 1216
+===================
+branch taken
+Cycle: 1218
+===================
+op1 = 4A5F LDR
+Cycle: 1220
+===================
+op1 = 4B5F LDR
+Cycle: 1222
+===================
+op1 = 4649 MOV reg
+Cycle: 1223
+===================
+op1 = 681B LDR imm
+Cycle: 1225
+===================
+op1 = 6810 LDR imm
+Cycle: 1227
+===================
+op1 = 1879 ADD reg
+Cycle: 1228
+===================
+op1 = 9101 STR sp imm
+Cycle: 1230
+===================
+op1 = 18E3 ADD reg
+Cycle: 1231
+===================
+op1 = 4693 MOV reg
+Cycle: 1232
+===================
+op1 = 3001 ADD 8imm
+Cycle: 1233
+===================
+op1 = D100 BNE
+Cycle: 1234
+===================
+branch not taken
+op1 = E147 B
+Cycle: 1235
+===================
+branch taken
+Cycle: 1237
+===================
+op1 = 3310 ADD 8imm
+Cycle: 1238
+===================
+op1 = 9300 STR sp imm
+Cycle: 1240
+===================
+op1 = E6B9 B
+Cycle: 1241
+===================
+branch taken
+Cycle: 1243
+===================
+op1 = 1C30 ADD 3imm
+Cycle: 1244
+===================
+op1 = 9900 LDR sp imm
+Cycle: 1246
+===================
+op1 = F000 op2 = F9D0 BL 32
+Cycle: 1249
+===================
+branch taken
+Cycle: 1251
+===================
+op1 = B538 PUSH
+Cycle: 1255
+===================
+op1 = 4C07 LDR
+Cycle: 1257
+===================
+op1 = 2300 MOV(S) imm
+Cycle: 1258
+===================
+op1 = 1C05 ADD 3imm
+Cycle: 1259
+===================
+op1 = 1C08 ADD 3imm
+Cycle: 1260
+===================
+op1 = 6023 STR imm
+Cycle: 1262
+===================
+op1 = F7FF op2 = F9DA BL 32
+Cycle: 1265
+===================
+branch taken
+Cycle: 1267
+===================
+op1 = 4A0A LDR
+Cycle: 1269
+===================
+op1 = B508 PUSH
+Cycle: 1271
+===================
+op1 = 6813 LDR imm
+Cycle: 1273
+===================
+op1 = 2B00 CMP imm
+Cycle: 1274
+===================
+op1 = D00D BEQ
+Cycle: 1275
+===================
+branch taken
+Cycle: 1277
+===================
+op1 = 4B02 LDR
+Cycle: 1279
+===================
+op1 = 6013 STR imm
+Cycle: 1281
+===================
+op1 = E7EE B
+Cycle: 1282
+===================
+branch taken
+Cycle: 1284
+===================
+op1 = 1818 ADD reg
+Cycle: 1285
+===================
+op1 = 4669 MOV reg
+Cycle: 1286
+===================
+op1 = 4288 CMP reg
+Cycle: 1287
+===================
+op1 = D802 B (BEQ)(BPL)(BNE)
+Cycle: 1288
+===================
+branch not taken
+op1 = 6010 STR imm
+Cycle: 1290
+===================
+op1 = 1C18 ADD 3imm
+Cycle: 1291
+===================
+op1 = BD08 POP
+Cycle: 1293
+===================
+branch taken
+Cycle: 1295
+===================
+op1 = 1C43 ADD 3imm
+Cycle: 1296
+===================
+op1 = D000 BEQ
+Cycle: 1297
+===================
+branch not taken
+op1 = BD38 POP
+Cycle: 1301
+===================
+branch taken
+Cycle: 1303
+===================
+op1 = 1C02 ADD 3imm
+Cycle: 1304
+===================
+op1 = 4680 MOV reg
+Cycle: 1305
+===================
+op1 = 3201 ADD 8imm
+Cycle: 1306
+===================
+op1 = D05D BEQ
+Cycle: 1307
+===================
+branch not taken
+op1 = 9B01 LDR sp imm
+Cycle: 1309
+===================
+op1 = 4283 CMP reg
+Cycle: 1310
+===================
+op1 = D900 B (BEQ)(BPL)(BNE)
+Cycle: 1311
+===================
+branch taken
+Cycle: 1313
+===================
+op1 = 4853 LDR
+Cycle: 1315
+===================
+op1 = 9900 LDR sp imm
+Cycle: 1317
+===================
+op1 = 6802 LDR imm
+Cycle: 1319
+===================
+op1 = 4682 MOV reg
+Cycle: 1320
+===================
+op1 = 188B ADD reg
+Cycle: 1321
+===================
+op1 = 9901 LDR sp imm
+Cycle: 1323
+===================
+op1 = 6003 STR imm
+Cycle: 1325
+===================
+op1 = 4541 CMP reg
+Cycle: 1326
+===================
+op1 = D100 BNE
+Cycle: 1327
+===================
+branch taken
+Cycle: 1329
+===================
+op1 = 465A MOV reg
+Cycle: 1330
+===================
+op1 = 6812 LDR imm
+Cycle: 1332
+===================
+op1 = 3201 ADD 8imm
+Cycle: 1333
+===================
+op1 = D100 BNE
+Cycle: 1334
+===================
+branch not taken
+op1 = E143 B
+Cycle: 1335
+===================
+branch taken
+Cycle: 1337
+===================
+op1 = 4643 MOV reg
+Cycle: 1338
+===================
+op1 = 4658 MOV reg
+Cycle: 1339
+===================
+op1 = 6003 STR imm
+Cycle: 1341
+===================
+op1 = E6BD B
+Cycle: 1342
+===================
+branch taken
+Cycle: 1344
+===================
+op1 = 2307 MOV(S) imm
+Cycle: 1345
+===================
+op1 = 4642 MOV reg
+Cycle: 1346
+===================
+op1 = 4013 AND reg
+Cycle: 1347
+===================
+op1 = D100 BNE
+Cycle: 1348
+===================
+branch taken
+Cycle: 1350
+===================
+op1 = 1AD2 SUB reg
+Cycle: 1351
+===================
+op1 = 3208 ADD 8imm
+Cycle: 1352
+===================
+op1 = 4690 MOV reg
+Cycle: 1353
+===================
+op1 = 4A46 LDR
+Cycle: 1355
+===================
+op1 = 1AD3 SUB reg
+Cycle: 1356
+===================
+op1 = 9800 LDR sp imm
+Cycle: 1358
+===================
+op1 = 1C02 ADD 3imm
+Cycle: 1359
+===================
+op1 = 4442 ADD reg
+Cycle: 1360
+===================
+op1 = 512 LSL(S) imm
+Cycle: 1361
+===================
+op1 = D12 LSR imm
+Cycle: 1362
+===================
+op1 = 1A9A SUB reg
+Cycle: 1363
+===================
+op1 = 1C11 ADD 3imm
+Cycle: 1364
+===================
+op1 = 1C30 ADD 3imm
+Cycle: 1365
+===================
+op1 = 4693 MOV reg
+Cycle: 1366
+===================
+op1 = F000 op2 = F99E BL 32
+Cycle: 1369
+===================
+branch taken
+Cycle: 1371
+===================
+branch taken
+Cycle: 1373
+===================
+branch not taken
+branch taken
+Cycle: 1375
+===================
+branch taken
+Cycle: 1377
+===================
+op1 = 1C41 ADD 3imm
+Cycle: 1378
+===================
+op1 = D100 BNE
+Cycle: 1379
+===================
+branch taken
+Cycle: 1381
+===================
+op1 = 4642 MOV reg
+Cycle: 1382
+===================
+op1 = 1A80 SUB reg
+Cycle: 1383
+===================
+op1 = 4458 ADD reg
+Cycle: 1384
+===================
+op1 = 2301 MOV(S) imm
+Cycle: 1385
+===================
+op1 = 4318 ORR
+Cycle: 1386
+===================
+op1 = 4652 MOV reg
+Cycle: 1387
+===================
+op1 = 6811 LDR imm
+Cycle: 1389
+===================
+op1 = 1C0B ADD 3imm
+Cycle: 1390
+===================
+op1 = 445B ADD reg
+Cycle: 1391
+===================
+op1 = 4641 MOV reg
+Cycle: 1392
+===================
+op1 = 60A9 STR imm
+Cycle: 1394
+===================
+op1 = 6013 STR imm
+Cycle: 1396
+===================
+op1 = 6048 STR imm
+Cycle: 1398
+===================
+op1 = 42AF CMP reg
+Cycle: 1399
+===================
+op1 = D013 BEQ
+Cycle: 1400
+===================
+branch taken
+Cycle: 1402
+===================
+op1 = 4A2D LDR
+Cycle: 1404
+===================
+op1 = 6810 LDR imm
+Cycle: 1406
+===================
+op1 = 4283 CMP reg
+Cycle: 1407
+===================
+op1 = D900 B (BEQ)(BPL)(BNE)
+Cycle: 1408
+===================
+branch not taken
+op1 = 6013 STR imm
+Cycle: 1410
+===================
+op1 = 4A2C LDR
+Cycle: 1412
+===================
+op1 = 6811 LDR imm
+Cycle: 1414
+===================
+op1 = 428B CMP reg
+Cycle: 1415
+===================
+op1 = D900 B (BEQ)(BPL)(BNE)
+Cycle: 1416
+===================
+branch not taken
+op1 = 6013 STR imm
+Cycle: 1418
+===================
+op1 = 68AF LDR imm
+Cycle: 1420
+===================
+op1 = 2303 MOV(S) imm
+Cycle: 1421
+===================
+op1 = 687A LDR imm
+Cycle: 1423
+===================
+op1 = 439A BIC
+Cycle: 1424
+===================
+op1 = 1B13 SUB reg
+Cycle: 1425
+===================
+op1 = 4294 CMP reg
+Cycle: 1426
+===================
+op1 = D900 B (BEQ)(BPL)(BNE)
+Cycle: 1427
+===================
+branch taken
+Cycle: 1429
+===================
+op1 = 2B0F CMP imm
+Cycle: 1430
+===================
+op1 = DC00 B (BEQ)(BPL)(BNE)
+Cycle: 1431
+===================
+branch taken
+Cycle: 1433
+===================
+op1 = 2201 MOV(S) imm
+Cycle: 1434
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 1435
+===================
+op1 = 4311 ORR
+Cycle: 1436
+===================
+op1 = 193C ADD reg
+Cycle: 1437
+===================
+op1 = 4313 ORR
+Cycle: 1438
+===================
+op1 = 6079 STR imm
+Cycle: 1440
+===================
+op1 = 1C30 ADD 3imm
+Cycle: 1441
+===================
+op1 = 60AC STR imm
+Cycle: 1443
+===================
+op1 = 6063 STR imm
+Cycle: 1445
+===================
+op1 = F000 op2 = F956 BL 32
+Cycle: 1448
+===================
+branch taken
+Cycle: 1450
+===================
+op1 = 4770 BX
+Cycle: 1453
+===================
+branch taken
+Cycle: 1455
+===================
+op1 = 1C38 ADD 3imm
+Cycle: 1456
+===================
+op1 = 3008 ADD 8imm
+Cycle: 1457
+===================
+op1 = E6AD B
+Cycle: 1458
+===================
+branch taken
+Cycle: 1460
+===================
+op1 = B003 ADD sp
+Cycle: 1461
+===================
+op1 = BC3C POP
+Cycle: 1466
+===================
+op1 = 4690 MOV reg
+Cycle: 1467
+===================
+op1 = 4699 MOV reg
+Cycle: 1468
+===================
+op1 = 46A2 MOV reg
+Cycle: 1469
+===================
+op1 = 46AB MOV reg
+Cycle: 1470
+===================
+op1 = BDF0 POP
+Cycle: 1475
+===================
+branch taken
+Cycle: 1477
+===================
+op1 = 2800 CMP imm
+Cycle: 1478
+===================
+op1 = D00C BEQ
+Cycle: 1479
+===================
+branch not taken
+op1 = 4B1A LDR
+Cycle: 1481
+===================
+op1 = 63EB STR imm
+Cycle: 1483
+===================
+op1 = 89A2 LDRH imm
+Cycle: 1485
+===================
+op1 = 2380 MOV(S) imm
+Cycle: 1486
+===================
+op1 = 4313 ORR
+Cycle: 1487
+===================
+op1 = 81A3 STRH imm
+Cycle: 1489
+===================
+op1 = 6020 STR imm
+Cycle: 1491
+===================
+op1 = 6120 STR imm
+Cycle: 1493
+===================
+op1 = 6166 STR imm
+Cycle: 1495
+===================
+op1 = 2F00 CMP imm
+Cycle: 1496
+===================
+op1 = D11C BNE
+Cycle: 1497
+===================
+branch taken
+Cycle: 1499
+===================
+op1 = 220E MOV(S) imm
+Cycle: 1500
+===================
+op1 = 5EA1 LDRSH reg
+Cycle: 1502
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 1503
+===================
+op1 = F000 op2 = F821 BL 32
+Cycle: 1506
+===================
+branch taken
+Cycle: 1508
+===================
+op1 = B538 PUSH
+Cycle: 1512
+===================
+op1 = 4C07 LDR
+Cycle: 1514
+===================
+op1 = 2300 MOV(S) imm
+Cycle: 1515
+===================
+op1 = 1C05 ADD 3imm
+Cycle: 1516
+===================
+op1 = 1C08 ADD 3imm
+Cycle: 1517
+===================
+op1 = 6023 STR imm
+Cycle: 1519
+===================
+op1 = F7FE op2 = F96A BL 32
+Cycle: 1522
+===================
+branch taken
+Cycle: 1524
+===================
+op1 = B570 PUSH
+Cycle: 1528
+===================
+op1 = F7FF op2 = FD47 BL 32
+Cycle: 1531
+===================
+branch taken
+Cycle: 1533
+===================
+branch taken
+Cycle: 1535
+===================
+op1 = 1E04 SUB 3imm
+Cycle: 1536
+===================
+op1 = D013 BEQ
+Cycle: 1537
+===================
+branch not taken
+op1 = 2509 MOV(S) imm
+Cycle: 1538
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 1539
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 1540
+===================
+op1 = BEAB BRKT
+Cycle: 1540
+===================
+op1 = 1C04 ADD 3imm
+Cycle: 1541
+===================
+op1 = 2001 MOV(S) imm
+Cycle: 1542
+===================
+op1 = 2C01 CMP imm
+Cycle: 1543
+===================
+op1 = D00A BEQ
+Cycle: 1544
+===================
+branch taken
+Cycle: 1546
+===================
+op1 = BD70 POP
+Cycle: 1550
+===================
+branch taken
+Cycle: 1552
+===================
+op1 = 1C43 ADD 3imm
+Cycle: 1553
+===================
+op1 = D000 BEQ
+Cycle: 1554
+===================
+branch not taken
+op1 = BD38 POP
+Cycle: 1558
+===================
+branch taken
+Cycle: 1560
+===================
+op1 = 2800 CMP imm
+Cycle: 1561
+===================
+op1 = D0DB BEQ
+Cycle: 1562
+===================
+branch not taken
+op1 = 89A2 LDRH imm
+Cycle: 1564
+===================
+op1 = 2301 MOV(S) imm
+Cycle: 1565
+===================
+op1 = 4313 ORR
+Cycle: 1566
+===================
+op1 = 81A3 STRH imm
+Cycle: 1568
+===================
+op1 = E7D6 B
+Cycle: 1569
+===================
+branch taken
+Cycle: 1571
+===================
+op1 = B011 ADD sp
+Cycle: 1572
+===================
+op1 = BDF0 POP
+Cycle: 1577
+===================
+branch taken
+Cycle: 1579
+===================
+op1 = 89A3 LDRH imm
+Cycle: 1581
+===================
+op1 = 6922 LDR imm
+Cycle: 1583
+===================
+op1 = E7DB B
+Cycle: 1584
+===================
+branch taken
+Cycle: 1586
+===================
+op1 = 7D8 LSL(S) imm
+Cycle: 1587
+===================
+op1 = D521 BPL
+Cycle: 1588
+===================
+branch not taken
+op1 = 6961 LDR imm
+Cycle: 1590
+===================
+op1 = 2300 MOV(S) imm
+Cycle: 1591
+===================
+op1 = 60A3 STR imm
+Cycle: 1593
+===================
+op1 = 424B RSB imm
+Cycle: 1594
+===================
+op1 = 61A3 STR imm
+Cycle: 1596
+===================
+op1 = 2000 MOV(S) imm
+Cycle: 1597
+===================
+op1 = 2A00 CMP imm
+Cycle: 1598
+===================
+op1 = D021 BEQ
+Cycle: 1599
+===================
+branch not taken
+op1 = BD70 POP
+Cycle: 1603
+===================
+branch taken
+Cycle: 1605
+===================
+op1 = 2800 CMP imm
+Cycle: 1606
+===================
+op1 = D000 BEQ
+Cycle: 1607
+===================
+branch taken
+Cycle: 1609
+===================
+op1 = 4657 MOV reg
+Cycle: 1610
+===================
+op1 = 683E LDR imm
+Cycle: 1612
+===================
+op1 = 89A3 LDRH imm
+Cycle: 1614
+===================
+op1 = 46B3 MOV reg
+Cycle: 1615
+===================
+op1 = 798 LSL(S) imm
+Cycle: 1616
+===================
+op1 = D4D0 B (BEQ)(BPL)(BNE)
+Cycle: 1617
+===================
+branch not taken
+op1 = 7DE LSL(S) imm
+Cycle: 1618
+===================
+op1 = D568 BPL
+Cycle: 1619
+===================
+branch not taken
+op1 = 2600 MOV(S) imm
+Cycle: 1620
+===================
+op1 = 2700 MOV(S) imm
+Cycle: 1621
+===================
+op1 = 9601 STR sp imm
+Cycle: 1623
+===================
+op1 = 46B1 MOV reg
+Cycle: 1624
+===================
+op1 = 2500 MOV(S) imm
+Cycle: 1625
+===================
+op1 = 2D00 CMP imm
+Cycle: 1626
+===================
+op1 = D02A BEQ
+Cycle: 1627
+===================
+branch taken
+Cycle: 1629
+===================
+op1 = 465B MOV reg
+Cycle: 1630
+===================
+op1 = 2608 MOV(S) imm
+Cycle: 1631
+===================
+op1 = 681A LDR imm
+Cycle: 1633
+===================
+op1 = 44B3 ADD reg
+Cycle: 1634
+===================
+op1 = 2600 MOV(S) imm
+Cycle: 1635
+===================
+op1 = 4691 MOV reg
+Cycle: 1636
+===================
+op1 = 685D LDR imm
+Cycle: 1638
+===================
+op1 = 9601 STR sp imm
+Cycle: 1640
+===================
+op1 = E7C9 B
+Cycle: 1641
+===================
+branch taken
+Cycle: 1643
+===================
+op1 = 2D00 CMP imm
+Cycle: 1644
+===================
+op1 = D02A BEQ
+Cycle: 1645
+===================
+branch not taken
+op1 = 9E01 LDR sp imm
+Cycle: 1647
+===================
+op1 = 2E00 CMP imm
+Cycle: 1648
+===================
+op1 = D100 BNE
+Cycle: 1649
+===================
+branch not taken
+op1 = E0AF B
+Cycle: 1650
+===================
+branch taken
+Cycle: 1652
+===================
+op1 = 4648 MOV reg
+Cycle: 1653
+===================
+op1 = 210A MOV(S) imm
+Cycle: 1654
+===================
+op1 = 1C2A ADD 3imm
+Cycle: 1655
+===================
+op1 = F000 op2 = F883 BL 32
+Cycle: 1658
+===================
+branch taken
+Cycle: 1660
+===================
+op1 = B5F0 PUSH
+Cycle: 1665
+===================
+op1 = B2CC UXTB
+Cycle: 1666
+===================
+op1 = 783 LSL(S) imm
+Cycle: 1667
+===================
+op1 = D037 BEQ
+Cycle: 1668
+===================
+branch taken
+Cycle: 1670
+===================
+op1 = 1C13 ADD 3imm
+Cycle: 1671
+===================
+op1 = E7D6 B
+Cycle: 1672
+===================
+branch taken
+Cycle: 1674
+===================
+op1 = 2B03 CMP imm
+Cycle: 1675
+===================
+op1 = D811 B (BEQ)(BPL)(BNE)
+Cycle: 1676
+===================
+branch taken
+Cycle: 1678
+===================
+op1 = 26FF MOV(S) imm
+Cycle: 1679
+===================
+op1 = 4031 AND reg
+Cycle: 1680
+===================
+op1 = 20E LSL(S) imm
+Cycle: 1681
+===================
+op1 = 4331 ORR
+Cycle: 1682
+===================
+op1 = 40E LSL(S) imm
+Cycle: 1683
+===================
+op1 = 4D07 LDR
+Cycle: 1685
+===================
+op1 = 430E ORR
+Cycle: 1686
+===================
+op1 = 6802 LDR imm
+Cycle: 1688
+===================
+op1 = 4F07 LDR
+Cycle: 1690
+===================
+op1 = 4072 EOR
+Cycle: 1691
+===================
+op1 = 19D1 ADD reg
+Cycle: 1692
+===================
+op1 = 4391 BIC
+Cycle: 1693
+===================
+op1 = 4229 TST
+Cycle: 1694
+===================
+op1 = D1DF BNE
+Cycle: 1695
+===================
+branch not taken
+op1 = 3B04 SUB 8imm
+Cycle: 1696
+===================
+op1 = 3004 ADD 8imm
+Cycle: 1697
+===================
+op1 = 2B03 CMP imm
+Cycle: 1698
+===================
+op1 = D8F4 B (BEQ)(BPL)(BNE)
+Cycle: 1699
+===================
+branch taken
+Cycle: 1701
+===================
+op1 = 6802 LDR imm
+Cycle: 1703
+===================
+op1 = 4F07 LDR
+Cycle: 1705
+===================
+op1 = 4072 EOR
+Cycle: 1706
+===================
+op1 = 19D1 ADD reg
+Cycle: 1707
+===================
+op1 = 4391 BIC
+Cycle: 1708
+===================
+op1 = 4229 TST
+Cycle: 1709
+===================
+op1 = D1DF BNE
+Cycle: 1710
+===================
+branch not taken
+branch not taken
+op1 = E7DA B
+Cycle: 1711
+===================
+branch taken
+Cycle: 1713
+===================
+op1 = 2B00 CMP imm
+Cycle: 1714
+===================
+op1 = D00D BEQ
+Cycle: 1715
+===================
+branch not taken
+op1 = 7802 LDRB imm
+Cycle: 1717
+===================
+op1 = 42A2 CMP reg
+Cycle: 1718
+===================
+op1 = D00B BEQ
+Cycle: 1719
+===================
+branch not taken
+op1 = 1C42 ADD 3imm
+Cycle: 1720
+===================
+op1 = 18C3 ADD reg
+Cycle: 1721
+===================
+op1 = E004 B
+Cycle: 1722
+===================
+branch taken
+Cycle: 1724
+===================
+op1 = 1E10 SUB 3imm
+Cycle: 1725
+===================
+op1 = 4298 CMP reg
+Cycle: 1726
+===================
+op1 = D1F7 BNE
+Cycle: 1727
+===================
+branch taken
+Cycle: 1729
+===================
+op1 = 3201 ADD 8imm
+Cycle: 1730
+===================
+op1 = 1E51 SUB 3imm
+Cycle: 1731
+===================
+op1 = 7809 LDRB imm
+Cycle: 1733
+===================
+op1 = 42A1 CMP reg
+Cycle: 1734
+===================
+op1 = D003 BEQ
+Cycle: 1735
+===================
+branch not taken
+branch not taken
+op1 = 2000 MOV(S) imm
+Cycle: 1736
+===================
+op1 = BDF0 POP
+Cycle: 1741
+===================
+branch taken
+Cycle: 1743
+===================
+op1 = 2800 CMP imm
+Cycle: 1744
+===================
+op1 = D06D BEQ
+Cycle: 1745
+===================
+branch taken
+Cycle: 1747
+===================
+op1 = 2601 MOV(S) imm
+Cycle: 1748
+===================
+op1 = 1C6F ADD 3imm
+Cycle: 1749
+===================
+op1 = 9601 STR sp imm
+Cycle: 1751
+===================
+op1 = E6D6 B
+Cycle: 1752
+===================
+branch taken
+Cycle: 1754
+===================
+op1 = 46B8 MOV reg
+Cycle: 1755
+===================
+op1 = 42AF CMP reg
+Cycle: 1756
+===================
+op1 = D900 B (BEQ)(BPL)(BNE)
+Cycle: 1757
+===================
+branch not taken
+op1 = 46A8 MOV reg
+Cycle: 1758
+===================
+op1 = 6820 LDR imm
+Cycle: 1760
+===================
+op1 = 6921 LDR imm
+Cycle: 1762
+===================
+op1 = 4646 MOV reg
+Cycle: 1763
+===================
+op1 = 68A2 LDR imm
+Cycle: 1765
+===================
+op1 = 6963 LDR imm
+Cycle: 1767
+===================
+op1 = 4288 CMP reg
+Cycle: 1768
+===================
+op1 = D904 B (BEQ)(BPL)(BNE)
+Cycle: 1769
+===================
+branch taken
+Cycle: 1771
+===================
+op1 = 4598 CMP reg
+Cycle: 1772
+===================
+op1 = DA00 B (BEQ)(BPL)(BNE)
+Cycle: 1773
+===================
+branch not taken
+op1 = E080 B
+Cycle: 1774
+===================
+branch taken
+Cycle: 1776
+===================
+op1 = 4649 MOV reg
+Cycle: 1777
+===================
+op1 = 4642 MOV reg
+Cycle: 1778
+===================
+op1 = F000 op2 = F924 BL 32
+Cycle: 1781
+===================
+branch taken
+Cycle: 1783
+===================
+op1 = B5F0 PUSH
+Cycle: 1788
+===================
+op1 = 4288 CMP reg
+Cycle: 1789
+===================
+op1 = D90E B (BEQ)(BPL)(BNE)
+Cycle: 1790
+===================
+branch not taken
+op1 = 188D ADD reg
+Cycle: 1791
+===================
+op1 = 42A8 CMP reg
+Cycle: 1792
+===================
+op1 = D20B B (BEQ)(BPL)(BNE)
+Cycle: 1793
+===================
+branch taken
+Cycle: 1795
+===================
+op1 = 2A0F CMP imm
+Cycle: 1796
+===================
+op1 = D809 B (BEQ)(BPL)(BNE)
+Cycle: 1797
+===================
+branch not taken
+op1 = 1C05 ADD 3imm
+Cycle: 1798
+===================
+op1 = 2A00 CMP imm
+Cycle: 1799
+===================
+op1 = D0F9 BEQ
+Cycle: 1800
+===================
+branch not taken
+op1 = 2300 MOV(S) imm
+Cycle: 1801
+===================
+op1 = 5CCC LDRB reg
+Cycle: 1803
+===================
+op1 = 54EC STRB reg
+Cycle: 1805
+===================
+op1 = 3301 ADD 8imm
+Cycle: 1806
+===================
+op1 = 4293 CMP reg
+Cycle: 1807
+===================
+op1 = D1FA BNE
+Cycle: 1808
+===================
+branch taken
+Cycle: 1810
+===================
+op1 = 5CCC LDRB reg
+Cycle: 1812
+===================
+op1 = 54EC STRB reg
+Cycle: 1814
+===================
+op1 = 3301 ADD 8imm
+Cycle: 1815
+===================
+op1 = 4293 CMP reg
+Cycle: 1816
+===================
+op1 = D1FA BNE
+Cycle: 1817
+===================
+branch taken
+Cycle: 1819
+===================
+branch not taken
+op1 = E7F2 B
+Cycle: 1820
+===================
+branch taken
+Cycle: 1822
+===================
+op1 = BDF0 POP
+Cycle: 1827
+===================
+branch taken
+Cycle: 1829
+===================
+op1 = 68A0 LDR imm
+Cycle: 1831
+===================
+op1 = 6822 LDR imm
+Cycle: 1833
+===================
+op1 = 4641 MOV reg
+Cycle: 1834
+===================
+op1 = 1A43 SUB reg
+Cycle: 1835
+===================
+op1 = 60A3 STR imm
+Cycle: 1837
+===================
+op1 = 1C13 ADD 3imm
+Cycle: 1838
+===================
+op1 = 4443 ADD reg
+Cycle: 1839
+===================
+op1 = 6023 STR imm
+Cycle: 1841
+===================
+op1 = 1BBF SUB reg
+Cycle: 1842
+===================
+op1 = D000 BEQ
+Cycle: 1843
+===================
+branch not taken
+op1 = E779 B
+Cycle: 1844
+===================
+branch taken
+Cycle: 1846
+===================
+op1 = 4650 MOV reg
+Cycle: 1847
+===================
+op1 = 6880 LDR imm
+Cycle: 1849
+===================
+op1 = 44B1 ADD reg
+Cycle: 1850
+===================
+op1 = 1BAD SUB reg
+Cycle: 1851
+===================
+op1 = 4651 MOV reg
+Cycle: 1852
+===================
+op1 = 1B86 SUB reg
+Cycle: 1853
+===================
+op1 = 608E STR imm
+Cycle: 1855
+===================
+op1 = D0B8 BEQ
+Cycle: 1856
+===================
+branch not taken
+op1 = 2D00 CMP imm
+Cycle: 1857
+===================
+op1 = D1D4 BNE
+Cycle: 1858
+===================
+branch not taken
+branch not taken
+branch taken
+Cycle: 1860
+===================
+op1 = BDF0 POP
+Cycle: 1865
+===================
+branch taken
+Cycle: 1867
+===================
+branch not taken
+op1 = 1C47 ADD 3imm
+Cycle: 1868
+===================
+op1 = 2601 MOV(S) imm
+Cycle: 1869
+===================
+op1 = 4648 MOV reg
+Cycle: 1870
+===================
+op1 = 1A3F SUB reg
+Cycle: 1871
+===================
+op1 = 9601 STR sp imm
+Cycle: 1873
+===================
+op1 = E742 B
+Cycle: 1874
+===================
+branch taken
+Cycle: 1876
+===================
+branch taken
+Cycle: 1878
+===================
+op1 = 6820 LDR imm
+Cycle: 1880
+===================
+op1 = 6921 LDR imm
+Cycle: 1882
+===================
+op1 = 4646 MOV reg
+Cycle: 1883
+===================
+op1 = 68A2 LDR imm
+Cycle: 1885
+===================
+op1 = 6963 LDR imm
+Cycle: 1887
+===================
+op1 = 4288 CMP reg
+Cycle: 1888
+===================
+op1 = D904 B (BEQ)(BPL)(BNE)
+Cycle: 1889
+===================
+branch not taken
+op1 = 18D2 ADD reg
+Cycle: 1890
+===================
+op1 = 9202 STR sp imm
+Cycle: 1892
+===================
+op1 = 4590 CMP reg
+Cycle: 1893
+===================
+op1 = DD00 B (BEQ)(BPL)(BNE)
+Cycle: 1894
+===================
+branch taken
+Cycle: 1896
+===================
+branch not taken
+branch taken
+Cycle: 1898
+===================
+branch taken
+Cycle: 1900
+===================
+op1 = 9803 LDR sp imm
+Cycle: 1902
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 1903
+===================
+op1 = F7FF op2 = FCCF BL 32
+Cycle: 1906
+===================
+branch taken
+Cycle: 1908
+===================
+op1 = B538 PUSH
+Cycle: 1912
+===================
+op1 = 1C04 ADD 3imm
+Cycle: 1913
+===================
+op1 = 1C0D ADD 3imm
+Cycle: 1914
+===================
+op1 = 2800 CMP imm
+Cycle: 1915
+===================
+op1 = D002 BEQ
+Cycle: 1916
+===================
+branch not taken
+op1 = 6B82 LDR imm
+Cycle: 1918
+===================
+op1 = 2A00 CMP imm
+Cycle: 1919
+===================
+op1 = D009 BEQ
+Cycle: 1920
+===================
+branch not taken
+op1 = 220C MOV(S) imm
+Cycle: 1921
+===================
+op1 = 5EAB LDRSH reg
+Cycle: 1923
+===================
+op1 = 2000 MOV(S) imm
+Cycle: 1924
+===================
+op1 = 2B00 CMP imm
+Cycle: 1925
+===================
+op1 = D003 BEQ
+Cycle: 1926
+===================
+branch not taken
+op1 = 1C20 ADD 3imm
+Cycle: 1927
+===================
+op1 = 1C29 ADD 3imm
+Cycle: 1928
+===================
+op1 = F7FF op2 = FF45 BL 32
+Cycle: 1931
+===================
+branch taken
+Cycle: 1933
+===================
+op1 = B5F0 PUSH
+Cycle: 1938
+===================
+op1 = 4647 MOV reg
+Cycle: 1939
+===================
+op1 = B480 PUSH
+Cycle: 1941
+===================
+op1 = 898B LDRH imm
+Cycle: 1943
+===================
+op1 = 4680 MOV reg
+Cycle: 1944
+===================
+op1 = B29A UXTH
+Cycle: 1945
+===================
+op1 = 1C0D ADD 3imm
+Cycle: 1946
+===================
+op1 = 711 LSL(S) imm
+Cycle: 1947
+===================
+op1 = D43C B (BEQ)(BPL)(BNE)
+Cycle: 1948
+===================
+branch taken
+Cycle: 1950
+===================
+op1 = 692E LDR imm
+Cycle: 1952
+===================
+op1 = 2E00 CMP imm
+Cycle: 1953
+===================
+op1 = D0F8 BEQ
+Cycle: 1954
+===================
+branch not taken
+op1 = 682F LDR imm
+Cycle: 1956
+===================
+op1 = 2300 MOV(S) imm
+Cycle: 1957
+===================
+op1 = 1BBC SUB reg
+Cycle: 1958
+===================
+op1 = 602E STR imm
+Cycle: 1960
+===================
+op1 = 791 LSL(S) imm
+Cycle: 1961
+===================
+op1 = D100 BNE
+Cycle: 1962
+===================
+branch taken
+Cycle: 1964
+===================
+op1 = 60AB STR imm
+Cycle: 1966
+===================
+op1 = 2C00 CMP imm
+Cycle: 1967
+===================
+op1 = DC04 B (BEQ)(BPL)(BNE)
+Cycle: 1968
+===================
+branch taken
+Cycle: 1970
+===================
+op1 = 4640 MOV reg
+Cycle: 1971
+===================
+op1 = 69E9 LDR imm
+Cycle: 1973
+===================
+op1 = 1C32 ADD 3imm
+Cycle: 1974
+===================
+op1 = 1C23 ADD 3imm
+Cycle: 1975
+===================
+op1 = 6A6F LDR imm
+Cycle: 1977
+===================
+op1 = 47B8 BLX reg
+Cycle: 1978
+===================
+branch taken
+Cycle: 1980
+===================
+op1 = B5F8 PUSH
+Cycle: 1986
+===================
+op1 = 1C0C ADD 3imm
+Cycle: 1987
+===================
+op1 = 8989 LDRH imm
+Cycle: 1989
+===================
+op1 = 1C05 ADD 3imm
+Cycle: 1990
+===================
+op1 = 1C17 ADD 3imm
+Cycle: 1991
+===================
+op1 = 1C1E ADD 3imm
+Cycle: 1992
+===================
+op1 = 5CB LSL(S) imm
+Cycle: 1993
+===================
+op1 = D506 BPL
+Cycle: 1994
+===================
+branch taken
+Cycle: 1996
+===================
+op1 = 4B05 LDR
+Cycle: 1998
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 1999
+===================
+op1 = 4019 AND reg
+Cycle: 2000
+===================
+op1 = 81A1 STRH imm
+Cycle: 2002
+===================
+op1 = 1C3A ADD 3imm
+Cycle: 2003
+===================
+op1 = 230E MOV(S) imm
+Cycle: 2004
+===================
+op1 = 5EE1 LDRSH reg
+Cycle: 2006
+===================
+op1 = 1C33 ADD 3imm
+Cycle: 2007
+===================
+op1 = F000 op2 = F827 BL 32
+Cycle: 2010
+===================
+branch taken
+Cycle: 2012
+===================
+op1 = B570 PUSH
+Cycle: 2016
+===================
+op1 = 4C08 LDR
+Cycle: 2018
+===================
+op1 = 1C06 ADD 3imm
+Cycle: 2019
+===================
+op1 = 2500 MOV(S) imm
+Cycle: 2020
+===================
+op1 = 1C08 ADD 3imm
+Cycle: 2021
+===================
+op1 = 1C11 ADD 3imm
+Cycle: 2022
+===================
+op1 = 1C1A ADD 3imm
+Cycle: 2023
+===================
+op1 = 6025 STR imm
+Cycle: 2025
+===================
+op1 = F7FF op2 = F8FC BL 32
+Cycle: 2028
+===================
+branch taken
+Cycle: 2030
+===================
+op1 = B570 PUSH
+Cycle: 2034
+===================
+op1 = 1C0E ADD 3imm
+Cycle: 2035
+===================
+op1 = 1C15 ADD 3imm
+Cycle: 2036
+===================
+op1 = F7FF op2 = FEF1 BL 32
+Cycle: 2039
+===================
+branch taken
+Cycle: 2041
+===================
+branch taken
+Cycle: 2043
+===================
+op1 = 1E04 SUB 3imm
+Cycle: 2044
+===================
+op1 = D01C BEQ
+Cycle: 2045
+===================
+branch not taken
+op1 = 6800 LDR imm
+Cycle: 2047
+===================
+op1 = 1C31 ADD 3imm
+Cycle: 2048
+===================
+op1 = 1C2A ADD 3imm
+Cycle: 2049
+===================
+op1 = F7FF op2 = FFE0 BL 32
+Cycle: 2052
+===================
+branch taken
+Cycle: 2054
+===================
+op1 = B530 PUSH
+Cycle: 2057
+===================
+op1 = B085 SUB sp
+Cycle: 2058
+===================
+op1 = AC01 ADD sp
+Cycle: 2059
+===================
+op1 = 9001 STR sp imm
+Cycle: 2061
+===================
+op1 = 6061 STR imm
+Cycle: 2063
+===================
+op1 = 60A2 STR imm
+Cycle: 2065
+===================
+op1 = 2505 MOV(S) imm
+Cycle: 2066
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 2067
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 2068
+===================
+op1 = BEAB BRKT
+Cycle: 2068
+===================
+op1 = 1C04 ADD 3imm
+Cycle: 2069
+===================
+op1 = 1C63 ADD 3imm
+Cycle: 2070
+===================
+op1 = D002 BEQ
+Cycle: 2071
+===================
+branch not taken
+op1 = 1C20 ADD 3imm
+Cycle: 2072
+===================
+op1 = B005 ADD sp
+Cycle: 2073
+===================
+op1 = BD30 POP
+Cycle: 2076
+===================
+branch taken
+Cycle: 2078
+===================
+op1 = 1E03 SUB 3imm
+Cycle: 2079
+===================
+op1 = DB12 B (BEQ)(BPL)(BNE)
+Cycle: 2080
+===================
+branch not taken
+op1 = 6861 LDR imm
+Cycle: 2082
+===================
+op1 = 1A28 SUB reg
+Cycle: 2083
+===================
+op1 = 180A ADD reg
+Cycle: 2084
+===================
+op1 = 6062 STR imm
+Cycle: 2086
+===================
+op1 = 429D CMP reg
+Cycle: 2087
+===================
+op1 = D000 BEQ
+Cycle: 2088
+===================
+branch not taken
+op1 = BD70 POP
+Cycle: 2092
+===================
+branch taken
+Cycle: 2094
+===================
+op1 = 1C43 ADD 3imm
+Cycle: 2095
+===================
+op1 = D000 BEQ
+Cycle: 2096
+===================
+branch not taken
+op1 = BD70 POP
+Cycle: 2100
+===================
+branch taken
+Cycle: 2102
+===================
+op1 = BDF8 POP
+Cycle: 2108
+===================
+branch taken
+Cycle: 2110
+===================
+op1 = 2800 CMP imm
+Cycle: 2111
+===================
+op1 = DCF3 B (BEQ)(BPL)(BNE)
+Cycle: 2112
+===================
+branch taken
+Cycle: 2114
+===================
+op1 = 1836 ADD reg
+Cycle: 2115
+===================
+op1 = 1A24 SUB reg
+Cycle: 2116
+===================
+op1 = 2C00 CMP imm
+Cycle: 2117
+===================
+op1 = DDE9 B (BEQ)(BPL)(BNE)
+Cycle: 2118
+===================
+branch taken
+Cycle: 2120
+===================
+op1 = 2000 MOV(S) imm
+Cycle: 2121
+===================
+op1 = BC04 POP
+Cycle: 2123
+===================
+op1 = 4690 MOV reg
+Cycle: 2124
+===================
+op1 = BDF0 POP
+Cycle: 2129
+===================
+branch taken
+Cycle: 2131
+===================
+op1 = BD38 POP
+Cycle: 2135
+===================
+branch taken
+Cycle: 2137
+===================
+op1 = 2800 CMP imm
+Cycle: 2138
+===================
+op1 = D1AD BNE
+Cycle: 2139
+===================
+branch not taken
+op1 = 2300 MOV(S) imm
+Cycle: 2140
+===================
+op1 = 9301 STR sp imm
+Cycle: 2142
+===================
+op1 = E770 B
+Cycle: 2143
+===================
+branch taken
+Cycle: 2145
+===================
+branch taken
+Cycle: 2147
+===================
+op1 = 2000 MOV(S) imm
+Cycle: 2148
+===================
+op1 = B005 ADD sp
+Cycle: 2149
+===================
+op1 = BC3C POP
+Cycle: 2154
+===================
+op1 = 4690 MOV reg
+Cycle: 2155
+===================
+op1 = 4699 MOV reg
+Cycle: 2156
+===================
+op1 = 46A2 MOV reg
+Cycle: 2157
+===================
+op1 = 46AB MOV reg
+Cycle: 2158
+===================
+op1 = BDF0 POP
+Cycle: 2163
+===================
+branch taken
+Cycle: 2165
+===================
+op1 = 1E43 SUB 3imm
+Cycle: 2166
+===================
+op1 = 4198 SBC
+Cycle: 2167
+===================
+op1 = 4240 RSB imm
+Cycle: 2168
+===================
+op1 = 230A MOV(S) imm
+Cycle: 2169
+===================
+op1 = 4318 ORR
+Cycle: 2170
+===================
+op1 = B009 ADD sp
+Cycle: 2171
+===================
+op1 = BD30 POP
+Cycle: 2174
+===================
+branch taken
+Cycle: 2176
+===================
+op1 = BD08 POP
+Cycle: 2178
+===================
+branch taken
+Cycle: 2180
+===================
+op1 = 4B05 LDR
+Cycle: 2182
+===================
+op1 = 1C18 ADD 3imm
+Cycle: 2183
+===================
+op1 = F000 op2 = F838 BL 32
+Cycle: 2186
+===================
+branch taken
+Cycle: 2188
+===================
+branch taken
+Cycle: 2190
+===================
+branch not taken
+op1 = 6922 LDR imm
+Cycle: 2192
+===================
+op1 = 2A00 CMP imm
+Cycle: 2193
+===================
+op1 = D026 BEQ
+Cycle: 2194
+===================
+branch not taken
+op1 = 4657 MOV reg
+Cycle: 2195
+===================
+op1 = 683E LDR imm
+Cycle: 2197
+===================
+op1 = 46B3 MOV reg
+Cycle: 2198
+===================
+op1 = 798 LSL(S) imm
+Cycle: 2199
+===================
+op1 = D52E BPL
+Cycle: 2200
+===================
+branch taken
+Cycle: 2202
+===================
+branch taken
+Cycle: 2204
+===================
+branch taken
+Cycle: 2206
+===================
+branch taken
+Cycle: 2208
+===================
+branch taken
+Cycle: 2210
+===================
+branch taken
+Cycle: 2212
+===================
+branch taken
+Cycle: 2214
+===================
+branch taken
+Cycle: 2216
+===================
+branch taken
+Cycle: 2218
+===================
+branch taken
+Cycle: 2220
+===================
+branch taken
+Cycle: 2222
+===================
+branch taken
+Cycle: 2224
+===================
+branch taken
+Cycle: 2226
+===================
+branch taken
+Cycle: 2228
+===================
+branch taken
+Cycle: 2230
+===================
+branch taken
+Cycle: 2232
+===================
+branch taken
+Cycle: 2234
+===================
+branch taken
+Cycle: 2236
+===================
+op1 = F7FF op2 = FFEE BL 32
+Cycle: 2239
+===================
+branch taken
+Cycle: 2241
+===================
+op1 = B580 PUSH
+Cycle: 2243
+===================
+op1 = AF00 ADD sp
+Cycle: 2244
+===================
+op1 = 1C00 ADD 3imm
+Cycle: 2245
+===================
+op1 = 46BD MOV reg
+Cycle: 2246
+===================
+op1 = BD80 POP
+Cycle: 2248
+===================
+branch taken
+Cycle: 2250
+===================
+op1 = 2300 MOV(S) imm
+Cycle: 2251
+===================
+op1 = 1C18 ADD 3imm
+Cycle: 2252
+===================
+op1 = 46BD MOV reg
+Cycle: 2253
+===================
+op1 = BD80 POP
+Cycle: 2255
+===================
+branch taken
+Cycle: 2257
+===================
+op1 = F7FF op2 = FF2A BL 32
+Cycle: 2260
+===================
+branch taken
+Cycle: 2262
+===================
+op1 = B510 PUSH
+Cycle: 2264
+===================
+op1 = 2100 MOV(S) imm
+Cycle: 2265
+===================
+op1 = 1C04 ADD 3imm
+Cycle: 2266
+===================
+op1 = F001 op2 = F957 BL 32
+Cycle: 2269
+===================
+branch taken
+Cycle: 2271
+===================
+op1 = B5F0 PUSH
+Cycle: 2276
+===================
+op1 = 465F MOV reg
+Cycle: 2277
+===================
+op1 = 4656 MOV reg
+Cycle: 2278
+===================
+op1 = 464D MOV reg
+Cycle: 2279
+===================
+op1 = 4644 MOV reg
+Cycle: 2280
+===================
+op1 = B4F0 PUSH
+Cycle: 2285
+===================
+op1 = 4B40 LDR
+Cycle: 2287
+===================
+op1 = B085 SUB sp
+Cycle: 2288
+===================
+op1 = 681B LDR imm
+Cycle: 2290
+===================
+op1 = 9002 STR sp imm
+Cycle: 2292
+===================
+op1 = 9301 STR sp imm
+Cycle: 2294
+===================
+op1 = 3349 ADD 8imm
+Cycle: 2295
+===================
+op1 = 33FF ADD 8imm
+Cycle: 2296
+===================
+op1 = 9303 STR sp imm
+Cycle: 2298
+===================
+op1 = 1C0F ADD 3imm
+Cycle: 2299
+===================
+op1 = 9801 LDR sp imm
+Cycle: 2301
+===================
+op1 = 21A4 MOV(S) imm
+Cycle: 2302
+===================
+op1 = 49 LSL(S) imm
+Cycle: 2303
+===================
+op1 = 5842 LDR reg
+Cycle: 2305
+===================
+op1 = 4690 MOV reg
+Cycle: 2306
+===================
+op1 = 2A00 CMP imm
+Cycle: 2307
+===================
+op1 = D04A BEQ
+Cycle: 2308
+===================
+branch not taken
+op1 = 9803 LDR sp imm
+Cycle: 2310
+===================
+op1 = 4681 MOV reg
+Cycle: 2311
+===================
+op1 = 4641 MOV reg
+Cycle: 2312
+===================
+op1 = 684E LDR imm
+Cycle: 2314
+===================
+op1 = 1E74 SUB 3imm
+Cycle: 2315
+===================
+op1 = D441 B (BEQ)(BPL)(BNE)
+Cycle: 2316
+===================
+branch not taken
+op1 = 4645 MOV reg
+Cycle: 2317
+===================
+op1 = A3 LSL(S) imm
+Cycle: 2318
+===================
+op1 = 3588 ADD 8imm
+Cycle: 2319
+===================
+op1 = 18ED ADD reg
+Cycle: 2320
+===================
+op1 = 20C6 MOV(S) imm
+Cycle: 2321
+===================
+op1 = 23C4 MOV(S) imm
+Cycle: 2322
+===================
+op1 = 3601 ADD 8imm
+Cycle: 2323
+===================
+op1 = 5B LSL(S) imm
+Cycle: 2324
+===================
+op1 = 40 LSL(S) imm
+Cycle: 2325
+===================
+op1 = B6 LSL(S) imm
+Cycle: 2326
+===================
+op1 = 469B MOV reg
+Cycle: 2327
+===================
+op1 = 4682 MOV reg
+Cycle: 2328
+===================
+op1 = 4446 ADD reg
+Cycle: 2329
+===================
+op1 = 44C3 ADD reg
+Cycle: 2330
+===================
+op1 = 44C2 ADD reg
+Cycle: 2331
+===================
+op1 = E008 B
+Cycle: 2332
+===================
+branch taken
+Cycle: 2334
+===================
+op1 = 2F00 CMP imm
+Cycle: 2335
+===================
+op1 = D1F4 BNE
+Cycle: 2336
+===================
+branch not taken
+op1 = 4641 MOV reg
+Cycle: 2337
+===================
+op1 = 684A LDR imm
+Cycle: 2339
+===================
+op1 = 6833 LDR imm
+Cycle: 2341
+===================
+op1 = 3A01 SUB 8imm
+Cycle: 2342
+===================
+op1 = 42A2 CMP reg
+Cycle: 2343
+===================
+op1 = D02C BEQ
+Cycle: 2344
+===================
+branch taken
+Cycle: 2346
+===================
+op1 = 604C STR imm
+Cycle: 2348
+===================
+op1 = E7D2 B
+Cycle: 2349
+===================
+branch taken
+Cycle: 2351
+===================
+op1 = 2B00 CMP imm
+Cycle: 2352
+===================
+op1 = D0EF BEQ
+Cycle: 2353
+===================
+branch not taken
+op1 = 4640 MOV reg
+Cycle: 2354
+===================
+op1 = 4659 MOV reg
+Cycle: 2355
+===================
+op1 = 6840 LDR imm
+Cycle: 2357
+===================
+op1 = 2201 MOV(S) imm
+Cycle: 2358
+===================
+op1 = 6809 LDR imm
+Cycle: 2360
+===================
+op1 = 40A2 LSL
+Cycle: 2361
+===================
+op1 = 9000 STR sp imm
+Cycle: 2363
+===================
+op1 = 4211 TST
+Cycle: 2364
+===================
+op1 = D01D BEQ
+Cycle: 2365
+===================
+branch taken
+Cycle: 2367
+===================
+op1 = 4798 BLX reg
+Cycle: 2368
+===================
+branch taken
+Cycle: 2370
+===================
+op1 = B538 PUSH
+Cycle: 2374
+===================
+op1 = 4B09 LDR
+Cycle: 2376
+===================
+op1 = 4D09 LDR
+Cycle: 2378
+===================
+op1 = 1AED SUB reg
+Cycle: 2379
+===================
+op1 = 10AD ASR imm
+Cycle: 2380
+===================
+op1 = D009 BEQ
+Cycle: 2381
+===================
+branch not taken
+op1 = 3D01 SUB 8imm
+Cycle: 2382
+===================
+op1 = AC LSL(S) imm
+Cycle: 2383
+===================
+op1 = 18E4 ADD reg
+Cycle: 2384
+===================
+op1 = E000 B
+Cycle: 2385
+===================
+branch taken
+Cycle: 2387
+===================
+op1 = 6823 LDR imm
+Cycle: 2389
+===================
+op1 = 4798 BLX reg
+Cycle: 2390
+===================
+branch taken
+Cycle: 2392
+===================
+op1 = B510 PUSH
+Cycle: 2394
+===================
+op1 = 4C07 LDR
+Cycle: 2396
+===================
+op1 = 7823 LDRB imm
+Cycle: 2398
+===================
+op1 = 2B00 CMP imm
+Cycle: 2399
+===================
+op1 = D109 BNE
+Cycle: 2400
+===================
+branch not taken
+op1 = F7FF op2 = FFCF BL 32
+Cycle: 2403
+===================
+branch taken
+Cycle: 2405
+===================
+op1 = B508 PUSH
+Cycle: 2407
+===================
+op1 = 4B06 LDR
+Cycle: 2409
+===================
+op1 = 4806 LDR
+Cycle: 2411
+===================
+op1 = 3303 ADD 8imm
+Cycle: 2412
+===================
+op1 = 1A1B SUB reg
+Cycle: 2413
+===================
+op1 = 2B06 CMP imm
+Cycle: 2414
+===================
+op1 = D800 B (BEQ)(BPL)(BNE)
+Cycle: 2415
+===================
+branch not taken
+op1 = BD08 POP
+Cycle: 2417
+===================
+branch taken
+Cycle: 2419
+===================
+op1 = 4B05 LDR
+Cycle: 2421
+===================
+op1 = 2B00 CMP imm
+Cycle: 2422
+===================
+op1 = D002 BEQ
+Cycle: 2423
+===================
+branch taken
+Cycle: 2425
+===================
+op1 = 2301 MOV(S) imm
+Cycle: 2426
+===================
+op1 = 7023 STRB imm
+Cycle: 2428
+===================
+op1 = BD10 POP
+Cycle: 2430
+===================
+branch taken
+Cycle: 2432
+===================
+op1 = 3C04 SUB 8imm
+Cycle: 2433
+===================
+op1 = 2D00 CMP imm
+Cycle: 2434
+===================
+op1 = D1F9 BNE
+Cycle: 2435
+===================
+branch not taken
+op1 = F001 op2 = FD68 BL 32
+Cycle: 2438
+===================
+branch taken
+Cycle: 2440
+===================
+op1 = B5F8 PUSH
+Cycle: 2446
+===================
+op1 = 46C0 MOV reg
+Cycle: 2447
+===================
+op1 = BCF8 POP
+Cycle: 2453
+===================
+op1 = BC08 POP
+Cycle: 2455
+===================
+op1 = 469E MOV reg
+Cycle: 2456
+===================
+op1 = 4770 BX
+Cycle: 2459
+===================
+branch taken
+Cycle: 2461
+===================
+op1 = BD38 POP
+Cycle: 2465
+===================
+branch taken
+Cycle: 2467
+===================
+op1 = E7E6 B
+Cycle: 2468
+===================
+branch taken
+Cycle: 2470
+===================
+op1 = 4641 MOV reg
+Cycle: 2471
+===================
+op1 = 6849 LDR imm
+Cycle: 2473
+===================
+op1 = 9A00 LDR sp imm
+Cycle: 2475
+===================
+op1 = 4291 CMP reg
+Cycle: 2476
+===================
+op1 = D1B8 BNE
+Cycle: 2477
+===================
+branch not taken
+op1 = 464A MOV reg
+Cycle: 2478
+===================
+op1 = 6812 LDR imm
+Cycle: 2480
+===================
+op1 = 4542 CMP reg
+Cycle: 2481
+===================
+op1 = D1B4 BNE
+Cycle: 2482
+===================
+branch not taken
+op1 = 3D04 SUB 8imm
+Cycle: 2483
+===================
+op1 = 3E04 SUB 8imm
+Cycle: 2484
+===================
+op1 = 3C01 SUB 8imm
+Cycle: 2485
+===================
+op1 = D2D6 B (BEQ)(BPL)(BNE)
+Cycle: 2486
+===================
+branch not taken
+op1 = 4A15 LDR
+Cycle: 2488
+===================
+op1 = 2A00 CMP imm
+Cycle: 2489
+===================
+op1 = D10D BNE
+Cycle: 2490
+===================
+branch not taken
+op1 = B005 ADD sp
+Cycle: 2491
+===================
+op1 = BC3C POP
+Cycle: 2496
+===================
+op1 = 4690 MOV reg
+Cycle: 2497
+===================
+op1 = 4699 MOV reg
+Cycle: 2498
+===================
+op1 = 46A2 MOV reg
+Cycle: 2499
+===================
+op1 = 46AB MOV reg
+Cycle: 2500
+===================
+op1 = BDF0 POP
+Cycle: 2505
+===================
+branch taken
+Cycle: 2507
+===================
+op1 = 4B04 LDR
+Cycle: 2509
+===================
+op1 = 6818 LDR imm
+Cycle: 2511
+===================
+op1 = 6BC3 LDR imm
+Cycle: 2513
+===================
+op1 = 2B00 CMP imm
+Cycle: 2514
+===================
+op1 = D000 BEQ
+Cycle: 2515
+===================
+branch not taken
+op1 = 4798 BLX reg
+Cycle: 2516
+===================
+branch taken
+Cycle: 2518
+===================
+op1 = B508 PUSH
+Cycle: 2520
+===================
+op1 = 4902 LDR
+Cycle: 2522
+===================
+op1 = F000 op2 = F926 BL 32
+Cycle: 2525
+===================
+branch taken
+Cycle: 2527
+===================
+op1 = B5F0 PUSH
+Cycle: 2532
+===================
+op1 = 22B8 MOV(S) imm
+Cycle: 2533
+===================
+op1 = 4647 MOV reg
+Cycle: 2534
+===================
+op1 = 92 LSL(S) imm
+Cycle: 2535
+===================
+op1 = B480 PUSH
+Cycle: 2537
+===================
+op1 = 1887 ADD reg
+Cycle: 2538
+===================
+op1 = 4688 MOV reg
+Cycle: 2539
+===================
+op1 = 2600 MOV(S) imm
+Cycle: 2540
+===================
+op1 = 2F00 CMP imm
+Cycle: 2541
+===================
+op1 = D013 BEQ
+Cycle: 2542
+===================
+branch not taken
+op1 = 687D LDR imm
+Cycle: 2544
+===================
+op1 = 68BC LDR imm
+Cycle: 2546
+===================
+op1 = 3D01 SUB 8imm
+Cycle: 2547
+===================
+op1 = D40C B (BEQ)(BPL)(BNE)
+Cycle: 2548
+===================
+branch not taken
+op1 = 89A3 LDRH imm
+Cycle: 2550
+===================
+op1 = 2B01 CMP imm
+Cycle: 2551
+===================
+op1 = D906 B (BEQ)(BPL)(BNE)
+Cycle: 2552
+===================
+branch not taken
+op1 = 220E MOV(S) imm
+Cycle: 2553
+===================
+op1 = 5EA3 LDRSH reg
+Cycle: 2555
+===================
+op1 = 3301 ADD 8imm
+Cycle: 2556
+===================
+op1 = D002 BEQ
+Cycle: 2557
+===================
+branch not taken
+op1 = 1C20 ADD 3imm
+Cycle: 2558
+===================
+op1 = 47C0 BLX reg
+Cycle: 2559
+===================
+branch taken
+Cycle: 2561
+===================
+op1 = B508 PUSH
+Cycle: 2563
+===================
+op1 = 4B03 LDR
+Cycle: 2565
+===================
+op1 = 1C01 ADD 3imm
+Cycle: 2566
+===================
+op1 = 6818 LDR imm
+Cycle: 2568
+===================
+op1 = F7FF op2 = FFB4 BL 32
+Cycle: 2571
+===================
+branch taken
+Cycle: 2573
+===================
+op1 = B570 PUSH
+Cycle: 2577
+===================
+op1 = 1C05 ADD 3imm
+Cycle: 2578
+===================
+op1 = 1E0C SUB 3imm
+Cycle: 2579
+===================
+op1 = D008 BEQ
+Cycle: 2580
+===================
+branch not taken
+op1 = 2800 CMP imm
+Cycle: 2581
+===================
+op1 = D002 BEQ
+Cycle: 2582
+===================
+branch not taken
+op1 = 6B82 LDR imm
+Cycle: 2584
+===================
+op1 = 2A00 CMP imm
+Cycle: 2585
+===================
+op1 = D031 BEQ
+Cycle: 2586
+===================
+branch not taken
+op1 = 220C MOV(S) imm
+Cycle: 2587
+===================
+op1 = 5EA3 LDRSH reg
+Cycle: 2589
+===================
+op1 = 2B00 CMP imm
+Cycle: 2590
+===================
+op1 = D101 BNE
+Cycle: 2591
+===================
+branch taken
+Cycle: 2593
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 2594
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 2595
+===================
+op1 = F000 op2 = F8E7 BL 32
+Cycle: 2598
+===================
+branch taken
+Cycle: 2600
+===================
+branch not taken
+op1 = 2280 MOV(S) imm
+Cycle: 2601
+===================
+op1 = 112 LSL(S) imm
+Cycle: 2602
+===================
+op1 = 4313 ORR
+Cycle: 2603
+===================
+op1 = 686A LDR imm
+Cycle: 2605
+===================
+op1 = 81AB STRH imm
+Cycle: 2607
+===================
+op1 = 2A00 CMP imm
+Cycle: 2608
+===================
+op1 = DD56 B (BEQ)(BPL)(BNE)
+Cycle: 2609
+===================
+branch taken
+Cycle: 2611
+===================
+op1 = 6BEF LDR imm
+Cycle: 2613
+===================
+op1 = 2F00 CMP imm
+Cycle: 2614
+===================
+op1 = DCA5 B (BEQ)(BPL)(BNE)
+Cycle: 2615
+===================
+branch not taken
+op1 = E7D6 B
+Cycle: 2616
+===================
+branch taken
+Cycle: 2618
+===================
+branch taken
+Cycle: 2620
+===================
+branch taken
+Cycle: 2622
+===================
+op1 = 6AE3 LDR imm
+Cycle: 2624
+===================
+op1 = 1C06 ADD 3imm
+Cycle: 2625
+===================
+op1 = 2B00 CMP imm
+Cycle: 2626
+===================
+op1 = D004 BEQ
+Cycle: 2627
+===================
+branch not taken
+op1 = 1C28 ADD 3imm
+Cycle: 2628
+===================
+op1 = 69E1 LDR imm
+Cycle: 2630
+===================
+op1 = 4798 BLX reg
+Cycle: 2631
+===================
+branch taken
+Cycle: 2633
+===================
+op1 = B508 PUSH
+Cycle: 2635
+===================
+op1 = 230E MOV(S) imm
+Cycle: 2636
+===================
+op1 = 5EC9 LDRSH reg
+Cycle: 2638
+===================
+op1 = F000 op2 = F909 BL 32
+Cycle: 2641
+===================
+branch taken
+Cycle: 2643
+===================
+op1 = B538 PUSH
+Cycle: 2647
+===================
+op1 = 4C07 LDR
+Cycle: 2649
+===================
+op1 = 2300 MOV(S) imm
+Cycle: 2650
+===================
+op1 = 1C05 ADD 3imm
+Cycle: 2651
+===================
+op1 = 1C08 ADD 3imm
+Cycle: 2652
+===================
+op1 = 6023 STR imm
+Cycle: 2654
+===================
+op1 = F7FF op2 = F83C BL 32
+Cycle: 2657
+===================
+branch taken
+Cycle: 2659
+===================
+op1 = B570 PUSH
+Cycle: 2663
+===================
+op1 = B082 SUB sp
+Cycle: 2664
+===================
+op1 = 1C04 ADD 3imm
+Cycle: 2665
+===================
+op1 = F7FF op2 = FEB3 BL 32
+Cycle: 2668
+===================
+branch taken
+Cycle: 2670
+===================
+branch taken
+Cycle: 2672
+===================
+op1 = 1E05 SUB 3imm
+Cycle: 2673
+===================
+op1 = D022 BEQ
+Cycle: 2674
+===================
+branch not taken
+op1 = 3C01 SUB 8imm
+Cycle: 2675
+===================
+op1 = 2C01 CMP imm
+Cycle: 2676
+===================
+op1 = D911 B (BEQ)(BPL)(BNE)
+Cycle: 2677
+===================
+branch not taken
+op1 = 682B LDR imm
+Cycle: 2679
+===================
+op1 = AE01 ADD sp
+Cycle: 2680
+===================
+op1 = 9301 STR sp imm
+Cycle: 2682
+===================
+op1 = 2402 MOV(S) imm
+Cycle: 2683
+===================
+op1 = 1C20 ADD 3imm
+Cycle: 2684
+===================
+op1 = 1C31 ADD 3imm
+Cycle: 2685
+===================
+op1 = BEAB BRKT
+Cycle: 2685
+===================
+op1 = 1C04 ADD 3imm
+Cycle: 2686
+===================
+op1 = 1C63 ADD 3imm
+Cycle: 2687
+===================
+op1 = D011 BEQ
+Cycle: 2688
+===================
+branch not taken
+op1 = 2C00 CMP imm
+Cycle: 2689
+===================
+op1 = D102 BNE
+Cycle: 2690
+===================
+branch not taken
+op1 = 2301 MOV(S) imm
+Cycle: 2691
+===================
+op1 = 425B RSB imm
+Cycle: 2692
+===================
+op1 = 602B STR imm
+Cycle: 2694
+===================
+op1 = 1C20 ADD 3imm
+Cycle: 2695
+===================
+op1 = B002 ADD sp
+Cycle: 2696
+===================
+op1 = BD70 POP
+Cycle: 2700
+===================
+branch taken
+Cycle: 2702
+===================
+op1 = 1C43 ADD 3imm
+Cycle: 2703
+===================
+op1 = D000 BEQ
+Cycle: 2704
+===================
+branch not taken
+op1 = BD38 POP
+Cycle: 2708
+===================
+branch taken
+Cycle: 2710
+===================
+op1 = BD08 POP
+Cycle: 2712
+===================
+branch taken
+Cycle: 2714
+===================
+op1 = 2800 CMP imm
+Cycle: 2715
+===================
+op1 = DB21 B (BEQ)(BPL)(BNE)
+Cycle: 2716
+===================
+branch not taken
+op1 = 89A3 LDRH imm
+Cycle: 2718
+===================
+op1 = 61A LSL(S) imm
+Cycle: 2719
+===================
+op1 = D421 B (BEQ)(BPL)(BNE)
+Cycle: 2720
+===================
+branch not taken
+op1 = 6B21 LDR imm
+Cycle: 2722
+===================
+op1 = 2900 CMP imm
+Cycle: 2723
+===================
+op1 = D008 BEQ
+Cycle: 2724
+===================
+branch taken
+Cycle: 2726
+===================
+op1 = 6C61 LDR imm
+Cycle: 2728
+===================
+op1 = 2900 CMP imm
+Cycle: 2729
+===================
+op1 = D004 BEQ
+Cycle: 2730
+===================
+branch taken
+Cycle: 2732
+===================
+op1 = F7FF op2 = FAD3 BL 32
+Cycle: 2735
+===================
+branch taken
+Cycle: 2737
+===================
+op1 = 4770 BX
+Cycle: 2740
+===================
+branch taken
+Cycle: 2742
+===================
+op1 = 2300 MOV(S) imm
+Cycle: 2743
+===================
+op1 = 81A3 STRH imm
+Cycle: 2745
+===================
+op1 = F7FF op2 = FAD1 BL 32
+Cycle: 2748
+===================
+branch taken
+Cycle: 2750
+===================
+op1 = 4770 BX
+Cycle: 2753
+===================
+branch taken
+Cycle: 2755
+===================
+op1 = 1C30 ADD 3imm
+Cycle: 2756
+===================
+op1 = E7D2 B
+Cycle: 2757
+===================
+branch taken
+Cycle: 2759
+===================
+op1 = BD70 POP
+Cycle: 2763
+===================
+branch taken
+Cycle: 2765
+===================
+op1 = BD08 POP
+Cycle: 2767
+===================
+branch taken
+Cycle: 2769
+===================
+op1 = 4306 ORR
+Cycle: 2770
+===================
+op1 = 3468 ADD 8imm
+Cycle: 2771
+===================
+op1 = 3D01 SUB 8imm
+Cycle: 2772
+===================
+op1 = D2F2 B (BEQ)(BPL)(BNE)
+Cycle: 2773
+===================
+branch taken
+Cycle: 2775
+===================
+branch taken
+Cycle: 2777
+===================
+branch not taken
+op1 = E7ED B
+Cycle: 2778
+===================
+branch taken
+Cycle: 2780
+===================
+branch taken
+Cycle: 2782
+===================
+branch taken
+Cycle: 2784
+===================
+branch taken
+Cycle: 2786
+===================
+branch taken
+Cycle: 2788
+===================
+branch taken
+Cycle: 2790
+===================
+branch taken
+Cycle: 2792
+===================
+op1 = 4B0A LDR
+Cycle: 2794
+===================
+op1 = 689A LDR imm
+Cycle: 2796
+===================
+op1 = 691B LDR imm
+Cycle: 2798
+===================
+op1 = 429A CMP reg
+Cycle: 2799
+===================
+op1 = D1E8 BNE
+Cycle: 2800
+===================
+branch not taken
+op1 = 2301 MOV(S) imm
+Cycle: 2801
+===================
+op1 = 425B RSB imm
+Cycle: 2802
+===================
+op1 = 6003 STR imm
+Cycle: 2804
+===================
+op1 = 2400 MOV(S) imm
+Cycle: 2805
+===================
+op1 = E7F2 B
+Cycle: 2806
+===================
+branch taken
+Cycle: 2808
+===================
+op1 = 1C20 ADD 3imm
+Cycle: 2809
+===================
+op1 = B002 ADD sp
+Cycle: 2810
+===================
+op1 = BD70 POP
+Cycle: 2814
+===================
+branch taken
+Cycle: 2816
+===================
+branch taken
+Cycle: 2818
+===================
+branch taken
+Cycle: 2820
+===================
+branch taken
+Cycle: 2822
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 2823
+===================
+op1 = 6921 LDR imm
+Cycle: 2825
+===================
+op1 = F000 op2 = F92F BL 32
+Cycle: 2828
+===================
+branch taken
+Cycle: 2830
+===================
+op1 = B5F0 PUSH
+Cycle: 2835
+===================
+op1 = 4647 MOV reg
+Cycle: 2836
+===================
+op1 = B480 PUSH
+Cycle: 2838
+===================
+op1 = 1C05 ADD 3imm
+Cycle: 2839
+===================
+op1 = 1E0C SUB 3imm
+Cycle: 2840
+===================
+op1 = D055 BEQ
+Cycle: 2841
+===================
+branch not taken
+op1 = F7FF op2 = FD06 BL 32
+Cycle: 2844
+===================
+branch taken
+Cycle: 2846
+===================
+branch taken
+Cycle: 2848
+===================
+op1 = 1C21 ADD 3imm
+Cycle: 2849
+===================
+op1 = 3908 SUB 8imm
+Cycle: 2850
+===================
+op1 = 6848 LDR imm
+Cycle: 2852
+===================
+op1 = 2701 MOV(S) imm
+Cycle: 2853
+===================
+op1 = 1C03 ADD 3imm
+Cycle: 2854
+===================
+op1 = 43BB BIC
+Cycle: 2855
+===================
+op1 = 18CA ADD reg
+Cycle: 2856
+===================
+op1 = 6854 LDR imm
+Cycle: 2858
+===================
+op1 = 4680 MOV reg
+Cycle: 2859
+===================
+op1 = 2003 MOV(S) imm
+Cycle: 2860
+===================
+op1 = 4384 BIC
+Cycle: 2861
+===================
+op1 = 1C20 ADD 3imm
+Cycle: 2862
+===================
+op1 = 4C53 LDR
+Cycle: 2864
+===================
+op1 = 68A6 LDR imm
+Cycle: 2866
+===================
+op1 = 4296 CMP reg
+Cycle: 2867
+===================
+op1 = D060 BEQ
+Cycle: 2868
+===================
+branch taken
+Cycle: 2870
+===================
+op1 = 18C3 ADD reg
+Cycle: 2871
+===================
+op1 = 4640 MOV reg
+Cycle: 2872
+===================
+op1 = 4207 TST
+Cycle: 2873
+===================
+op1 = D106 BNE
+Cycle: 2874
+===================
+branch taken
+Cycle: 2876
+===================
+op1 = 2201 MOV(S) imm
+Cycle: 2877
+===================
+op1 = 431A ORR
+Cycle: 2878
+===================
+op1 = 604A STR imm
+Cycle: 2880
+===================
+op1 = 4A1D LDR
+Cycle: 2882
+===================
+op1 = 60A1 STR imm
+Cycle: 2884
+===================
+op1 = 6812 LDR imm
+Cycle: 2886
+===================
+op1 = 4293 CMP reg
+Cycle: 2887
+===================
+op1 = D3CC BCC
+Cycle: 2888
+===================
+branch taken
+Cycle: 2890
+===================
+op1 = 1C28 ADD 3imm
+Cycle: 2891
+===================
+op1 = F7FF op2 = FCB4 BL 32
+Cycle: 2894
+===================
+branch taken
+Cycle: 2896
+===================
+branch taken
+Cycle: 2898
+===================
+op1 = BC04 POP
+Cycle: 2900
+===================
+op1 = 4690 MOV reg
+Cycle: 2901
+===================
+op1 = BDF0 POP
+Cycle: 2906
+===================
+branch taken
+Cycle: 2908
+===================
+op1 = E7D8 B
+Cycle: 2909
+===================
+branch taken
+Cycle: 2911
+===================
+branch taken
+Cycle: 2913
+===================
+branch taken
+Cycle: 2915
+===================
+branch taken
+Cycle: 2917
+===================
+branch taken
+Cycle: 2919
+===================
+branch taken
+Cycle: 2921
+===================
+branch taken
+Cycle: 2923
+===================
+branch taken
+Cycle: 2925
+===================
+branch taken
+Cycle: 2927
+===================
+branch taken
+Cycle: 2929
+===================
+branch taken
+Cycle: 2931
+===================
+branch taken
+Cycle: 2933
+===================
+branch taken
+Cycle: 2935
+===================
+branch taken
+Cycle: 2937
+===================
+branch taken
+Cycle: 2939
+===================
+branch taken
+Cycle: 2941
+===================
+branch taken
+Cycle: 2943
+===================
+branch taken
+Cycle: 2945
+===================
+branch taken
+Cycle: 2947
+===================
+branch taken
+Cycle: 2949
+===================
+branch taken
+Cycle: 2951
+===================
+branch taken
+Cycle: 2953
+===================
+branch taken
+Cycle: 2955
+===================
+branch not taken
+op1 = 683F LDR imm
+Cycle: 2957
+===================
+op1 = 2F00 CMP imm
+Cycle: 2958
+===================
+op1 = D1EB BNE
+Cycle: 2959
+===================
+branch not taken
+op1 = 1C30 ADD 3imm
+Cycle: 2960
+===================
+op1 = BC04 POP
+Cycle: 2962
+===================
+op1 = 4690 MOV reg
+Cycle: 2963
+===================
+op1 = BDF0 POP
+Cycle: 2968
+===================
+branch taken
+Cycle: 2970
+===================
+op1 = BD08 POP
+Cycle: 2972
+===================
+branch taken
+Cycle: 2974
+===================
+op1 = 1C20 ADD 3imm
+Cycle: 2975
+===================
+op1 = F001 op2 = FCAE BL 32
+Cycle: 2978
+===================
+branch taken
+Cycle: 2980
+===================
+op1 = B508 PUSH
+Cycle: 2982
+===================
+op1 = 2101 MOV(S) imm
+Cycle: 2983
+===================
+op1 = 4249 RSB imm
+Cycle: 2984
+===================
+op1 = F000 op2 = F801 BL 32
+Cycle: 2987
+===================
+branch taken
+Cycle: 2989
+===================
+op1 = B530 PUSH
+Cycle: 2992
+===================
+op1 = 2906 CMP imm
+Cycle: 2993
+===================
+op1 = D007 BEQ
+Cycle: 2994
+===================
+branch not taken
+op1 = 4D07 LDR
+Cycle: 2996
+===================
+op1 = 2418 MOV(S) imm
+Cycle: 2997
+===================
+op1 = 1C20 ADD 3imm
+Cycle: 2998
+===================
+op1 = 1C29 ADD 3imm
+Cycle: 2999
+===================
+op1 = BEAB BRKT
+Cycle: 2999
+===================
+op1 = 0 LSL(S) imm
+Cycle: 3000
+===================
+cycle count = 3000

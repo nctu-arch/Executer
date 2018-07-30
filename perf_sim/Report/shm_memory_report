@@ -1,0 +1,2333 @@
+; Report for caches, TLBs, and main memory
+;    Accesses - Total number of accesses
+;    Hits, Misses - Accesses resulting in hits/misses
+;    HitRatio - Hits divided by accesses
+;    Evictions - Invalidated or replaced cache blocks
+;    Retries - For L1 caches, accesses that were retried
+;    ReadRetries, WriteRetries, NCWriteRetries - Read/Write retried accesses
+;    NoRetryAccesses - Number of accesses that were not retried
+;    NoRetryHits, NoRetryMisses - Hits and misses for not retried accesses
+;    NoRetryHitRatio - NoRetryHits divided by NoRetryAccesses
+;    NoRetryReads, NoRetryWrites - Not retried reads and writes
+;    Reads, Writes, NCWrites - Total read/write accesses
+;    BlockingReads, BlockingWrites, BlockingNCWrites - Reads/writes coming from lower-level cache
+;    NonBlockingReads, NonBlockingWrites, NonBlockingNCWrites - Coming from upper-level cache
+
+
+[ C3L1D ]
+
+C3L1D_Sets = 128
+C3L1D_Assoc = 4
+C3L1D_Policy = LRU
+C3L1D_BlockSize = 32
+C3L1D_Latency = 2
+C3L1D_Ports = 2
+
+C3L1D_Accesses = 0
+C3L1D_Hits = 0
+C3L1D_Misses = 0
+C3L1D_HitRatio = 0
+C3L1D_Evictions = 0
+C3L1D_Retries = 0
+
+C3L1D_Demand_Accesses = 0
+C3L1D_Demand_Hits = 0
+C3L1D_Demand_Misses = 0
+C3L1D_Demand_HitRatio = 0
+C3L1D_Demand_Reads = 0
+C3L1D_Demand_Writes = 0
+
+C3L1D_Demand_Access_Modified = 0
+C3L1D_Demand_Hit_Modified = 0
+C3L1D_Demand_Miss_Modified = 0
+C3L1D_Demand_HitRatio_Modified = 0
+C3L1D_Demand_Read_Modified = 0
+C3L1D_Demand_Write_Modified = 0
+
+C3L1D_Pf_indentified = 0 (number of pf_request identified)
+C3L1D_Pf_already_in_MSHR = 0 (pf_request filter by MSHR)
+C3L1D_Pf_already_in_cache = 0 (pf_request filter by this cache)
+C3L1D_Pf_issued = 0 (number of pf_request issued)
+C3L1D_Pf_issued_get_from_mem = 0 (useful if mod == L1)
+C3L1D_Pf_ignored_cross_page_access = 0
+C3L1D_Pf_hits = 0 (useful pf)
+C3L1D_Pf_late = 0 (num of demands which are  waiting for pf)
+C3L1D_Pf_late_load = 0 (num of load which are  waiting for pf)
+C3L1D_Pf_late_store = 0 (num of store which are  waiting for pf)
+C3L1D_Pf_late_cycle = 0 (cycles that demands are waiting for pf_request coming back)
+C3L1D_Pf_late_cycle_load = 0 (cycles that all of load are waiting for pf_request coming back)
+C3L1D_Pf_late_cycle_store = 0 (cycles that all of store are waiting for pf_request coming back)
+C3L1D_Pf_late_load_same_pc = 0 
+C3L1D_Pf_late_store_same_pc = 0 
+C3L1D_Pf_late_same_pc = 0 
+C3L1D_Pf_late_stride_found = 0 
+C3L1D_Pf_late_stride_used = 0 
+C3L1D_Pf_pollution = 0 (miss count of pf-causing)
+C3L1D_Pf_hit_by_upper_level = 0 
+C3L1D_Pf_hit_by_other_core = 0 (used by other core (useless in private cache))
+C3L1D_Pf_early_cycle= 0 (every pf_hit cycles record from insertion to use-by-demand)
+C3L1D_Pf_early_cycle_upper_level= 0 (every pf_hit cycles record from insertion to use-by-upper-level)
+C3L1D_Pf_downup_invalidation = 0
+C3L1D_Pf_pollution_FDP = 0
+
+C3L1D_Pf_in_cache_get_by_others = 0 
+C3L1D_Pf_in_cache_get_by_other_pf = 0 
+C3L1D_Pf_in_cache_get_by_itself = 0 
+C3L1D_Pf_in_cache_get_by_its_own_pf = 0 
+
+C3L1D_Pf_ideal_cache_victim = 0 
+C3L1D_Pf_ideal_wait_cycle = 0 
+C3L1D_Pf_ideal_l1_retry = 0 
+C3L1D_Pf_ideal_l2_retry = 0 
+C3L1D_Pf_ideal_access_count = 0 
+C3L1D_Pf_ideal_latency = 0 
+C3L1D_Pf_ideal_skipped_mem_access = 0 
+
+C3L1D_Pf_stream_trained_stream = 0 
+C3L1D_Pf_stream_renew_stream = 0 
+C3L1D_Pf_stream_cleared_stream = 0 
+C3L1D_Pf_stream_table_replace = 0 
+
+C3L1D mshr_full_block_num = 0 
+C3L1D prefetch_mshr_full_block_num = 0 
+C3L1D acc_waiting_oi_num = 0 
+C3L1D acc_waiting_oi_cycle = 0 
+
+C3L1D acc_load_access_time = 0 
+C3L1D acc_load_find_n_lock = 0 
+C3L1D acc_load_L1_L2_net = 0 
+C3L1D acc_load_L2_access = 0 
+C3L1D acc_load_reply = 0 
+C3L1D acc_load_MM_access = 0 
+C3L1D acc_load_peer_to_peer = 0 
+C3L1D acc_load_wait_old_write = 0 
+C3L1D acc_load_wait_old_inflight_cycle = 0 
+
+C3L1D acc_store_access_time = 0 
+C3L1D acc_store_find_n_lock = 0 
+C3L1D acc_store_L1_L2_net = 0 
+C3L1D acc_store_L2_access = 0 
+C3L1D acc_store_exclusive = 0 
+C3L1D acc_store_reply = 0 
+C3L1D acc_store_MM_access = 0 
+C3L1D acc_store_wait_old_access = 0 
+C3L1D acc_store_wait_old_inflight_cycle = 0 
+
+C3L1D_hint_table_hit = 0 
+C3L1D_hint_table_miss = 0 
+C3L1D_hint_table_full = 0 
+C3L1D_hint_table_hint_trigger_num0 = 0 
+C3L1D_hint_table_hint_trigger_num1 = 0 
+C3L1D_hint_table_hint_trigger_num2 = 0 
+C3L1D_hint_table_hint_trigger_num3 = 0 
+C3L1D_hint_table_hint_change0 = 0 
+C3L1D_hint_table_hint_change1 = 0 
+C3L1D_hint_table_hint_change2 = 0 
+C3L1D_hint_table_hint_change3 = 0 
+
+C3L1D_Pf_local_degree_-2 = 0
+C3L1D_Pf_local_degree_-1 = 0
+C3L1D_Pf_local_degree_0 = 0
+C3L1D_Pf_local_degree_1 = 0
+C3L1D_Pf_local_degree_2 = 0
+
+C3L1D_R_hit_on_self_l1_lat = 0
+C3L1D_R_hit_on_remote_l1_lat = 0
+C3L1D_R_hit_on_l2_lat = 0
+C3L1D_R_hit_on_memory = 0
+C3L1D_R_l1_wo_depend_hit_num = 0
+C3L1D_R_l1_w_depend_hit_num = 0
+C3L1D_R_l1_remote_hit_num = 0
+C3L1D_R_l2_hit_num = 0
+C3L1D_R_mm_hit_num = 0
+
+C3L1D_R_hit_on_self_l1_lat_per_num = -nan
+C3L1D_R_hit_on_remote_l1_lat_per_num = -nan
+C3L1D_R_hit_on_l2_lat_per_num = -nan
+C3L1D_R_hit_on_memory_per_num = -nan
+
+C3L1D_W_hit_on_self_l1_lat = 0
+C3L1D_W_hit_on_remote_l1_lat = 0
+C3L1D_W_hit_on_l2_lat = 0
+C3L1D_W_hit_on_memory = 0
+C3L1D_W_l1_wo_depend_hit_num = 0
+C3L1D_W_l1_w_depend_hit_num = 0
+C3L1D_W_l1_remote_hit_num = 0
+C3L1D_W_l2_hit_num = 0
+C3L1D_W_mm_hit_num = 0
+
+C3L1D_W_hit_on_self_l1_lat_per_num = -nan
+C3L1D_W_hit_on_remote_l1_lat_per_num = -nan
+C3L1D_W_hit_on_l2_lat_per_num = -nan
+C3L1D_W_hit_on_memory_per_num = -nan
+
+C3L1D_R/W_hit_on_self_l1_lat_per_num = -nan
+C3L1D_R/W_hit_on_remote_l1_lat_per_num = -nan
+C3L1D_R/W_hit_on_l2_lat_per_num = -nan
+C3L1D_R/W_hit_on_memory_per_num = -nan
+
+C3L1D_Cache_dead_block_demand = 0 (demand-data which has no reuse)
+C3L1D_Cache_dead_block_demand_caused_by_pf = 0 
+C3L1D_Cache_dead_block_pf = 0 (pf-data which has no reuse)
+C3L1D_Cache_evict_block = 0 
+C3L1D_Cache_evict_block_wo_reused = 0
+C3L1D_Cache_evict_block_reused= 0
+
+
+C3L1D_R/W_l1_wo_depend_hit_num = 0
+C3L1D_R/W_l1_w_depend_hit_num = 0
+C3L1D_R/W_l1_remote_hit_num = 0
+C3L1D_R/W_l2_hit_num = 0
+C3L1D_R/W_mm_hit_num = 0
+C3L1D_R/W_total_access_num = 0
+C3L1D_R/W_L1_hit_ratio = -nan
+C3L1D_R/W_L1_hit_remote_ratio = -nan
+C3L1D_R/W_L2_hit_ratio = -nan
+
+C3L1D_Prefetches = 0
+C3L1D_PrefetchAborts = 0
+C3L1D_UselessPrefetches = 0
+
+C3L1D_Reads = 0
+C3L1D_ReadRetries = 0
+C3L1D_BlockingReads = 0
+C3L1D_NonBlockingReads = 0
+C3L1D_ReadHits = 0
+C3L1D_ReadMisses = 0
+
+C3L1D_Writes = 0
+C3L1D_WriteRetries = 0
+C3L1D_BlockingWrites = 0
+C3L1D_NonBlockingWrites = 0
+C3L1D_WriteHits = 0
+C3L1D_WriteMisses = 0
+
+C3L1D_NCWrites = 0
+C3L1D_NCWriteRetries = 0
+C3L1D_NCBlockingWrites = 0
+C3L1D_NCNonBlockingWrites = 0
+C3L1D_NCWriteHits = 0
+C3L1D_NCWriteMisses = 0
+
+C3L1D_NoRetryAccesses = 0
+C3L1D_NoRetryHits = 0
+C3L1D_NoRetryMisses = 0
+C3L1D_NoRetryHitRatio = 0
+C3L1D_NoRetryReads = 0
+C3L1D_NoRetryReadHits = 0
+C3L1D_NoRetryReadMisses = 0
+C3L1D_NoRetryWrites = 0
+C3L1D_NoRetryWriteHits = 0
+C3L1D_NoRetryWriteMisses = 0
+C3L1D_NoRetryNCWrites = 0
+C3L1D_NoRetryNCWriteHits = 0
+C3L1D_NoRetryNCWriteMisses = 0
+
+
+C3L1D_Thr_degree_distribution
+C3L1D_Thr_degree1 = 0
+C3L1D_Thr_degree2 = 0
+C3L1D_Thr_degree3 = 0
+C3L1D_Thr_degree4 = 0
+C3L1D_Thr_degree_total = 0
+
+C3L1D_Thr_destination_distribution
+C3L1D_Thr_destination_cur_level = 0
+C3L1D_Thr_destination_lower_level = 0
+C3L1D_Thr_destination_total = 0
+
+
+[ C3L1I ]
+
+C3L1I_Sets = 256
+C3L1I_Assoc = 1
+C3L1I_Policy = LRU
+C3L1I_BlockSize = 64
+C3L1I_Latency = 2
+C3L1I_Ports = 2
+
+C3L1I_Accesses = 0
+C3L1I_Hits = 0
+C3L1I_Misses = 0
+C3L1I_HitRatio = 0
+C3L1I_Evictions = 0
+C3L1I_Retries = 0
+
+C3L1I_Demand_Accesses = 0
+C3L1I_Demand_Hits = 0
+C3L1I_Demand_Misses = 0
+C3L1I_Demand_HitRatio = 0
+C3L1I_Demand_Reads = 0
+C3L1I_Demand_Writes = 0
+
+C3L1I_Demand_Access_Modified = 0
+C3L1I_Demand_Hit_Modified = 0
+C3L1I_Demand_Miss_Modified = 0
+C3L1I_Demand_HitRatio_Modified = 0
+C3L1I_Demand_Read_Modified = 0
+C3L1I_Demand_Write_Modified = 0
+
+C3L1I_Pf_indentified = 0 (number of pf_request identified)
+C3L1I_Pf_already_in_MSHR = 0 (pf_request filter by MSHR)
+C3L1I_Pf_already_in_cache = 0 (pf_request filter by this cache)
+C3L1I_Pf_issued = 0 (number of pf_request issued)
+C3L1I_Pf_issued_get_from_mem = 0 (useful if mod == L1)
+C3L1I_Pf_ignored_cross_page_access = 0
+C3L1I_Pf_hits = 0 (useful pf)
+C3L1I_Pf_late = 0 (num of demands which are  waiting for pf)
+C3L1I_Pf_late_load = 0 (num of load which are  waiting for pf)
+C3L1I_Pf_late_store = 0 (num of store which are  waiting for pf)
+C3L1I_Pf_late_cycle = 0 (cycles that demands are waiting for pf_request coming back)
+C3L1I_Pf_late_cycle_load = 0 (cycles that all of load are waiting for pf_request coming back)
+C3L1I_Pf_late_cycle_store = 0 (cycles that all of store are waiting for pf_request coming back)
+C3L1I_Pf_late_load_same_pc = 0 
+C3L1I_Pf_late_store_same_pc = 0 
+C3L1I_Pf_late_same_pc = 0 
+C3L1I_Pf_late_stride_found = 0 
+C3L1I_Pf_late_stride_used = 0 
+C3L1I_Pf_pollution = 0 (miss count of pf-causing)
+C3L1I_Pf_hit_by_upper_level = 0 
+C3L1I_Pf_hit_by_other_core = 0 (used by other core (useless in private cache))
+C3L1I_Pf_early_cycle= 0 (every pf_hit cycles record from insertion to use-by-demand)
+C3L1I_Pf_early_cycle_upper_level= 0 (every pf_hit cycles record from insertion to use-by-upper-level)
+C3L1I_Pf_downup_invalidation = 0
+C3L1I_Pf_pollution_FDP = 0
+
+C3L1I_Pf_in_cache_get_by_others = 0 
+C3L1I_Pf_in_cache_get_by_other_pf = 0 
+C3L1I_Pf_in_cache_get_by_itself = 0 
+C3L1I_Pf_in_cache_get_by_its_own_pf = 0 
+
+C3L1I_Pf_ideal_cache_victim = 0 
+C3L1I_Pf_ideal_wait_cycle = 0 
+C3L1I_Pf_ideal_l1_retry = 0 
+C3L1I_Pf_ideal_l2_retry = 0 
+C3L1I_Pf_ideal_access_count = 0 
+C3L1I_Pf_ideal_latency = 0 
+C3L1I_Pf_ideal_skipped_mem_access = 0 
+
+C3L1I_Pf_stream_trained_stream = 0 
+C3L1I_Pf_stream_renew_stream = 0 
+C3L1I_Pf_stream_cleared_stream = 0 
+C3L1I_Pf_stream_table_replace = 0 
+
+C3L1I mshr_full_block_num = 0 
+C3L1I prefetch_mshr_full_block_num = 0 
+C3L1I acc_waiting_oi_num = 0 
+C3L1I acc_waiting_oi_cycle = 0 
+
+C3L1I acc_load_access_time = 0 
+C3L1I acc_load_find_n_lock = 0 
+C3L1I acc_load_L1_L2_net = 0 
+C3L1I acc_load_L2_access = 0 
+C3L1I acc_load_reply = 0 
+C3L1I acc_load_MM_access = 0 
+C3L1I acc_load_peer_to_peer = 0 
+C3L1I acc_load_wait_old_write = 0 
+C3L1I acc_load_wait_old_inflight_cycle = 0 
+
+C3L1I acc_store_access_time = 0 
+C3L1I acc_store_find_n_lock = 0 
+C3L1I acc_store_L1_L2_net = 0 
+C3L1I acc_store_L2_access = 0 
+C3L1I acc_store_exclusive = 0 
+C3L1I acc_store_reply = 0 
+C3L1I acc_store_MM_access = 0 
+C3L1I acc_store_wait_old_access = 0 
+C3L1I acc_store_wait_old_inflight_cycle = 0 
+
+C3L1I_hint_table_hit = 0 
+C3L1I_hint_table_miss = 0 
+C3L1I_hint_table_full = 0 
+C3L1I_hint_table_hint_trigger_num0 = 0 
+C3L1I_hint_table_hint_trigger_num1 = 0 
+C3L1I_hint_table_hint_trigger_num2 = 0 
+C3L1I_hint_table_hint_trigger_num3 = 0 
+C3L1I_hint_table_hint_change0 = 0 
+C3L1I_hint_table_hint_change1 = 0 
+C3L1I_hint_table_hint_change2 = 0 
+C3L1I_hint_table_hint_change3 = 0 
+
+C3L1I_Pf_local_degree_-2 = 0
+C3L1I_Pf_local_degree_-1 = 0
+C3L1I_Pf_local_degree_0 = 0
+C3L1I_Pf_local_degree_1 = 0
+C3L1I_Pf_local_degree_2 = 0
+
+C3L1I_R_hit_on_self_l1_lat = 0
+C3L1I_R_hit_on_remote_l1_lat = 0
+C3L1I_R_hit_on_l2_lat = 0
+C3L1I_R_hit_on_memory = 0
+C3L1I_R_l1_wo_depend_hit_num = 0
+C3L1I_R_l1_w_depend_hit_num = 0
+C3L1I_R_l1_remote_hit_num = 0
+C3L1I_R_l2_hit_num = 0
+C3L1I_R_mm_hit_num = 0
+
+C3L1I_R_hit_on_self_l1_lat_per_num = -nan
+C3L1I_R_hit_on_remote_l1_lat_per_num = -nan
+C3L1I_R_hit_on_l2_lat_per_num = -nan
+C3L1I_R_hit_on_memory_per_num = -nan
+
+C3L1I_W_hit_on_self_l1_lat = 0
+C3L1I_W_hit_on_remote_l1_lat = 0
+C3L1I_W_hit_on_l2_lat = 0
+C3L1I_W_hit_on_memory = 0
+C3L1I_W_l1_wo_depend_hit_num = 0
+C3L1I_W_l1_w_depend_hit_num = 0
+C3L1I_W_l1_remote_hit_num = 0
+C3L1I_W_l2_hit_num = 0
+C3L1I_W_mm_hit_num = 0
+
+C3L1I_W_hit_on_self_l1_lat_per_num = -nan
+C3L1I_W_hit_on_remote_l1_lat_per_num = -nan
+C3L1I_W_hit_on_l2_lat_per_num = -nan
+C3L1I_W_hit_on_memory_per_num = -nan
+
+C3L1I_R/W_hit_on_self_l1_lat_per_num = -nan
+C3L1I_R/W_hit_on_remote_l1_lat_per_num = -nan
+C3L1I_R/W_hit_on_l2_lat_per_num = -nan
+C3L1I_R/W_hit_on_memory_per_num = -nan
+
+C3L1I_Cache_dead_block_demand = 0 (demand-data which has no reuse)
+C3L1I_Cache_dead_block_demand_caused_by_pf = 0 
+C3L1I_Cache_dead_block_pf = 0 (pf-data which has no reuse)
+C3L1I_Cache_evict_block = 0 
+C3L1I_Cache_evict_block_wo_reused = 0
+C3L1I_Cache_evict_block_reused= 0
+
+
+C3L1I_R/W_l1_wo_depend_hit_num = 0
+C3L1I_R/W_l1_w_depend_hit_num = 0
+C3L1I_R/W_l1_remote_hit_num = 0
+C3L1I_R/W_l2_hit_num = 0
+C3L1I_R/W_mm_hit_num = 0
+C3L1I_R/W_total_access_num = 0
+C3L1I_R/W_L1_hit_ratio = -nan
+C3L1I_R/W_L1_hit_remote_ratio = -nan
+C3L1I_R/W_L2_hit_ratio = -nan
+
+C3L1I_Prefetches = 0
+C3L1I_PrefetchAborts = 0
+C3L1I_UselessPrefetches = 0
+
+C3L1I_Reads = 0
+C3L1I_ReadRetries = 0
+C3L1I_BlockingReads = 0
+C3L1I_NonBlockingReads = 0
+C3L1I_ReadHits = 0
+C3L1I_ReadMisses = 0
+
+C3L1I_Writes = 0
+C3L1I_WriteRetries = 0
+C3L1I_BlockingWrites = 0
+C3L1I_NonBlockingWrites = 0
+C3L1I_WriteHits = 0
+C3L1I_WriteMisses = 0
+
+C3L1I_NCWrites = 0
+C3L1I_NCWriteRetries = 0
+C3L1I_NCBlockingWrites = 0
+C3L1I_NCNonBlockingWrites = 0
+C3L1I_NCWriteHits = 0
+C3L1I_NCWriteMisses = 0
+
+C3L1I_NoRetryAccesses = 0
+C3L1I_NoRetryHits = 0
+C3L1I_NoRetryMisses = 0
+C3L1I_NoRetryHitRatio = 0
+C3L1I_NoRetryReads = 0
+C3L1I_NoRetryReadHits = 0
+C3L1I_NoRetryReadMisses = 0
+C3L1I_NoRetryWrites = 0
+C3L1I_NoRetryWriteHits = 0
+C3L1I_NoRetryWriteMisses = 0
+C3L1I_NoRetryNCWrites = 0
+C3L1I_NoRetryNCWriteHits = 0
+C3L1I_NoRetryNCWriteMisses = 0
+
+
+[ C0L1D ]
+
+C0L1D_Sets = 128
+C0L1D_Assoc = 4
+C0L1D_Policy = LRU
+C0L1D_BlockSize = 32
+C0L1D_Latency = 2
+C0L1D_Ports = 2
+
+C0L1D_Accesses = 5954
+C0L1D_Hits = 5891
+C0L1D_Misses = 63
+C0L1D_HitRatio = 0.9894
+C0L1D_Evictions = 0
+C0L1D_Retries = 0
+
+C0L1D_Demand_Accesses = 5954
+C0L1D_Demand_Hits = 5891
+C0L1D_Demand_Misses = 63
+C0L1D_Demand_HitRatio = 0.9894
+C0L1D_Demand_Reads = 3613
+C0L1D_Demand_Writes = 2341
+
+C0L1D_Demand_Access_Modified = 5954
+C0L1D_Demand_Hit_Modified = 5891
+C0L1D_Demand_Miss_Modified = 63
+C0L1D_Demand_HitRatio_Modified = 0.9894
+C0L1D_Demand_Read_Modified = 3613
+C0L1D_Demand_Write_Modified = 2341
+
+C0L1D_Pf_indentified = 0 (number of pf_request identified)
+C0L1D_Pf_already_in_MSHR = 0 (pf_request filter by MSHR)
+C0L1D_Pf_already_in_cache = 0 (pf_request filter by this cache)
+C0L1D_Pf_issued = 0 (number of pf_request issued)
+C0L1D_Pf_issued_get_from_mem = 0 (useful if mod == L1)
+C0L1D_Pf_ignored_cross_page_access = 0
+C0L1D_Pf_hits = 0 (useful pf)
+C0L1D_Pf_late = 0 (num of demands which are  waiting for pf)
+C0L1D_Pf_late_load = 0 (num of load which are  waiting for pf)
+C0L1D_Pf_late_store = 0 (num of store which are  waiting for pf)
+C0L1D_Pf_late_cycle = 0 (cycles that demands are waiting for pf_request coming back)
+C0L1D_Pf_late_cycle_load = 0 (cycles that all of load are waiting for pf_request coming back)
+C0L1D_Pf_late_cycle_store = 0 (cycles that all of store are waiting for pf_request coming back)
+C0L1D_Pf_late_load_same_pc = 0 
+C0L1D_Pf_late_store_same_pc = 0 
+C0L1D_Pf_late_same_pc = 0 
+C0L1D_Pf_late_stride_found = 0 
+C0L1D_Pf_late_stride_used = 0 
+C0L1D_Pf_pollution = 0 (miss count of pf-causing)
+C0L1D_Pf_hit_by_upper_level = 0 
+C0L1D_Pf_hit_by_other_core = 0 (used by other core (useless in private cache))
+C0L1D_Pf_early_cycle= 0 (every pf_hit cycles record from insertion to use-by-demand)
+C0L1D_Pf_early_cycle_upper_level= 0 (every pf_hit cycles record from insertion to use-by-upper-level)
+C0L1D_Pf_downup_invalidation = 0
+C0L1D_Pf_pollution_FDP = 0
+
+C0L1D_Pf_in_cache_get_by_others = 0 
+C0L1D_Pf_in_cache_get_by_other_pf = 0 
+C0L1D_Pf_in_cache_get_by_itself = 0 
+C0L1D_Pf_in_cache_get_by_its_own_pf = 0 
+
+C0L1D_Pf_ideal_cache_victim = 0 
+C0L1D_Pf_ideal_wait_cycle = 0 
+C0L1D_Pf_ideal_l1_retry = 0 
+C0L1D_Pf_ideal_l2_retry = 0 
+C0L1D_Pf_ideal_access_count = 0 
+C0L1D_Pf_ideal_latency = 0 
+C0L1D_Pf_ideal_skipped_mem_access = 0 
+
+C0L1D_Pf_stream_trained_stream = 0 
+C0L1D_Pf_stream_renew_stream = 0 
+C0L1D_Pf_stream_cleared_stream = 0 
+C0L1D_Pf_stream_table_replace = 0 
+
+C0L1D mshr_full_block_num = 18474 
+C0L1D prefetch_mshr_full_block_num = 0 
+C0L1D acc_waiting_oi_num = 0 
+C0L1D acc_waiting_oi_cycle = 0 
+
+C0L1D acc_load_access_time = 8895 
+C0L1D acc_load_find_n_lock = 42581735 
+C0L1D acc_load_L1_L2_net = 94 
+C0L1D acc_load_L2_access = 940 
+C0L1D acc_load_reply = 94 
+C0L1D acc_load_MM_access = 4107 
+C0L1D acc_load_peer_to_peer = 0 
+C0L1D acc_load_wait_old_write = 0 
+C0L1D acc_load_wait_old_inflight_cycle = 0 
+
+C0L1D acc_store_access_time = 3629 
+C0L1D acc_store_find_n_lock = 2341 
+C0L1D acc_store_L1_L2_net = 32 
+C0L1D acc_store_L2_access = 320 
+C0L1D acc_store_exclusive = 0 
+C0L1D acc_store_reply = 32 
+C0L1D acc_store_MM_access = 888 
+C0L1D acc_store_wait_old_access = 0 
+C0L1D acc_store_wait_old_inflight_cycle = 0 
+
+C0L1D_hint_table_hit = 0 
+C0L1D_hint_table_miss = 0 
+C0L1D_hint_table_full = 0 
+C0L1D_hint_table_hint_trigger_num0 = 0 
+C0L1D_hint_table_hint_trigger_num1 = 0 
+C0L1D_hint_table_hint_trigger_num2 = 0 
+C0L1D_hint_table_hint_trigger_num3 = 0 
+C0L1D_hint_table_hint_change0 = 0 
+C0L1D_hint_table_hint_change1 = 0 
+C0L1D_hint_table_hint_change2 = 0 
+C0L1D_hint_table_hint_change3 = 0 
+
+C0L1D_Pf_local_degree_-2 = 0
+C0L1D_Pf_local_degree_-1 = 0
+C0L1D_Pf_local_degree_0 = 0
+C0L1D_Pf_local_degree_1 = 0
+C0L1D_Pf_local_degree_2 = 0
+
+C0L1D_R_hit_on_self_l1_lat = 3566
+C0L1D_R_hit_on_remote_l1_lat = 0
+C0L1D_R_hit_on_l2_lat = 260
+C0L1D_R_hit_on_memory = 5069
+C0L1D_R_l1_wo_depend_hit_num = 3566
+C0L1D_R_l1_w_depend_hit_num = 0
+C0L1D_R_l1_remote_hit_num = 0
+C0L1D_R_l2_hit_num = 10
+C0L1D_R_mm_hit_num = 37
+
+C0L1D_R_hit_on_self_l1_lat_per_num = 1
+C0L1D_R_hit_on_remote_l1_lat_per_num = -nan
+C0L1D_R_hit_on_l2_lat_per_num = 26
+C0L1D_R_hit_on_memory_per_num = 137
+
+C0L1D_W_hit_on_self_l1_lat = 2325
+C0L1D_W_hit_on_remote_l1_lat = 0
+C0L1D_W_hit_on_l2_lat = 208
+C0L1D_W_hit_on_memory = 1096
+C0L1D_W_l1_wo_depend_hit_num = 2325
+C0L1D_W_l1_w_depend_hit_num = 0
+C0L1D_W_l1_remote_hit_num = 0
+C0L1D_W_l2_hit_num = 8
+C0L1D_W_mm_hit_num = 8
+
+C0L1D_W_hit_on_self_l1_lat_per_num = 1
+C0L1D_W_hit_on_remote_l1_lat_per_num = -nan
+C0L1D_W_hit_on_l2_lat_per_num = 26
+C0L1D_W_hit_on_memory_per_num = 137
+
+C0L1D_R/W_hit_on_self_l1_lat_per_num = 1
+C0L1D_R/W_hit_on_remote_l1_lat_per_num = -nan
+C0L1D_R/W_hit_on_l2_lat_per_num = 26
+C0L1D_R/W_hit_on_memory_per_num = 137
+
+C0L1D_Cache_dead_block_demand = 0 (demand-data which has no reuse)
+C0L1D_Cache_dead_block_demand_caused_by_pf = 0 
+C0L1D_Cache_dead_block_pf = 0 (pf-data which has no reuse)
+C0L1D_Cache_evict_block = 0 
+C0L1D_Cache_evict_block_wo_reused = 0
+C0L1D_Cache_evict_block_reused= 0
+
+
+C0L1D_R/W_l1_wo_depend_hit_num = 5891
+C0L1D_R/W_l1_w_depend_hit_num = 0
+C0L1D_R/W_l1_remote_hit_num = 0
+C0L1D_R/W_l2_hit_num = 18
+C0L1D_R/W_mm_hit_num = 45
+C0L1D_R/W_total_access_num = 5954
+C0L1D_R/W_L1_hit_ratio = 0.9894
+C0L1D_R/W_L1_hit_remote_ratio = 0
+C0L1D_R/W_L2_hit_ratio = 0.2857
+
+C0L1D_Prefetches = 0
+C0L1D_PrefetchAborts = 0
+C0L1D_UselessPrefetches = 0
+
+C0L1D_Reads = 3613
+C0L1D_ReadRetries = 0
+C0L1D_BlockingReads = 3613
+C0L1D_NonBlockingReads = 0
+C0L1D_ReadHits = 3566
+C0L1D_ReadMisses = 47
+
+C0L1D_Writes = 2341
+C0L1D_WriteRetries = 0
+C0L1D_BlockingWrites = 2341
+C0L1D_NonBlockingWrites = 0
+C0L1D_WriteHits = 2325
+C0L1D_WriteMisses = 16
+
+C0L1D_NCWrites = 0
+C0L1D_NCWriteRetries = 0
+C0L1D_NCBlockingWrites = 0
+C0L1D_NCNonBlockingWrites = 0
+C0L1D_NCWriteHits = 0
+C0L1D_NCWriteMisses = 0
+
+C0L1D_NoRetryAccesses = 5954
+C0L1D_NoRetryHits = 5891
+C0L1D_NoRetryMisses = 63
+C0L1D_NoRetryHitRatio = 0.9894
+C0L1D_NoRetryReads = 3613
+C0L1D_NoRetryReadHits = 3566
+C0L1D_NoRetryReadMisses = 47
+C0L1D_NoRetryWrites = 2341
+C0L1D_NoRetryWriteHits = 2325
+C0L1D_NoRetryWriteMisses = 16
+C0L1D_NoRetryNCWrites = 0
+C0L1D_NoRetryNCWriteHits = 0
+C0L1D_NoRetryNCWriteMisses = -2325
+
+
+C0L1D_Thr_degree_distribution
+C0L1D_Thr_degree1 = 0
+C0L1D_Thr_degree2 = 0
+C0L1D_Thr_degree3 = 0
+C0L1D_Thr_degree4 = 0
+C0L1D_Thr_degree_total = 0
+
+C0L1D_Thr_destination_distribution
+C0L1D_Thr_destination_cur_level = 0
+C0L1D_Thr_destination_lower_level = 0
+C0L1D_Thr_destination_total = 0
+
+
+[ C0L1I ]
+
+C0L1I_Sets = 256
+C0L1I_Assoc = 1
+C0L1I_Policy = LRU
+C0L1I_BlockSize = 64
+C0L1I_Latency = 2
+C0L1I_Ports = 2
+
+C0L1I_Accesses = 0
+C0L1I_Hits = 0
+C0L1I_Misses = 0
+C0L1I_HitRatio = 0
+C0L1I_Evictions = 0
+C0L1I_Retries = 0
+
+C0L1I_Demand_Accesses = 0
+C0L1I_Demand_Hits = 0
+C0L1I_Demand_Misses = 0
+C0L1I_Demand_HitRatio = 0
+C0L1I_Demand_Reads = 0
+C0L1I_Demand_Writes = 0
+
+C0L1I_Demand_Access_Modified = 0
+C0L1I_Demand_Hit_Modified = 0
+C0L1I_Demand_Miss_Modified = 0
+C0L1I_Demand_HitRatio_Modified = 0
+C0L1I_Demand_Read_Modified = 0
+C0L1I_Demand_Write_Modified = 0
+
+C0L1I_Pf_indentified = 0 (number of pf_request identified)
+C0L1I_Pf_already_in_MSHR = 0 (pf_request filter by MSHR)
+C0L1I_Pf_already_in_cache = 0 (pf_request filter by this cache)
+C0L1I_Pf_issued = 0 (number of pf_request issued)
+C0L1I_Pf_issued_get_from_mem = 0 (useful if mod == L1)
+C0L1I_Pf_ignored_cross_page_access = 0
+C0L1I_Pf_hits = 0 (useful pf)
+C0L1I_Pf_late = 0 (num of demands which are  waiting for pf)
+C0L1I_Pf_late_load = 0 (num of load which are  waiting for pf)
+C0L1I_Pf_late_store = 0 (num of store which are  waiting for pf)
+C0L1I_Pf_late_cycle = 0 (cycles that demands are waiting for pf_request coming back)
+C0L1I_Pf_late_cycle_load = 0 (cycles that all of load are waiting for pf_request coming back)
+C0L1I_Pf_late_cycle_store = 0 (cycles that all of store are waiting for pf_request coming back)
+C0L1I_Pf_late_load_same_pc = 0 
+C0L1I_Pf_late_store_same_pc = 0 
+C0L1I_Pf_late_same_pc = 0 
+C0L1I_Pf_late_stride_found = 0 
+C0L1I_Pf_late_stride_used = 0 
+C0L1I_Pf_pollution = 0 (miss count of pf-causing)
+C0L1I_Pf_hit_by_upper_level = 0 
+C0L1I_Pf_hit_by_other_core = 0 (used by other core (useless in private cache))
+C0L1I_Pf_early_cycle= 0 (every pf_hit cycles record from insertion to use-by-demand)
+C0L1I_Pf_early_cycle_upper_level= 0 (every pf_hit cycles record from insertion to use-by-upper-level)
+C0L1I_Pf_downup_invalidation = 0
+C0L1I_Pf_pollution_FDP = 0
+
+C0L1I_Pf_in_cache_get_by_others = 0 
+C0L1I_Pf_in_cache_get_by_other_pf = 0 
+C0L1I_Pf_in_cache_get_by_itself = 0 
+C0L1I_Pf_in_cache_get_by_its_own_pf = 0 
+
+C0L1I_Pf_ideal_cache_victim = 0 
+C0L1I_Pf_ideal_wait_cycle = 0 
+C0L1I_Pf_ideal_l1_retry = 0 
+C0L1I_Pf_ideal_l2_retry = 0 
+C0L1I_Pf_ideal_access_count = 0 
+C0L1I_Pf_ideal_latency = 0 
+C0L1I_Pf_ideal_skipped_mem_access = 0 
+
+C0L1I_Pf_stream_trained_stream = 0 
+C0L1I_Pf_stream_renew_stream = 0 
+C0L1I_Pf_stream_cleared_stream = 0 
+C0L1I_Pf_stream_table_replace = 0 
+
+C0L1I mshr_full_block_num = 0 
+C0L1I prefetch_mshr_full_block_num = 0 
+C0L1I acc_waiting_oi_num = 0 
+C0L1I acc_waiting_oi_cycle = 0 
+
+C0L1I acc_load_access_time = 0 
+C0L1I acc_load_find_n_lock = 0 
+C0L1I acc_load_L1_L2_net = 0 
+C0L1I acc_load_L2_access = 0 
+C0L1I acc_load_reply = 0 
+C0L1I acc_load_MM_access = 0 
+C0L1I acc_load_peer_to_peer = 0 
+C0L1I acc_load_wait_old_write = 0 
+C0L1I acc_load_wait_old_inflight_cycle = 0 
+
+C0L1I acc_store_access_time = 0 
+C0L1I acc_store_find_n_lock = 0 
+C0L1I acc_store_L1_L2_net = 0 
+C0L1I acc_store_L2_access = 0 
+C0L1I acc_store_exclusive = 0 
+C0L1I acc_store_reply = 0 
+C0L1I acc_store_MM_access = 0 
+C0L1I acc_store_wait_old_access = 0 
+C0L1I acc_store_wait_old_inflight_cycle = 0 
+
+C0L1I_hint_table_hit = 0 
+C0L1I_hint_table_miss = 0 
+C0L1I_hint_table_full = 0 
+C0L1I_hint_table_hint_trigger_num0 = 0 
+C0L1I_hint_table_hint_trigger_num1 = 0 
+C0L1I_hint_table_hint_trigger_num2 = 0 
+C0L1I_hint_table_hint_trigger_num3 = 0 
+C0L1I_hint_table_hint_change0 = 0 
+C0L1I_hint_table_hint_change1 = 0 
+C0L1I_hint_table_hint_change2 = 0 
+C0L1I_hint_table_hint_change3 = 0 
+
+C0L1I_Pf_local_degree_-2 = 0
+C0L1I_Pf_local_degree_-1 = 0
+C0L1I_Pf_local_degree_0 = 0
+C0L1I_Pf_local_degree_1 = 0
+C0L1I_Pf_local_degree_2 = 0
+
+C0L1I_R_hit_on_self_l1_lat = 0
+C0L1I_R_hit_on_remote_l1_lat = 0
+C0L1I_R_hit_on_l2_lat = 0
+C0L1I_R_hit_on_memory = 0
+C0L1I_R_l1_wo_depend_hit_num = 0
+C0L1I_R_l1_w_depend_hit_num = 0
+C0L1I_R_l1_remote_hit_num = 0
+C0L1I_R_l2_hit_num = 0
+C0L1I_R_mm_hit_num = 0
+
+C0L1I_R_hit_on_self_l1_lat_per_num = -nan
+C0L1I_R_hit_on_remote_l1_lat_per_num = -nan
+C0L1I_R_hit_on_l2_lat_per_num = -nan
+C0L1I_R_hit_on_memory_per_num = -nan
+
+C0L1I_W_hit_on_self_l1_lat = 0
+C0L1I_W_hit_on_remote_l1_lat = 0
+C0L1I_W_hit_on_l2_lat = 0
+C0L1I_W_hit_on_memory = 0
+C0L1I_W_l1_wo_depend_hit_num = 0
+C0L1I_W_l1_w_depend_hit_num = 0
+C0L1I_W_l1_remote_hit_num = 0
+C0L1I_W_l2_hit_num = 0
+C0L1I_W_mm_hit_num = 0
+
+C0L1I_W_hit_on_self_l1_lat_per_num = -nan
+C0L1I_W_hit_on_remote_l1_lat_per_num = -nan
+C0L1I_W_hit_on_l2_lat_per_num = -nan
+C0L1I_W_hit_on_memory_per_num = -nan
+
+C0L1I_R/W_hit_on_self_l1_lat_per_num = -nan
+C0L1I_R/W_hit_on_remote_l1_lat_per_num = -nan
+C0L1I_R/W_hit_on_l2_lat_per_num = -nan
+C0L1I_R/W_hit_on_memory_per_num = -nan
+
+C0L1I_Cache_dead_block_demand = 0 (demand-data which has no reuse)
+C0L1I_Cache_dead_block_demand_caused_by_pf = 0 
+C0L1I_Cache_dead_block_pf = 0 (pf-data which has no reuse)
+C0L1I_Cache_evict_block = 0 
+C0L1I_Cache_evict_block_wo_reused = 0
+C0L1I_Cache_evict_block_reused= 0
+
+
+C0L1I_R/W_l1_wo_depend_hit_num = 0
+C0L1I_R/W_l1_w_depend_hit_num = 0
+C0L1I_R/W_l1_remote_hit_num = 0
+C0L1I_R/W_l2_hit_num = 0
+C0L1I_R/W_mm_hit_num = 0
+C0L1I_R/W_total_access_num = 0
+C0L1I_R/W_L1_hit_ratio = -nan
+C0L1I_R/W_L1_hit_remote_ratio = -nan
+C0L1I_R/W_L2_hit_ratio = -nan
+
+C0L1I_Prefetches = 0
+C0L1I_PrefetchAborts = 0
+C0L1I_UselessPrefetches = 0
+
+C0L1I_Reads = 0
+C0L1I_ReadRetries = 0
+C0L1I_BlockingReads = 0
+C0L1I_NonBlockingReads = 0
+C0L1I_ReadHits = 0
+C0L1I_ReadMisses = 0
+
+C0L1I_Writes = 0
+C0L1I_WriteRetries = 0
+C0L1I_BlockingWrites = 0
+C0L1I_NonBlockingWrites = 0
+C0L1I_WriteHits = 0
+C0L1I_WriteMisses = 0
+
+C0L1I_NCWrites = 0
+C0L1I_NCWriteRetries = 0
+C0L1I_NCBlockingWrites = 0
+C0L1I_NCNonBlockingWrites = 0
+C0L1I_NCWriteHits = 0
+C0L1I_NCWriteMisses = 0
+
+C0L1I_NoRetryAccesses = 0
+C0L1I_NoRetryHits = 0
+C0L1I_NoRetryMisses = 0
+C0L1I_NoRetryHitRatio = 0
+C0L1I_NoRetryReads = 0
+C0L1I_NoRetryReadHits = 0
+C0L1I_NoRetryReadMisses = 0
+C0L1I_NoRetryWrites = 0
+C0L1I_NoRetryWriteHits = 0
+C0L1I_NoRetryWriteMisses = 0
+C0L1I_NoRetryNCWrites = 0
+C0L1I_NoRetryNCWriteHits = 0
+C0L1I_NoRetryNCWriteMisses = 0
+
+
+[ C2L1D ]
+
+C2L1D_Sets = 128
+C2L1D_Assoc = 4
+C2L1D_Policy = LRU
+C2L1D_BlockSize = 32
+C2L1D_Latency = 2
+C2L1D_Ports = 2
+
+C2L1D_Accesses = 0
+C2L1D_Hits = 0
+C2L1D_Misses = 0
+C2L1D_HitRatio = 0
+C2L1D_Evictions = 0
+C2L1D_Retries = 0
+
+C2L1D_Demand_Accesses = 0
+C2L1D_Demand_Hits = 0
+C2L1D_Demand_Misses = 0
+C2L1D_Demand_HitRatio = 0
+C2L1D_Demand_Reads = 0
+C2L1D_Demand_Writes = 0
+
+C2L1D_Demand_Access_Modified = 0
+C2L1D_Demand_Hit_Modified = 0
+C2L1D_Demand_Miss_Modified = 0
+C2L1D_Demand_HitRatio_Modified = 0
+C2L1D_Demand_Read_Modified = 0
+C2L1D_Demand_Write_Modified = 0
+
+C2L1D_Pf_indentified = 0 (number of pf_request identified)
+C2L1D_Pf_already_in_MSHR = 0 (pf_request filter by MSHR)
+C2L1D_Pf_already_in_cache = 0 (pf_request filter by this cache)
+C2L1D_Pf_issued = 0 (number of pf_request issued)
+C2L1D_Pf_issued_get_from_mem = 0 (useful if mod == L1)
+C2L1D_Pf_ignored_cross_page_access = 0
+C2L1D_Pf_hits = 0 (useful pf)
+C2L1D_Pf_late = 0 (num of demands which are  waiting for pf)
+C2L1D_Pf_late_load = 0 (num of load which are  waiting for pf)
+C2L1D_Pf_late_store = 0 (num of store which are  waiting for pf)
+C2L1D_Pf_late_cycle = 0 (cycles that demands are waiting for pf_request coming back)
+C2L1D_Pf_late_cycle_load = 0 (cycles that all of load are waiting for pf_request coming back)
+C2L1D_Pf_late_cycle_store = 0 (cycles that all of store are waiting for pf_request coming back)
+C2L1D_Pf_late_load_same_pc = 0 
+C2L1D_Pf_late_store_same_pc = 0 
+C2L1D_Pf_late_same_pc = 0 
+C2L1D_Pf_late_stride_found = 0 
+C2L1D_Pf_late_stride_used = 0 
+C2L1D_Pf_pollution = 0 (miss count of pf-causing)
+C2L1D_Pf_hit_by_upper_level = 0 
+C2L1D_Pf_hit_by_other_core = 0 (used by other core (useless in private cache))
+C2L1D_Pf_early_cycle= 0 (every pf_hit cycles record from insertion to use-by-demand)
+C2L1D_Pf_early_cycle_upper_level= 0 (every pf_hit cycles record from insertion to use-by-upper-level)
+C2L1D_Pf_downup_invalidation = 0
+C2L1D_Pf_pollution_FDP = 0
+
+C2L1D_Pf_in_cache_get_by_others = 0 
+C2L1D_Pf_in_cache_get_by_other_pf = 0 
+C2L1D_Pf_in_cache_get_by_itself = 0 
+C2L1D_Pf_in_cache_get_by_its_own_pf = 0 
+
+C2L1D_Pf_ideal_cache_victim = 0 
+C2L1D_Pf_ideal_wait_cycle = 0 
+C2L1D_Pf_ideal_l1_retry = 0 
+C2L1D_Pf_ideal_l2_retry = 0 
+C2L1D_Pf_ideal_access_count = 0 
+C2L1D_Pf_ideal_latency = 0 
+C2L1D_Pf_ideal_skipped_mem_access = 0 
+
+C2L1D_Pf_stream_trained_stream = 0 
+C2L1D_Pf_stream_renew_stream = 0 
+C2L1D_Pf_stream_cleared_stream = 0 
+C2L1D_Pf_stream_table_replace = 0 
+
+C2L1D mshr_full_block_num = 0 
+C2L1D prefetch_mshr_full_block_num = 0 
+C2L1D acc_waiting_oi_num = 0 
+C2L1D acc_waiting_oi_cycle = 0 
+
+C2L1D acc_load_access_time = 0 
+C2L1D acc_load_find_n_lock = 0 
+C2L1D acc_load_L1_L2_net = 0 
+C2L1D acc_load_L2_access = 0 
+C2L1D acc_load_reply = 0 
+C2L1D acc_load_MM_access = 0 
+C2L1D acc_load_peer_to_peer = 0 
+C2L1D acc_load_wait_old_write = 0 
+C2L1D acc_load_wait_old_inflight_cycle = 0 
+
+C2L1D acc_store_access_time = 0 
+C2L1D acc_store_find_n_lock = 0 
+C2L1D acc_store_L1_L2_net = 0 
+C2L1D acc_store_L2_access = 0 
+C2L1D acc_store_exclusive = 0 
+C2L1D acc_store_reply = 0 
+C2L1D acc_store_MM_access = 0 
+C2L1D acc_store_wait_old_access = 0 
+C2L1D acc_store_wait_old_inflight_cycle = 0 
+
+C2L1D_hint_table_hit = 0 
+C2L1D_hint_table_miss = 0 
+C2L1D_hint_table_full = 0 
+C2L1D_hint_table_hint_trigger_num0 = 0 
+C2L1D_hint_table_hint_trigger_num1 = 0 
+C2L1D_hint_table_hint_trigger_num2 = 0 
+C2L1D_hint_table_hint_trigger_num3 = 0 
+C2L1D_hint_table_hint_change0 = 0 
+C2L1D_hint_table_hint_change1 = 0 
+C2L1D_hint_table_hint_change2 = 0 
+C2L1D_hint_table_hint_change3 = 0 
+
+C2L1D_Pf_local_degree_-2 = 0
+C2L1D_Pf_local_degree_-1 = 0
+C2L1D_Pf_local_degree_0 = 0
+C2L1D_Pf_local_degree_1 = 0
+C2L1D_Pf_local_degree_2 = 0
+
+C2L1D_R_hit_on_self_l1_lat = 0
+C2L1D_R_hit_on_remote_l1_lat = 0
+C2L1D_R_hit_on_l2_lat = 0
+C2L1D_R_hit_on_memory = 0
+C2L1D_R_l1_wo_depend_hit_num = 0
+C2L1D_R_l1_w_depend_hit_num = 0
+C2L1D_R_l1_remote_hit_num = 0
+C2L1D_R_l2_hit_num = 0
+C2L1D_R_mm_hit_num = 0
+
+C2L1D_R_hit_on_self_l1_lat_per_num = -nan
+C2L1D_R_hit_on_remote_l1_lat_per_num = -nan
+C2L1D_R_hit_on_l2_lat_per_num = -nan
+C2L1D_R_hit_on_memory_per_num = -nan
+
+C2L1D_W_hit_on_self_l1_lat = 0
+C2L1D_W_hit_on_remote_l1_lat = 0
+C2L1D_W_hit_on_l2_lat = 0
+C2L1D_W_hit_on_memory = 0
+C2L1D_W_l1_wo_depend_hit_num = 0
+C2L1D_W_l1_w_depend_hit_num = 0
+C2L1D_W_l1_remote_hit_num = 0
+C2L1D_W_l2_hit_num = 0
+C2L1D_W_mm_hit_num = 0
+
+C2L1D_W_hit_on_self_l1_lat_per_num = -nan
+C2L1D_W_hit_on_remote_l1_lat_per_num = -nan
+C2L1D_W_hit_on_l2_lat_per_num = -nan
+C2L1D_W_hit_on_memory_per_num = -nan
+
+C2L1D_R/W_hit_on_self_l1_lat_per_num = -nan
+C2L1D_R/W_hit_on_remote_l1_lat_per_num = -nan
+C2L1D_R/W_hit_on_l2_lat_per_num = -nan
+C2L1D_R/W_hit_on_memory_per_num = -nan
+
+C2L1D_Cache_dead_block_demand = 0 (demand-data which has no reuse)
+C2L1D_Cache_dead_block_demand_caused_by_pf = 0 
+C2L1D_Cache_dead_block_pf = 0 (pf-data which has no reuse)
+C2L1D_Cache_evict_block = 0 
+C2L1D_Cache_evict_block_wo_reused = 0
+C2L1D_Cache_evict_block_reused= 0
+
+
+C2L1D_R/W_l1_wo_depend_hit_num = 0
+C2L1D_R/W_l1_w_depend_hit_num = 0
+C2L1D_R/W_l1_remote_hit_num = 0
+C2L1D_R/W_l2_hit_num = 0
+C2L1D_R/W_mm_hit_num = 0
+C2L1D_R/W_total_access_num = 0
+C2L1D_R/W_L1_hit_ratio = -nan
+C2L1D_R/W_L1_hit_remote_ratio = -nan
+C2L1D_R/W_L2_hit_ratio = -nan
+
+C2L1D_Prefetches = 0
+C2L1D_PrefetchAborts = 0
+C2L1D_UselessPrefetches = 0
+
+C2L1D_Reads = 0
+C2L1D_ReadRetries = 0
+C2L1D_BlockingReads = 0
+C2L1D_NonBlockingReads = 0
+C2L1D_ReadHits = 0
+C2L1D_ReadMisses = 0
+
+C2L1D_Writes = 0
+C2L1D_WriteRetries = 0
+C2L1D_BlockingWrites = 0
+C2L1D_NonBlockingWrites = 0
+C2L1D_WriteHits = 0
+C2L1D_WriteMisses = 0
+
+C2L1D_NCWrites = 0
+C2L1D_NCWriteRetries = 0
+C2L1D_NCBlockingWrites = 0
+C2L1D_NCNonBlockingWrites = 0
+C2L1D_NCWriteHits = 0
+C2L1D_NCWriteMisses = 0
+
+C2L1D_NoRetryAccesses = 0
+C2L1D_NoRetryHits = 0
+C2L1D_NoRetryMisses = 0
+C2L1D_NoRetryHitRatio = 0
+C2L1D_NoRetryReads = 0
+C2L1D_NoRetryReadHits = 0
+C2L1D_NoRetryReadMisses = 0
+C2L1D_NoRetryWrites = 0
+C2L1D_NoRetryWriteHits = 0
+C2L1D_NoRetryWriteMisses = 0
+C2L1D_NoRetryNCWrites = 0
+C2L1D_NoRetryNCWriteHits = 0
+C2L1D_NoRetryNCWriteMisses = 0
+
+
+C2L1D_Thr_degree_distribution
+C2L1D_Thr_degree1 = 0
+C2L1D_Thr_degree2 = 0
+C2L1D_Thr_degree3 = 0
+C2L1D_Thr_degree4 = 0
+C2L1D_Thr_degree_total = 0
+
+C2L1D_Thr_destination_distribution
+C2L1D_Thr_destination_cur_level = 0
+C2L1D_Thr_destination_lower_level = 0
+C2L1D_Thr_destination_total = 0
+
+
+[ C2L1I ]
+
+C2L1I_Sets = 256
+C2L1I_Assoc = 1
+C2L1I_Policy = LRU
+C2L1I_BlockSize = 64
+C2L1I_Latency = 2
+C2L1I_Ports = 2
+
+C2L1I_Accesses = 0
+C2L1I_Hits = 0
+C2L1I_Misses = 0
+C2L1I_HitRatio = 0
+C2L1I_Evictions = 0
+C2L1I_Retries = 0
+
+C2L1I_Demand_Accesses = 0
+C2L1I_Demand_Hits = 0
+C2L1I_Demand_Misses = 0
+C2L1I_Demand_HitRatio = 0
+C2L1I_Demand_Reads = 0
+C2L1I_Demand_Writes = 0
+
+C2L1I_Demand_Access_Modified = 0
+C2L1I_Demand_Hit_Modified = 0
+C2L1I_Demand_Miss_Modified = 0
+C2L1I_Demand_HitRatio_Modified = 0
+C2L1I_Demand_Read_Modified = 0
+C2L1I_Demand_Write_Modified = 0
+
+C2L1I_Pf_indentified = 0 (number of pf_request identified)
+C2L1I_Pf_already_in_MSHR = 0 (pf_request filter by MSHR)
+C2L1I_Pf_already_in_cache = 0 (pf_request filter by this cache)
+C2L1I_Pf_issued = 0 (number of pf_request issued)
+C2L1I_Pf_issued_get_from_mem = 0 (useful if mod == L1)
+C2L1I_Pf_ignored_cross_page_access = 0
+C2L1I_Pf_hits = 0 (useful pf)
+C2L1I_Pf_late = 0 (num of demands which are  waiting for pf)
+C2L1I_Pf_late_load = 0 (num of load which are  waiting for pf)
+C2L1I_Pf_late_store = 0 (num of store which are  waiting for pf)
+C2L1I_Pf_late_cycle = 0 (cycles that demands are waiting for pf_request coming back)
+C2L1I_Pf_late_cycle_load = 0 (cycles that all of load are waiting for pf_request coming back)
+C2L1I_Pf_late_cycle_store = 0 (cycles that all of store are waiting for pf_request coming back)
+C2L1I_Pf_late_load_same_pc = 0 
+C2L1I_Pf_late_store_same_pc = 0 
+C2L1I_Pf_late_same_pc = 0 
+C2L1I_Pf_late_stride_found = 0 
+C2L1I_Pf_late_stride_used = 0 
+C2L1I_Pf_pollution = 0 (miss count of pf-causing)
+C2L1I_Pf_hit_by_upper_level = 0 
+C2L1I_Pf_hit_by_other_core = 0 (used by other core (useless in private cache))
+C2L1I_Pf_early_cycle= 0 (every pf_hit cycles record from insertion to use-by-demand)
+C2L1I_Pf_early_cycle_upper_level= 0 (every pf_hit cycles record from insertion to use-by-upper-level)
+C2L1I_Pf_downup_invalidation = 0
+C2L1I_Pf_pollution_FDP = 0
+
+C2L1I_Pf_in_cache_get_by_others = 0 
+C2L1I_Pf_in_cache_get_by_other_pf = 0 
+C2L1I_Pf_in_cache_get_by_itself = 0 
+C2L1I_Pf_in_cache_get_by_its_own_pf = 0 
+
+C2L1I_Pf_ideal_cache_victim = 0 
+C2L1I_Pf_ideal_wait_cycle = 0 
+C2L1I_Pf_ideal_l1_retry = 0 
+C2L1I_Pf_ideal_l2_retry = 0 
+C2L1I_Pf_ideal_access_count = 0 
+C2L1I_Pf_ideal_latency = 0 
+C2L1I_Pf_ideal_skipped_mem_access = 0 
+
+C2L1I_Pf_stream_trained_stream = 0 
+C2L1I_Pf_stream_renew_stream = 0 
+C2L1I_Pf_stream_cleared_stream = 0 
+C2L1I_Pf_stream_table_replace = 0 
+
+C2L1I mshr_full_block_num = 0 
+C2L1I prefetch_mshr_full_block_num = 0 
+C2L1I acc_waiting_oi_num = 0 
+C2L1I acc_waiting_oi_cycle = 0 
+
+C2L1I acc_load_access_time = 0 
+C2L1I acc_load_find_n_lock = 0 
+C2L1I acc_load_L1_L2_net = 0 
+C2L1I acc_load_L2_access = 0 
+C2L1I acc_load_reply = 0 
+C2L1I acc_load_MM_access = 0 
+C2L1I acc_load_peer_to_peer = 0 
+C2L1I acc_load_wait_old_write = 0 
+C2L1I acc_load_wait_old_inflight_cycle = 0 
+
+C2L1I acc_store_access_time = 0 
+C2L1I acc_store_find_n_lock = 0 
+C2L1I acc_store_L1_L2_net = 0 
+C2L1I acc_store_L2_access = 0 
+C2L1I acc_store_exclusive = 0 
+C2L1I acc_store_reply = 0 
+C2L1I acc_store_MM_access = 0 
+C2L1I acc_store_wait_old_access = 0 
+C2L1I acc_store_wait_old_inflight_cycle = 0 
+
+C2L1I_hint_table_hit = 0 
+C2L1I_hint_table_miss = 0 
+C2L1I_hint_table_full = 0 
+C2L1I_hint_table_hint_trigger_num0 = 0 
+C2L1I_hint_table_hint_trigger_num1 = 0 
+C2L1I_hint_table_hint_trigger_num2 = 0 
+C2L1I_hint_table_hint_trigger_num3 = 0 
+C2L1I_hint_table_hint_change0 = 0 
+C2L1I_hint_table_hint_change1 = 0 
+C2L1I_hint_table_hint_change2 = 0 
+C2L1I_hint_table_hint_change3 = 0 
+
+C2L1I_Pf_local_degree_-2 = 0
+C2L1I_Pf_local_degree_-1 = 0
+C2L1I_Pf_local_degree_0 = 0
+C2L1I_Pf_local_degree_1 = 0
+C2L1I_Pf_local_degree_2 = 0
+
+C2L1I_R_hit_on_self_l1_lat = 0
+C2L1I_R_hit_on_remote_l1_lat = 0
+C2L1I_R_hit_on_l2_lat = 0
+C2L1I_R_hit_on_memory = 0
+C2L1I_R_l1_wo_depend_hit_num = 0
+C2L1I_R_l1_w_depend_hit_num = 0
+C2L1I_R_l1_remote_hit_num = 0
+C2L1I_R_l2_hit_num = 0
+C2L1I_R_mm_hit_num = 0
+
+C2L1I_R_hit_on_self_l1_lat_per_num = -nan
+C2L1I_R_hit_on_remote_l1_lat_per_num = -nan
+C2L1I_R_hit_on_l2_lat_per_num = -nan
+C2L1I_R_hit_on_memory_per_num = -nan
+
+C2L1I_W_hit_on_self_l1_lat = 0
+C2L1I_W_hit_on_remote_l1_lat = 0
+C2L1I_W_hit_on_l2_lat = 0
+C2L1I_W_hit_on_memory = 0
+C2L1I_W_l1_wo_depend_hit_num = 0
+C2L1I_W_l1_w_depend_hit_num = 0
+C2L1I_W_l1_remote_hit_num = 0
+C2L1I_W_l2_hit_num = 0
+C2L1I_W_mm_hit_num = 0
+
+C2L1I_W_hit_on_self_l1_lat_per_num = -nan
+C2L1I_W_hit_on_remote_l1_lat_per_num = -nan
+C2L1I_W_hit_on_l2_lat_per_num = -nan
+C2L1I_W_hit_on_memory_per_num = -nan
+
+C2L1I_R/W_hit_on_self_l1_lat_per_num = -nan
+C2L1I_R/W_hit_on_remote_l1_lat_per_num = -nan
+C2L1I_R/W_hit_on_l2_lat_per_num = -nan
+C2L1I_R/W_hit_on_memory_per_num = -nan
+
+C2L1I_Cache_dead_block_demand = 0 (demand-data which has no reuse)
+C2L1I_Cache_dead_block_demand_caused_by_pf = 0 
+C2L1I_Cache_dead_block_pf = 0 (pf-data which has no reuse)
+C2L1I_Cache_evict_block = 0 
+C2L1I_Cache_evict_block_wo_reused = 0
+C2L1I_Cache_evict_block_reused= 0
+
+
+C2L1I_R/W_l1_wo_depend_hit_num = 0
+C2L1I_R/W_l1_w_depend_hit_num = 0
+C2L1I_R/W_l1_remote_hit_num = 0
+C2L1I_R/W_l2_hit_num = 0
+C2L1I_R/W_mm_hit_num = 0
+C2L1I_R/W_total_access_num = 0
+C2L1I_R/W_L1_hit_ratio = -nan
+C2L1I_R/W_L1_hit_remote_ratio = -nan
+C2L1I_R/W_L2_hit_ratio = -nan
+
+C2L1I_Prefetches = 0
+C2L1I_PrefetchAborts = 0
+C2L1I_UselessPrefetches = 0
+
+C2L1I_Reads = 0
+C2L1I_ReadRetries = 0
+C2L1I_BlockingReads = 0
+C2L1I_NonBlockingReads = 0
+C2L1I_ReadHits = 0
+C2L1I_ReadMisses = 0
+
+C2L1I_Writes = 0
+C2L1I_WriteRetries = 0
+C2L1I_BlockingWrites = 0
+C2L1I_NonBlockingWrites = 0
+C2L1I_WriteHits = 0
+C2L1I_WriteMisses = 0
+
+C2L1I_NCWrites = 0
+C2L1I_NCWriteRetries = 0
+C2L1I_NCBlockingWrites = 0
+C2L1I_NCNonBlockingWrites = 0
+C2L1I_NCWriteHits = 0
+C2L1I_NCWriteMisses = 0
+
+C2L1I_NoRetryAccesses = 0
+C2L1I_NoRetryHits = 0
+C2L1I_NoRetryMisses = 0
+C2L1I_NoRetryHitRatio = 0
+C2L1I_NoRetryReads = 0
+C2L1I_NoRetryReadHits = 0
+C2L1I_NoRetryReadMisses = 0
+C2L1I_NoRetryWrites = 0
+C2L1I_NoRetryWriteHits = 0
+C2L1I_NoRetryWriteMisses = 0
+C2L1I_NoRetryNCWrites = 0
+C2L1I_NoRetryNCWriteHits = 0
+C2L1I_NoRetryNCWriteMisses = 0
+
+
+[ L2 ]
+
+L2_Sets = 2048
+L2_Assoc = 8
+L2_Policy = LRU
+L2_BlockSize = 64
+L2_Latency = 20
+L2_Ports = 4
+
+L2_Accesses = 63
+L2_Hits = 18
+L2_Misses = 45
+L2_HitRatio = 0.2857
+L2_Evictions = 0
+L2_Retries = 0
+
+L2_Demand_Accesses = 63
+L2_Demand_Hits = 18
+L2_Demand_Misses = 45
+L2_Demand_HitRatio = 0.2857
+L2_Demand_Reads = 47
+L2_Demand_Writes = 16
+
+L2_Demand_Access_Modified = 63
+L2_Demand_Hit_Modified = 18
+L2_Demand_Miss_Modified = 45
+L2_Demand_HitRatio_Modified = 0.2857
+L2_Demand_Read_Modified = 47
+L2_Demand_Write_Modified = 16
+
+L2_Pf_indentified = 0 (number of pf_request identified)
+L2_Pf_already_in_MSHR = 0 (pf_request filter by MSHR)
+L2_Pf_already_in_cache = 0 (pf_request filter by this cache)
+L2_Pf_issued = 0 (number of pf_request issued)
+L2_Pf_issued_get_from_mem = 0 (useful if mod == L1)
+L2_Pf_ignored_cross_page_access = 0
+L2_Pf_hits = 0 (useful pf)
+L2_Pf_late = 0 (num of demands which are  waiting for pf)
+L2_Pf_late_load = 0 (num of load which are  waiting for pf)
+L2_Pf_late_store = 0 (num of store which are  waiting for pf)
+L2_Pf_late_cycle = 0 (cycles that demands are waiting for pf_request coming back)
+L2_Pf_late_cycle_load = 0 (cycles that all of load are waiting for pf_request coming back)
+L2_Pf_late_cycle_store = 0 (cycles that all of store are waiting for pf_request coming back)
+L2_Pf_late_load_same_pc = 0 
+L2_Pf_late_store_same_pc = 0 
+L2_Pf_late_same_pc = 0 
+L2_Pf_late_stride_found = 0 
+L2_Pf_late_stride_used = 0 
+L2_Pf_pollution = 0 (miss count of pf-causing)
+L2_Pf_hit_by_upper_level = 0 
+L2_Pf_hit_by_other_core = 0 (used by other core (useless in private cache))
+L2_Pf_early_cycle= 0 (every pf_hit cycles record from insertion to use-by-demand)
+L2_Pf_early_cycle_upper_level= 0 (every pf_hit cycles record from insertion to use-by-upper-level)
+L2_Pf_downup_invalidation = 0
+L2_Pf_pollution_FDP = 0
+
+L2_Pf_in_cache_get_by_others = 0 
+L2_Pf_in_cache_get_by_other_pf = 0 
+L2_Pf_in_cache_get_by_itself = 0 
+L2_Pf_in_cache_get_by_its_own_pf = 0 
+
+L2_Pf_ideal_cache_victim = 0 
+L2_Pf_ideal_wait_cycle = 0 
+L2_Pf_ideal_l1_retry = 0 
+L2_Pf_ideal_l2_retry = 0 
+L2_Pf_ideal_access_count = 0 
+L2_Pf_ideal_latency = 0 
+L2_Pf_ideal_skipped_mem_access = 0 
+
+L2_Pf_stream_trained_stream = 0 
+L2_Pf_stream_renew_stream = 0 
+L2_Pf_stream_cleared_stream = 0 
+L2_Pf_stream_table_replace = 0 
+
+L2 mshr_full_block_num = 0 
+L2 prefetch_mshr_full_block_num = 0 
+L2 acc_waiting_oi_num = 0 
+L2 acc_waiting_oi_cycle = 0 
+
+L2 acc_load_access_time = 0 
+L2 acc_load_find_n_lock = 0 
+L2 acc_load_L1_L2_net = 0 
+L2 acc_load_L2_access = 0 
+L2 acc_load_reply = 0 
+L2 acc_load_MM_access = 0 
+L2 acc_load_peer_to_peer = 0 
+L2 acc_load_wait_old_write = 0 
+L2 acc_load_wait_old_inflight_cycle = 0 
+
+L2 acc_store_access_time = 0 
+L2 acc_store_find_n_lock = 0 
+L2 acc_store_L1_L2_net = 0 
+L2 acc_store_L2_access = 0 
+L2 acc_store_exclusive = 0 
+L2 acc_store_reply = 0 
+L2 acc_store_MM_access = 0 
+L2 acc_store_wait_old_access = 0 
+L2 acc_store_wait_old_inflight_cycle = 0 
+
+L2_hint_table_hit = 0 
+L2_hint_table_miss = 0 
+L2_hint_table_full = 0 
+L2_hint_table_hint_trigger_num0 = 408 
+L2_hint_table_hint_trigger_num1 = 0 
+L2_hint_table_hint_trigger_num2 = 0 
+L2_hint_table_hint_trigger_num3 = 0 
+L2_hint_table_hint_change0 = 0 
+L2_hint_table_hint_change1 = 0 
+L2_hint_table_hint_change2 = 0 
+L2_hint_table_hint_change3 = 0 
+
+L2_Pf_local_degree_-2 = 0
+L2_Pf_local_degree_-1 = 0
+L2_Pf_local_degree_0 = 0
+L2_Pf_local_degree_1 = 0
+L2_Pf_local_degree_2 = 0
+
+L2_R_hit_on_self_l1_lat = 0
+L2_R_hit_on_remote_l1_lat = 0
+L2_R_hit_on_l2_lat = 0
+L2_R_hit_on_memory = 0
+L2_R_l1_wo_depend_hit_num = 0
+L2_R_l1_w_depend_hit_num = 0
+L2_R_l1_remote_hit_num = 0
+L2_R_l2_hit_num = 0
+L2_R_mm_hit_num = 0
+
+L2_R_hit_on_self_l1_lat_per_num = -nan
+L2_R_hit_on_remote_l1_lat_per_num = -nan
+L2_R_hit_on_l2_lat_per_num = -nan
+L2_R_hit_on_memory_per_num = -nan
+
+L2_W_hit_on_self_l1_lat = 0
+L2_W_hit_on_remote_l1_lat = 0
+L2_W_hit_on_l2_lat = 0
+L2_W_hit_on_memory = 0
+L2_W_l1_wo_depend_hit_num = 0
+L2_W_l1_w_depend_hit_num = 0
+L2_W_l1_remote_hit_num = 0
+L2_W_l2_hit_num = 0
+L2_W_mm_hit_num = 0
+
+L2_W_hit_on_self_l1_lat_per_num = -nan
+L2_W_hit_on_remote_l1_lat_per_num = -nan
+L2_W_hit_on_l2_lat_per_num = -nan
+L2_W_hit_on_memory_per_num = -nan
+
+L2_R/W_hit_on_self_l1_lat_per_num = -nan
+L2_R/W_hit_on_remote_l1_lat_per_num = -nan
+L2_R/W_hit_on_l2_lat_per_num = -nan
+L2_R/W_hit_on_memory_per_num = -nan
+
+L2_Cache_dead_block_demand = 0 (demand-data which has no reuse)
+L2_Cache_dead_block_demand_caused_by_pf = 0 
+L2_Cache_dead_block_pf = 0 (pf-data which has no reuse)
+L2_Cache_evict_block = 0 
+L2_Cache_evict_block_wo_reused = 0
+L2_Cache_evict_block_reused= 0
+
+
+L2_R/W_l1_wo_depend_hit_num = 0
+L2_R/W_l1_w_depend_hit_num = 0
+L2_R/W_l1_remote_hit_num = 0
+L2_R/W_l2_hit_num = 0
+L2_R/W_mm_hit_num = 0
+L2_R/W_total_access_num = 0
+L2_R/W_L1_hit_ratio = -nan
+L2_R/W_L1_hit_remote_ratio = -nan
+L2_R/W_L2_hit_ratio = -nan
+
+L2_Prefetches = 0
+L2_PrefetchAborts = 0
+L2_UselessPrefetches = 0
+
+L2_Reads = 47
+L2_ReadRetries = 0
+L2_BlockingReads = 0
+L2_NonBlockingReads = 47
+L2_ReadHits = 10
+L2_ReadMisses = 37
+
+L2_Writes = 16
+L2_WriteRetries = 0
+L2_BlockingWrites = 0
+L2_NonBlockingWrites = 16
+L2_WriteHits = 8
+L2_WriteMisses = 8
+
+L2_NCWrites = 0
+L2_NCWriteRetries = 0
+L2_NCBlockingWrites = 0
+L2_NCNonBlockingWrites = 0
+L2_NCWriteHits = 0
+L2_NCWriteMisses = 0
+
+L2_NoRetryAccesses = 63
+L2_NoRetryHits = 18
+L2_NoRetryMisses = 45
+L2_NoRetryHitRatio = 0.2857
+L2_NoRetryReads = 47
+L2_NoRetryReadHits = 10
+L2_NoRetryReadMisses = 37
+L2_NoRetryWrites = 16
+L2_NoRetryWriteHits = 8
+L2_NoRetryWriteMisses = 8
+L2_NoRetryNCWrites = 0
+L2_NoRetryNCWriteHits = 0
+L2_NoRetryNCWriteMisses = -8
+
+
+L2_Thr_degree_distribution
+L2_Thr_degree1 = 0
+L2_Thr_degree2 = 0
+L2_Thr_degree3 = 0
+L2_Thr_degree4 = 0
+L2_Thr_degree_total = 0
+
+L2_Thr_destination_distribution
+L2_Thr_destination_cur_level = 0
+L2_Thr_destination_lower_level = 0
+L2_Thr_destination_total = 0
+
+
+[ C1L1D ]
+
+C1L1D_Sets = 128
+C1L1D_Assoc = 4
+C1L1D_Policy = LRU
+C1L1D_BlockSize = 32
+C1L1D_Latency = 2
+C1L1D_Ports = 2
+
+C1L1D_Accesses = 0
+C1L1D_Hits = 0
+C1L1D_Misses = 0
+C1L1D_HitRatio = 0
+C1L1D_Evictions = 0
+C1L1D_Retries = 0
+
+C1L1D_Demand_Accesses = 0
+C1L1D_Demand_Hits = 0
+C1L1D_Demand_Misses = 0
+C1L1D_Demand_HitRatio = 0
+C1L1D_Demand_Reads = 0
+C1L1D_Demand_Writes = 0
+
+C1L1D_Demand_Access_Modified = 0
+C1L1D_Demand_Hit_Modified = 0
+C1L1D_Demand_Miss_Modified = 0
+C1L1D_Demand_HitRatio_Modified = 0
+C1L1D_Demand_Read_Modified = 0
+C1L1D_Demand_Write_Modified = 0
+
+C1L1D_Pf_indentified = 0 (number of pf_request identified)
+C1L1D_Pf_already_in_MSHR = 0 (pf_request filter by MSHR)
+C1L1D_Pf_already_in_cache = 0 (pf_request filter by this cache)
+C1L1D_Pf_issued = 0 (number of pf_request issued)
+C1L1D_Pf_issued_get_from_mem = 0 (useful if mod == L1)
+C1L1D_Pf_ignored_cross_page_access = 0
+C1L1D_Pf_hits = 0 (useful pf)
+C1L1D_Pf_late = 0 (num of demands which are  waiting for pf)
+C1L1D_Pf_late_load = 0 (num of load which are  waiting for pf)
+C1L1D_Pf_late_store = 0 (num of store which are  waiting for pf)
+C1L1D_Pf_late_cycle = 0 (cycles that demands are waiting for pf_request coming back)
+C1L1D_Pf_late_cycle_load = 0 (cycles that all of load are waiting for pf_request coming back)
+C1L1D_Pf_late_cycle_store = 0 (cycles that all of store are waiting for pf_request coming back)
+C1L1D_Pf_late_load_same_pc = 0 
+C1L1D_Pf_late_store_same_pc = 0 
+C1L1D_Pf_late_same_pc = 0 
+C1L1D_Pf_late_stride_found = 0 
+C1L1D_Pf_late_stride_used = 0 
+C1L1D_Pf_pollution = 0 (miss count of pf-causing)
+C1L1D_Pf_hit_by_upper_level = 0 
+C1L1D_Pf_hit_by_other_core = 0 (used by other core (useless in private cache))
+C1L1D_Pf_early_cycle= 0 (every pf_hit cycles record from insertion to use-by-demand)
+C1L1D_Pf_early_cycle_upper_level= 0 (every pf_hit cycles record from insertion to use-by-upper-level)
+C1L1D_Pf_downup_invalidation = 0
+C1L1D_Pf_pollution_FDP = 0
+
+C1L1D_Pf_in_cache_get_by_others = 0 
+C1L1D_Pf_in_cache_get_by_other_pf = 0 
+C1L1D_Pf_in_cache_get_by_itself = 0 
+C1L1D_Pf_in_cache_get_by_its_own_pf = 0 
+
+C1L1D_Pf_ideal_cache_victim = 0 
+C1L1D_Pf_ideal_wait_cycle = 0 
+C1L1D_Pf_ideal_l1_retry = 0 
+C1L1D_Pf_ideal_l2_retry = 0 
+C1L1D_Pf_ideal_access_count = 0 
+C1L1D_Pf_ideal_latency = 0 
+C1L1D_Pf_ideal_skipped_mem_access = 0 
+
+C1L1D_Pf_stream_trained_stream = 0 
+C1L1D_Pf_stream_renew_stream = 0 
+C1L1D_Pf_stream_cleared_stream = 0 
+C1L1D_Pf_stream_table_replace = 0 
+
+C1L1D mshr_full_block_num = 0 
+C1L1D prefetch_mshr_full_block_num = 0 
+C1L1D acc_waiting_oi_num = 0 
+C1L1D acc_waiting_oi_cycle = 0 
+
+C1L1D acc_load_access_time = 0 
+C1L1D acc_load_find_n_lock = 0 
+C1L1D acc_load_L1_L2_net = 0 
+C1L1D acc_load_L2_access = 0 
+C1L1D acc_load_reply = 0 
+C1L1D acc_load_MM_access = 0 
+C1L1D acc_load_peer_to_peer = 0 
+C1L1D acc_load_wait_old_write = 0 
+C1L1D acc_load_wait_old_inflight_cycle = 0 
+
+C1L1D acc_store_access_time = 0 
+C1L1D acc_store_find_n_lock = 0 
+C1L1D acc_store_L1_L2_net = 0 
+C1L1D acc_store_L2_access = 0 
+C1L1D acc_store_exclusive = 0 
+C1L1D acc_store_reply = 0 
+C1L1D acc_store_MM_access = 0 
+C1L1D acc_store_wait_old_access = 0 
+C1L1D acc_store_wait_old_inflight_cycle = 0 
+
+C1L1D_hint_table_hit = 0 
+C1L1D_hint_table_miss = 0 
+C1L1D_hint_table_full = 0 
+C1L1D_hint_table_hint_trigger_num0 = 0 
+C1L1D_hint_table_hint_trigger_num1 = 0 
+C1L1D_hint_table_hint_trigger_num2 = 0 
+C1L1D_hint_table_hint_trigger_num3 = 0 
+C1L1D_hint_table_hint_change0 = 0 
+C1L1D_hint_table_hint_change1 = 0 
+C1L1D_hint_table_hint_change2 = 0 
+C1L1D_hint_table_hint_change3 = 0 
+
+C1L1D_Pf_local_degree_-2 = 0
+C1L1D_Pf_local_degree_-1 = 0
+C1L1D_Pf_local_degree_0 = 0
+C1L1D_Pf_local_degree_1 = 0
+C1L1D_Pf_local_degree_2 = 0
+
+C1L1D_R_hit_on_self_l1_lat = 0
+C1L1D_R_hit_on_remote_l1_lat = 0
+C1L1D_R_hit_on_l2_lat = 0
+C1L1D_R_hit_on_memory = 0
+C1L1D_R_l1_wo_depend_hit_num = 0
+C1L1D_R_l1_w_depend_hit_num = 0
+C1L1D_R_l1_remote_hit_num = 0
+C1L1D_R_l2_hit_num = 0
+C1L1D_R_mm_hit_num = 0
+
+C1L1D_R_hit_on_self_l1_lat_per_num = -nan
+C1L1D_R_hit_on_remote_l1_lat_per_num = -nan
+C1L1D_R_hit_on_l2_lat_per_num = -nan
+C1L1D_R_hit_on_memory_per_num = -nan
+
+C1L1D_W_hit_on_self_l1_lat = 0
+C1L1D_W_hit_on_remote_l1_lat = 0
+C1L1D_W_hit_on_l2_lat = 0
+C1L1D_W_hit_on_memory = 0
+C1L1D_W_l1_wo_depend_hit_num = 0
+C1L1D_W_l1_w_depend_hit_num = 0
+C1L1D_W_l1_remote_hit_num = 0
+C1L1D_W_l2_hit_num = 0
+C1L1D_W_mm_hit_num = 0
+
+C1L1D_W_hit_on_self_l1_lat_per_num = -nan
+C1L1D_W_hit_on_remote_l1_lat_per_num = -nan
+C1L1D_W_hit_on_l2_lat_per_num = -nan
+C1L1D_W_hit_on_memory_per_num = -nan
+
+C1L1D_R/W_hit_on_self_l1_lat_per_num = -nan
+C1L1D_R/W_hit_on_remote_l1_lat_per_num = -nan
+C1L1D_R/W_hit_on_l2_lat_per_num = -nan
+C1L1D_R/W_hit_on_memory_per_num = -nan
+
+C1L1D_Cache_dead_block_demand = 0 (demand-data which has no reuse)
+C1L1D_Cache_dead_block_demand_caused_by_pf = 0 
+C1L1D_Cache_dead_block_pf = 0 (pf-data which has no reuse)
+C1L1D_Cache_evict_block = 0 
+C1L1D_Cache_evict_block_wo_reused = 0
+C1L1D_Cache_evict_block_reused= 0
+
+
+C1L1D_R/W_l1_wo_depend_hit_num = 0
+C1L1D_R/W_l1_w_depend_hit_num = 0
+C1L1D_R/W_l1_remote_hit_num = 0
+C1L1D_R/W_l2_hit_num = 0
+C1L1D_R/W_mm_hit_num = 0
+C1L1D_R/W_total_access_num = 0
+C1L1D_R/W_L1_hit_ratio = -nan
+C1L1D_R/W_L1_hit_remote_ratio = -nan
+C1L1D_R/W_L2_hit_ratio = -nan
+
+C1L1D_Prefetches = 0
+C1L1D_PrefetchAborts = 0
+C1L1D_UselessPrefetches = 0
+
+C1L1D_Reads = 0
+C1L1D_ReadRetries = 0
+C1L1D_BlockingReads = 0
+C1L1D_NonBlockingReads = 0
+C1L1D_ReadHits = 0
+C1L1D_ReadMisses = 0
+
+C1L1D_Writes = 0
+C1L1D_WriteRetries = 0
+C1L1D_BlockingWrites = 0
+C1L1D_NonBlockingWrites = 0
+C1L1D_WriteHits = 0
+C1L1D_WriteMisses = 0
+
+C1L1D_NCWrites = 0
+C1L1D_NCWriteRetries = 0
+C1L1D_NCBlockingWrites = 0
+C1L1D_NCNonBlockingWrites = 0
+C1L1D_NCWriteHits = 0
+C1L1D_NCWriteMisses = 0
+
+C1L1D_NoRetryAccesses = 0
+C1L1D_NoRetryHits = 0
+C1L1D_NoRetryMisses = 0
+C1L1D_NoRetryHitRatio = 0
+C1L1D_NoRetryReads = 0
+C1L1D_NoRetryReadHits = 0
+C1L1D_NoRetryReadMisses = 0
+C1L1D_NoRetryWrites = 0
+C1L1D_NoRetryWriteHits = 0
+C1L1D_NoRetryWriteMisses = 0
+C1L1D_NoRetryNCWrites = 0
+C1L1D_NoRetryNCWriteHits = 0
+C1L1D_NoRetryNCWriteMisses = 0
+
+
+C1L1D_Thr_degree_distribution
+C1L1D_Thr_degree1 = 0
+C1L1D_Thr_degree2 = 0
+C1L1D_Thr_degree3 = 0
+C1L1D_Thr_degree4 = 0
+C1L1D_Thr_degree_total = 0
+
+C1L1D_Thr_destination_distribution
+C1L1D_Thr_destination_cur_level = 0
+C1L1D_Thr_destination_lower_level = 0
+C1L1D_Thr_destination_total = 0
+
+
+[ MM ]
+
+MM_Sets = 128
+MM_Assoc = 8
+MM_Policy = LRU
+MM_BlockSize = 64
+MM_Latency = 1
+MM_Ports = 2
+
+MM_Accesses = 45
+MM_Hits = 0
+MM_Misses = 45
+MM_HitRatio = 0
+MM_Evictions = 0
+MM_Retries = 0
+
+MM_Demand_Accesses = 45
+MM_Demand_Hits = 0
+MM_Demand_Misses = 45
+MM_Demand_HitRatio = 0
+MM_Demand_Reads = 37
+MM_Demand_Writes = 8
+
+MM_Demand_Access_Modified = 45
+MM_Demand_Hit_Modified = 0
+MM_Demand_Miss_Modified = 45
+MM_Demand_HitRatio_Modified = 0
+MM_Demand_Read_Modified = 37
+MM_Demand_Write_Modified = 8
+
+MM_Pf_indentified = 0 (number of pf_request identified)
+MM_Pf_already_in_MSHR = 0 (pf_request filter by MSHR)
+MM_Pf_already_in_cache = 0 (pf_request filter by this cache)
+MM_Pf_issued = 0 (number of pf_request issued)
+MM_Pf_issued_get_from_mem = 0 (useful if mod == L1)
+MM_Pf_ignored_cross_page_access = 0
+MM_Pf_hits = 0 (useful pf)
+MM_Pf_late = 0 (num of demands which are  waiting for pf)
+MM_Pf_late_load = 0 (num of load which are  waiting for pf)
+MM_Pf_late_store = 0 (num of store which are  waiting for pf)
+MM_Pf_late_cycle = 0 (cycles that demands are waiting for pf_request coming back)
+MM_Pf_late_cycle_load = 0 (cycles that all of load are waiting for pf_request coming back)
+MM_Pf_late_cycle_store = 0 (cycles that all of store are waiting for pf_request coming back)
+MM_Pf_late_load_same_pc = 0 
+MM_Pf_late_store_same_pc = 0 
+MM_Pf_late_same_pc = 0 
+MM_Pf_late_stride_found = 0 
+MM_Pf_late_stride_used = 0 
+MM_Pf_pollution = 0 (miss count of pf-causing)
+MM_Pf_hit_by_upper_level = 0 
+MM_Pf_hit_by_other_core = 0 (used by other core (useless in private cache))
+MM_Pf_early_cycle= 0 (every pf_hit cycles record from insertion to use-by-demand)
+MM_Pf_early_cycle_upper_level= 0 (every pf_hit cycles record from insertion to use-by-upper-level)
+MM_Pf_downup_invalidation = 0
+MM_Pf_pollution_FDP = 0
+
+MM_Pf_in_cache_get_by_others = 0 
+MM_Pf_in_cache_get_by_other_pf = 0 
+MM_Pf_in_cache_get_by_itself = 0 
+MM_Pf_in_cache_get_by_its_own_pf = 0 
+
+MM_Pf_ideal_cache_victim = 0 
+MM_Pf_ideal_wait_cycle = 0 
+MM_Pf_ideal_l1_retry = 0 
+MM_Pf_ideal_l2_retry = 0 
+MM_Pf_ideal_access_count = 0 
+MM_Pf_ideal_latency = 0 
+MM_Pf_ideal_skipped_mem_access = 0 
+
+MM_Pf_stream_trained_stream = 0 
+MM_Pf_stream_renew_stream = 0 
+MM_Pf_stream_cleared_stream = 0 
+MM_Pf_stream_table_replace = 0 
+
+MM mshr_full_block_num = 0 
+MM prefetch_mshr_full_block_num = 0 
+MM acc_waiting_oi_num = 0 
+MM acc_waiting_oi_cycle = 0 
+
+MM acc_load_access_time = 3700 
+MM acc_load_find_n_lock = 0 
+MM acc_load_L1_L2_net = 0 
+MM acc_load_L2_access = 0 
+MM acc_load_reply = 0 
+MM acc_load_MM_access = 0 
+MM acc_load_peer_to_peer = 0 
+MM acc_load_wait_old_write = 0 
+MM acc_load_wait_old_inflight_cycle = 0 
+
+MM acc_store_access_time = 800 
+MM acc_store_find_n_lock = 0 
+MM acc_store_L1_L2_net = 0 
+MM acc_store_L2_access = 0 
+MM acc_store_exclusive = 0 
+MM acc_store_reply = 0 
+MM acc_store_MM_access = 0 
+MM acc_store_wait_old_access = 0 
+MM acc_store_wait_old_inflight_cycle = 0 
+
+MM_hint_table_hit = 0 
+MM_hint_table_miss = 0 
+MM_hint_table_full = 0 
+MM_hint_table_hint_trigger_num0 = 0 
+MM_hint_table_hint_trigger_num1 = 0 
+MM_hint_table_hint_trigger_num2 = 0 
+MM_hint_table_hint_trigger_num3 = 0 
+MM_hint_table_hint_change0 = 0 
+MM_hint_table_hint_change1 = 0 
+MM_hint_table_hint_change2 = 0 
+MM_hint_table_hint_change3 = 0 
+
+MM_Pf_local_degree_-2 = 0
+MM_Pf_local_degree_-1 = 0
+MM_Pf_local_degree_0 = 0
+MM_Pf_local_degree_1 = 0
+MM_Pf_local_degree_2 = 0
+
+MM_R_hit_on_self_l1_lat = 0
+MM_R_hit_on_remote_l1_lat = 0
+MM_R_hit_on_l2_lat = 0
+MM_R_hit_on_memory = 0
+MM_R_l1_wo_depend_hit_num = 0
+MM_R_l1_w_depend_hit_num = 0
+MM_R_l1_remote_hit_num = 0
+MM_R_l2_hit_num = 0
+MM_R_mm_hit_num = 0
+
+MM_R_hit_on_self_l1_lat_per_num = -nan
+MM_R_hit_on_remote_l1_lat_per_num = -nan
+MM_R_hit_on_l2_lat_per_num = -nan
+MM_R_hit_on_memory_per_num = -nan
+
+MM_W_hit_on_self_l1_lat = 0
+MM_W_hit_on_remote_l1_lat = 0
+MM_W_hit_on_l2_lat = 0
+MM_W_hit_on_memory = 0
+MM_W_l1_wo_depend_hit_num = 0
+MM_W_l1_w_depend_hit_num = 0
+MM_W_l1_remote_hit_num = 0
+MM_W_l2_hit_num = 0
+MM_W_mm_hit_num = 0
+
+MM_W_hit_on_self_l1_lat_per_num = -nan
+MM_W_hit_on_remote_l1_lat_per_num = -nan
+MM_W_hit_on_l2_lat_per_num = -nan
+MM_W_hit_on_memory_per_num = -nan
+
+MM_R/W_hit_on_self_l1_lat_per_num = -nan
+MM_R/W_hit_on_remote_l1_lat_per_num = -nan
+MM_R/W_hit_on_l2_lat_per_num = -nan
+MM_R/W_hit_on_memory_per_num = -nan
+
+MM_Cache_dead_block_demand = 0 (demand-data which has no reuse)
+MM_Cache_dead_block_demand_caused_by_pf = 0 
+MM_Cache_dead_block_pf = 0 (pf-data which has no reuse)
+MM_Cache_evict_block = 0 
+MM_Cache_evict_block_wo_reused = 0
+MM_Cache_evict_block_reused= 0
+
+
+MM_R/W_l1_wo_depend_hit_num = 0
+MM_R/W_l1_w_depend_hit_num = 0
+MM_R/W_l1_remote_hit_num = 0
+MM_R/W_l2_hit_num = 0
+MM_R/W_mm_hit_num = 0
+MM_R/W_total_access_num = 0
+MM_R/W_L1_hit_ratio = -nan
+MM_R/W_L1_hit_remote_ratio = -nan
+MM_R/W_L2_hit_ratio = -nan
+
+MM_Prefetches = 0
+MM_PrefetchAborts = 0
+MM_UselessPrefetches = 0
+
+MM_Reads = 37
+MM_ReadRetries = 0
+MM_BlockingReads = 0
+MM_NonBlockingReads = 37
+MM_ReadHits = 0
+MM_ReadMisses = 37
+
+MM_Writes = 8
+MM_WriteRetries = 0
+MM_BlockingWrites = 0
+MM_NonBlockingWrites = 8
+MM_WriteHits = 0
+MM_WriteMisses = 8
+
+MM_NCWrites = 0
+MM_NCWriteRetries = 0
+MM_NCBlockingWrites = 0
+MM_NCNonBlockingWrites = 0
+MM_NCWriteHits = 0
+MM_NCWriteMisses = 0
+
+MM_NoRetryAccesses = 45
+MM_NoRetryHits = 0
+MM_NoRetryMisses = 45
+MM_NoRetryHitRatio = 0
+MM_NoRetryReads = 37
+MM_NoRetryReadHits = 0
+MM_NoRetryReadMisses = 37
+MM_NoRetryWrites = 8
+MM_NoRetryWriteHits = 0
+MM_NoRetryWriteMisses = 8
+MM_NoRetryNCWrites = 0
+MM_NoRetryNCWriteHits = 0
+MM_NoRetryNCWriteMisses = 0
+
+
+[ C1L1I ]
+
+C1L1I_Sets = 256
+C1L1I_Assoc = 1
+C1L1I_Policy = LRU
+C1L1I_BlockSize = 64
+C1L1I_Latency = 2
+C1L1I_Ports = 2
+
+C1L1I_Accesses = 0
+C1L1I_Hits = 0
+C1L1I_Misses = 0
+C1L1I_HitRatio = 0
+C1L1I_Evictions = 0
+C1L1I_Retries = 0
+
+C1L1I_Demand_Accesses = 0
+C1L1I_Demand_Hits = 0
+C1L1I_Demand_Misses = 0
+C1L1I_Demand_HitRatio = 0
+C1L1I_Demand_Reads = 0
+C1L1I_Demand_Writes = 0
+
+C1L1I_Demand_Access_Modified = 0
+C1L1I_Demand_Hit_Modified = 0
+C1L1I_Demand_Miss_Modified = 0
+C1L1I_Demand_HitRatio_Modified = 0
+C1L1I_Demand_Read_Modified = 0
+C1L1I_Demand_Write_Modified = 0
+
+C1L1I_Pf_indentified = 0 (number of pf_request identified)
+C1L1I_Pf_already_in_MSHR = 0 (pf_request filter by MSHR)
+C1L1I_Pf_already_in_cache = 0 (pf_request filter by this cache)
+C1L1I_Pf_issued = 0 (number of pf_request issued)
+C1L1I_Pf_issued_get_from_mem = 0 (useful if mod == L1)
+C1L1I_Pf_ignored_cross_page_access = 0
+C1L1I_Pf_hits = 0 (useful pf)
+C1L1I_Pf_late = 0 (num of demands which are  waiting for pf)
+C1L1I_Pf_late_load = 0 (num of load which are  waiting for pf)
+C1L1I_Pf_late_store = 0 (num of store which are  waiting for pf)
+C1L1I_Pf_late_cycle = 0 (cycles that demands are waiting for pf_request coming back)
+C1L1I_Pf_late_cycle_load = 0 (cycles that all of load are waiting for pf_request coming back)
+C1L1I_Pf_late_cycle_store = 0 (cycles that all of store are waiting for pf_request coming back)
+C1L1I_Pf_late_load_same_pc = 0 
+C1L1I_Pf_late_store_same_pc = 0 
+C1L1I_Pf_late_same_pc = 0 
+C1L1I_Pf_late_stride_found = 0 
+C1L1I_Pf_late_stride_used = 0 
+C1L1I_Pf_pollution = 0 (miss count of pf-causing)
+C1L1I_Pf_hit_by_upper_level = 0 
+C1L1I_Pf_hit_by_other_core = 0 (used by other core (useless in private cache))
+C1L1I_Pf_early_cycle= 0 (every pf_hit cycles record from insertion to use-by-demand)
+C1L1I_Pf_early_cycle_upper_level= 0 (every pf_hit cycles record from insertion to use-by-upper-level)
+C1L1I_Pf_downup_invalidation = 0
+C1L1I_Pf_pollution_FDP = 0
+
+C1L1I_Pf_in_cache_get_by_others = 0 
+C1L1I_Pf_in_cache_get_by_other_pf = 0 
+C1L1I_Pf_in_cache_get_by_itself = 0 
+C1L1I_Pf_in_cache_get_by_its_own_pf = 0 
+
+C1L1I_Pf_ideal_cache_victim = 0 
+C1L1I_Pf_ideal_wait_cycle = 0 
+C1L1I_Pf_ideal_l1_retry = 0 
+C1L1I_Pf_ideal_l2_retry = 0 
+C1L1I_Pf_ideal_access_count = 0 
+C1L1I_Pf_ideal_latency = 0 
+C1L1I_Pf_ideal_skipped_mem_access = 0 
+
+C1L1I_Pf_stream_trained_stream = 0 
+C1L1I_Pf_stream_renew_stream = 0 
+C1L1I_Pf_stream_cleared_stream = 0 
+C1L1I_Pf_stream_table_replace = 0 
+
+C1L1I mshr_full_block_num = 0 
+C1L1I prefetch_mshr_full_block_num = 0 
+C1L1I acc_waiting_oi_num = 0 
+C1L1I acc_waiting_oi_cycle = 0 
+
+C1L1I acc_load_access_time = 0 
+C1L1I acc_load_find_n_lock = 0 
+C1L1I acc_load_L1_L2_net = 0 
+C1L1I acc_load_L2_access = 0 
+C1L1I acc_load_reply = 0 
+C1L1I acc_load_MM_access = 0 
+C1L1I acc_load_peer_to_peer = 0 
+C1L1I acc_load_wait_old_write = 0 
+C1L1I acc_load_wait_old_inflight_cycle = 0 
+
+C1L1I acc_store_access_time = 0 
+C1L1I acc_store_find_n_lock = 0 
+C1L1I acc_store_L1_L2_net = 0 
+C1L1I acc_store_L2_access = 0 
+C1L1I acc_store_exclusive = 0 
+C1L1I acc_store_reply = 0 
+C1L1I acc_store_MM_access = 0 
+C1L1I acc_store_wait_old_access = 0 
+C1L1I acc_store_wait_old_inflight_cycle = 0 
+
+C1L1I_hint_table_hit = 0 
+C1L1I_hint_table_miss = 0 
+C1L1I_hint_table_full = 0 
+C1L1I_hint_table_hint_trigger_num0 = 0 
+C1L1I_hint_table_hint_trigger_num1 = 0 
+C1L1I_hint_table_hint_trigger_num2 = 0 
+C1L1I_hint_table_hint_trigger_num3 = 0 
+C1L1I_hint_table_hint_change0 = 0 
+C1L1I_hint_table_hint_change1 = 0 
+C1L1I_hint_table_hint_change2 = 0 
+C1L1I_hint_table_hint_change3 = 0 
+
+C1L1I_Pf_local_degree_-2 = 0
+C1L1I_Pf_local_degree_-1 = 0
+C1L1I_Pf_local_degree_0 = 0
+C1L1I_Pf_local_degree_1 = 0
+C1L1I_Pf_local_degree_2 = 0
+
+C1L1I_R_hit_on_self_l1_lat = 0
+C1L1I_R_hit_on_remote_l1_lat = 0
+C1L1I_R_hit_on_l2_lat = 0
+C1L1I_R_hit_on_memory = 0
+C1L1I_R_l1_wo_depend_hit_num = 0
+C1L1I_R_l1_w_depend_hit_num = 0
+C1L1I_R_l1_remote_hit_num = 0
+C1L1I_R_l2_hit_num = 0
+C1L1I_R_mm_hit_num = 0
+
+C1L1I_R_hit_on_self_l1_lat_per_num = -nan
+C1L1I_R_hit_on_remote_l1_lat_per_num = -nan
+C1L1I_R_hit_on_l2_lat_per_num = -nan
+C1L1I_R_hit_on_memory_per_num = -nan
+
+C1L1I_W_hit_on_self_l1_lat = 0
+C1L1I_W_hit_on_remote_l1_lat = 0
+C1L1I_W_hit_on_l2_lat = 0
+C1L1I_W_hit_on_memory = 0
+C1L1I_W_l1_wo_depend_hit_num = 0
+C1L1I_W_l1_w_depend_hit_num = 0
+C1L1I_W_l1_remote_hit_num = 0
+C1L1I_W_l2_hit_num = 0
+C1L1I_W_mm_hit_num = 0
+
+C1L1I_W_hit_on_self_l1_lat_per_num = -nan
+C1L1I_W_hit_on_remote_l1_lat_per_num = -nan
+C1L1I_W_hit_on_l2_lat_per_num = -nan
+C1L1I_W_hit_on_memory_per_num = -nan
+
+C1L1I_R/W_hit_on_self_l1_lat_per_num = -nan
+C1L1I_R/W_hit_on_remote_l1_lat_per_num = -nan
+C1L1I_R/W_hit_on_l2_lat_per_num = -nan
+C1L1I_R/W_hit_on_memory_per_num = -nan
+
+C1L1I_Cache_dead_block_demand = 0 (demand-data which has no reuse)
+C1L1I_Cache_dead_block_demand_caused_by_pf = 0 
+C1L1I_Cache_dead_block_pf = 0 (pf-data which has no reuse)
+C1L1I_Cache_evict_block = 0 
+C1L1I_Cache_evict_block_wo_reused = 0
+C1L1I_Cache_evict_block_reused= 0
+
+
+C1L1I_R/W_l1_wo_depend_hit_num = 0
+C1L1I_R/W_l1_w_depend_hit_num = 0
+C1L1I_R/W_l1_remote_hit_num = 0
+C1L1I_R/W_l2_hit_num = 0
+C1L1I_R/W_mm_hit_num = 0
+C1L1I_R/W_total_access_num = 0
+C1L1I_R/W_L1_hit_ratio = -nan
+C1L1I_R/W_L1_hit_remote_ratio = -nan
+C1L1I_R/W_L2_hit_ratio = -nan
+
+C1L1I_Prefetches = 0
+C1L1I_PrefetchAborts = 0
+C1L1I_UselessPrefetches = 0
+
+C1L1I_Reads = 0
+C1L1I_ReadRetries = 0
+C1L1I_BlockingReads = 0
+C1L1I_NonBlockingReads = 0
+C1L1I_ReadHits = 0
+C1L1I_ReadMisses = 0
+
+C1L1I_Writes = 0
+C1L1I_WriteRetries = 0
+C1L1I_BlockingWrites = 0
+C1L1I_NonBlockingWrites = 0
+C1L1I_WriteHits = 0
+C1L1I_WriteMisses = 0
+
+C1L1I_NCWrites = 0
+C1L1I_NCWriteRetries = 0
+C1L1I_NCBlockingWrites = 0
+C1L1I_NCNonBlockingWrites = 0
+C1L1I_NCWriteHits = 0
+C1L1I_NCWriteMisses = 0
+
+C1L1I_NoRetryAccesses = 0
+C1L1I_NoRetryHits = 0
+C1L1I_NoRetryMisses = 0
+C1L1I_NoRetryHitRatio = 0
+C1L1I_NoRetryReads = 0
+C1L1I_NoRetryReadHits = 0
+C1L1I_NoRetryReadMisses = 0
+C1L1I_NoRetryWrites = 0
+C1L1I_NoRetryWriteHits = 0
+C1L1I_NoRetryWriteMisses = 0
+C1L1I_NoRetryNCWrites = 0
+C1L1I_NoRetryNCWriteHits = 0
+C1L1I_NoRetryNCWriteMisses = 0
+
+
+[ Network.net-l2-mm.General ]
+Transfers = 90
+AverageMessageSize = 40.00
+AverageLatency = 5.5000
+
+msg_size_8B_num = 45
+msg_size_72B_num = 45
+msg_size_else_num = 0
+
+WAIT EVENT
+output_buffer_must_wait_num = 0
+src_C0L1D_dst_L2_output_buffer_must_wait_num = 0
+src_C1L1D_dst_L2_output_buffer_must_wait_num = 0
+src_C2L1D_dst_L2_output_buffer_must_wait_num = 0
+src_C3L1D_dst_L2_output_buffer_must_wait_num = 0
+src_L2_output_buffer_must_wait_num = 0
+source_output_buffer_busy_num = 0
+src_C0L1D_dst_L2_source_output_buffer_busy_num = 0
+src_C1L1D_dst_L2_source_output_buffer_busy_num = 0
+src_C2L1D_dst_L2_source_output_buffer_busy_num = 0
+src_C3L1D_dst_L2_source_output_buffer_busy_num = 0
+src_L2_source_output_buffer_busy_num = 0
+link_is_busy_num = 0
+src_C0L1D_dst_L2_link_is_busy_num = 0
+src_C1L1D_dst_L2_link_is_busy_num = 0
+src_C2L1D_dst_L2_link_is_busy_num = 0
+src_C3L1D_dst_L2_link_is_busy_num = 0
+src_L2_link_is_busy_num = 0
+arbitrator_stall_num = 0
+src_C0L1D_dst_L2_arbitrator_stall_num = 0
+src_C1L1D_dst_L2_arbitrator_stall_num = 0
+src_C2L1D_dst_L2_arbitrator_stall_num = 0
+src_C3L1D_dst_L2_arbitrator_stall_num = 0
+src_L2_arbitrator_stall_num = 0
+destination_input_buffer_busy_num = 0
+src_C0L1D_dst_L2_destination_input_buffer_busy_num = 0
+src_C1L1D_dst_L2_destination_input_buffer_busy_num = 0
+src_C2L1D_dst_L2_destination_input_buffer_busy_num = 0
+src_C3L1D_dst_L2_destination_input_buffer_busy_num = 0
+src_L2_destination_input_buffer_busy_num = 0
+destination_input_buffer_full_num = 0
+src_C0L1D_dst_L2_destination_input_buffer_full_num = 0
+src_C1L1D_dst_L2_destination_input_buffer_full_num = 0
+src_C2L1D_dst_L2_destination_input_buffer_full_num = 0
+src_C3L1D_dst_L2_destination_input_buffer_full_num = 0
+src_L2_destination_input_buffer_full_num = 0
+input_buffer_must_wait_num = 0
+src_C0L1D_dst_L2_input_buffer_must_wait_num = 0
+src_C1L1D_dst_L2_input_buffer_must_wait_num = 0
+src_C2L1D_dst_L2_input_buffer_must_wait_num = 0
+src_C3L1D_dst_L2_input_buffer_must_wait_num = 0
+src_L2_input_buffer_must_wait_num = 0
+source_input_buffer_busy_num = 0
+src_C0L1D_dst_L2_source_input_buffer_busy_num = 0
+src_C1L1D_dst_L2_source_input_buffer_busy_num = 0
+src_C2L1D_dst_L2_source_input_buffer_busy_num = 0
+src_C3L1D_dst_L2_source_input_buffer_busy_num = 0
+src_L2_source_input_buffer_busy_num = 0
+destination_output_buffer_busy_num = 0
+src_C0L1D_dst_L2_destination_output_buffer_busy_num = 0
+src_C1L1D_dst_L2_destination_output_buffer_busy_num = 0
+src_C2L1D_dst_L2_destination_output_buffer_busy_num = 0
+src_C3L1D_dst_L2_destination_output_buffer_busy_num = 0
+src_L2_destination_output_buffer_busy_num = 0
+destination_output_buffer_full_num = 0
+src_C0L1D_dst_L2_destination_output_buffer_full_num = 0
+src_C1L1D_dst_L2_destination_output_buffer_full_num = 0
+src_C2L1D_dst_L2_destination_output_buffer_full_num = 0
+src_C3L1D_dst_L2_destination_output_buffer_full_num = 0
+src_L2_destination_output_buffer_full_num = 0
+
+[ Network.net-l2-mm.Link.link_<L2.out_buf_0>_<Switch.in_buf_0> ]
+Config.Bandwidth = 64
+TransferredMessages = 45
+TransferredBytes = 360
+BusyCycles = 45
+BytesPerCycle = 0.0195
+Utilization = 0.0003
+
+[ Network.net-l2-mm.Link.link_<Switch.out_buf_0>_<L2.in_buf_0> ]
+Config.Bandwidth = 64
+TransferredMessages = 45
+TransferredBytes = 3240
+BusyCycles = 90
+BytesPerCycle = 0.1752
+Utilization = 0.0027
+
+[ Network.net-l2-mm.Link.link_<MM.out_buf_0>_<Switch.in_buf_1> ]
+Config.Bandwidth = 64
+TransferredMessages = 45
+TransferredBytes = 3240
+BusyCycles = 90
+BytesPerCycle = 0.1752
+Utilization = 0.0027
+
+[ Network.net-l2-mm.Link.link_<Switch.out_buf_1>_<MM.in_buf_0> ]
+Config.Bandwidth = 64
+TransferredMessages = 45
+TransferredBytes = 360
+BusyCycles = 45
+BytesPerCycle = 0.0195
+Utilization = 0.0003
+
+[ Network.net-l2-mm.Node.L2 ]
+SentMessages = 45
+SentBytes = 360
+SendRate = 0.0195
+ReceivedMessages = 45
+ReceivedBytes = 3240
+ReceiveRate = 0.1752
+in_buf_0.MessageOccupancy = 0.00
+in_buf_0.ByteOccupancy = 0.35
+in_buf_0.Utilization = 0.0002
+out_buf_0.MessageOccupancy = 0.00
+out_buf_0.ByteOccupancy = 0.02
+out_buf_0.Utilization = 0.0000
+
+[ Network.net-l2-mm.Node.MM ]
+SentMessages = 45
+SentBytes = 3240
+SendRate = 0.1752
+ReceivedMessages = 45
+ReceivedBytes = 360
+ReceiveRate = 0.0195
+in_buf_0.MessageOccupancy = 0.00
+in_buf_0.ByteOccupancy = 0.02
+in_buf_0.Utilization = 0.0000
+out_buf_0.MessageOccupancy = 0.00
+out_buf_0.ByteOccupancy = 0.18
+out_buf_0.Utilization = 0.0001
+
+[ Network.net-l2-mm.Node.Switch ]
+Config.BandWidth = 64
+SentMessages = 90
+SentBytes = 3600
+SendRate = 0.1946
+ReceivedMessages = 90
+ReceivedBytes = 3600
+ReceiveRate = 0.1946
+in_buf_0.MessageOccupancy = 0.00
+in_buf_0.ByteOccupancy = 0.02
+in_buf_0.Utilization = 0.0000
+in_buf_1.MessageOccupancy = 0.00
+in_buf_1.ByteOccupancy = 0.35
+in_buf_1.Utilization = 0.0002
+out_buf_0.MessageOccupancy = 0.00
+out_buf_0.ByteOccupancy = 0.35
+out_buf_0.Utilization = 0.0002
+out_buf_1.MessageOccupancy = 0.00
+out_buf_1.ByteOccupancy = 0.02
+out_buf_1.Utilization = 0.0000
+

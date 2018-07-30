@@ -1,0 +1,2 @@
+#!/bin/bash
+rm -rf m4 autom4te.cache INSTALL config.log config.guess config.sub depcomp install-sh missing configure aclocal.m4 ltmain.sh config.status libtool

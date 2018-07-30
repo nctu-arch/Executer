@@ -1,0 +1,274 @@
+[Network.net0]
+DefaultInputBufferSize = 80 
+DefaultOutputBufferSize = 80
+DefaultBandwidth = 8 
+
+[Network.net0.Node.sw0]
+Type = Switch
+
+[Network.net0.Node.C0L1I]
+Type = EndNode
+
+[Network.net0.Node.C0L1D]
+Type = EndNode
+
+[Network.net0.Node.C1L1I]
+Type = EndNode
+
+[Network.net0.Node.C1L1D]
+Type = EndNode
+
+[Network.net0.Node.C2L1I]
+Type = EndNode
+
+[Network.net0.Node.C2L1D]
+Type = EndNode
+
+[Network.net0.Node.C3L1I]
+Type = EndNode
+
+[Network.net0.Node.C3L1D]
+Type = EndNode
+
+[Network.net0.Node.C4L1I]
+Type = EndNode
+
+[Network.net0.Node.C4L1D]
+Type = EndNode
+
+[Network.net0.Node.C5L1I]
+Type = EndNode
+
+[Network.net0.Node.C5L1D]
+Type = EndNode
+
+[Network.net0.Node.C6L1I]
+Type = EndNode
+
+[Network.net0.Node.C6L1D]
+Type = EndNode
+
+[Network.net0.Node.C7L1I]
+Type = EndNode
+
+[Network.net0.Node.C7L1D]
+Type = EndNode
+
+[Network.net0.Node.C8L1I]
+Type = EndNode
+
+[Network.net0.Node.C8L1D]
+Type = EndNode
+
+[Network.net0.Node.C9L1I]
+Type = EndNode
+
+[Network.net0.Node.C9L1D]
+Type = EndNode
+
+[Network.net0.Node.C10L1I]
+Type = EndNode
+
+[Network.net0.Node.C10L1D]
+Type = EndNode
+
+[Network.net0.Node.C11L1I]
+Type = EndNode
+
+[Network.net0.Node.C11L1D]
+Type = EndNode
+
+[Network.net0.Node.C12L1I]
+Type = EndNode
+
+[Network.net0.Node.C12L1D]
+Type = EndNode
+
+[Network.net0.Node.C13L1I]
+Type = EndNode
+
+[Network.net0.Node.C13L1D]
+Type = EndNode
+
+[Network.net0.Node.C14L1I]
+Type = EndNode
+
+[Network.net0.Node.C14L1D]
+Type = EndNode
+
+[Network.net0.Node.C15L1I]
+Type = EndNode
+
+[Network.net0.Node.C15L1D]
+Type = EndNode
+
+[Network.net0.Node.L2]
+Type = EndNode
+
+[Network.net0.Link.sw0-C0L1I]
+Source = sw0
+Dest = C0L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C0L1D]
+Source = sw0
+Dest = C0L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C1L1I]
+Source = sw0
+Dest = C1L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C1L1D]
+Source = sw0
+Dest = C1L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C2L1I]
+Source = sw0
+Dest = C2L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C2L1D]
+Source = sw0
+Dest = C2L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C3L1I]
+Source = sw0
+Dest = C3L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C3L1D]
+Source = sw0
+Dest = C3L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C4L1I]
+Source = sw0
+Dest = C4L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C4L1D]
+Source = sw0
+Dest = C4L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C5L1I]
+Source = sw0
+Dest = C5L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C5L1D]
+Source = sw0
+Dest = C5L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C6L1I]
+Source = sw0
+Dest = C6L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C6L1D]
+Source = sw0
+Dest = C6L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C7L1I]
+Source = sw0
+Dest = C7L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C7L1D]
+Source = sw0
+Dest = C7L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C8L1I]
+Source = sw0
+Dest = C8L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C8L1D]
+Source = sw0
+Dest = C8L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C9L1I]
+Source = sw0
+Dest = C9L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C9L1D]
+Source = sw0
+Dest = C9L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C10L1I]
+Source = sw0
+Dest = C10L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C10L1D]
+Source = sw0
+Dest = C10L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C11L1I]
+Source = sw0
+Dest = C11L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C11L1D]
+Source = sw0
+Dest = C11L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C12L1I]
+Source = sw0
+Dest = C12L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C12L1D]
+Source = sw0
+Dest = C12L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C13L1I]
+Source = sw0
+Dest = C13L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C13L1D]
+Source = sw0
+Dest = C13L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C14L1I]
+Source = sw0
+Dest = C14L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C14L1D]
+Source = sw0
+Dest = C14L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C15L1I]
+Source = sw0
+Dest = C15L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C15L1D]
+Source = sw0
+Dest = C15L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-L2]
+Source = sw0
+Dest = L2
+Type = Bidirectional
+
+
+

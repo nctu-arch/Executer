@@ -1,0 +1,10 @@
+[ General ]
+Cores = 2
+Threads = 1
+;FinishOnOneThread = 1
+WarmUp = 20
+;WarmUp = 200000000
+ForwardToParallel = 1
+;MpkiInterval = 1000000
+;TrainingInstr = 0
+;MemDumpInterval =1000000

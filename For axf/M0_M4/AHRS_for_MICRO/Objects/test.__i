@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M4 -D__EVAL --li -g -O0 --apcs=interwork --split_sections
+-I C:\Keil_v5\perf_sim\ahrs_M4\RTE
+-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include
+-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\Device\ARM\ARMCM4\Include
+-D__UVISION_VERSION="516" -D_RTE_ -DARMCM4
+-o .\objects\test.o --omf_browse .\objects\test.crf --depend .\objects\test.d "test.c"

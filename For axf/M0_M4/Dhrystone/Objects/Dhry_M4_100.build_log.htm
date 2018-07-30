@@ -1,0 +1,86 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.16a
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Rizal Tanjung, National Chiao Tung University, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.16a
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 (build 20)
+Assembler:       Armasm.exe V5.06 (build 20)
+Linker/Locator:  ArmLink.exe V5.06 (build 20)
+Library Manager: ArmAr.exe V5.06 (build 20)
+Hex Converter:   FromElf.exe V5.06 (build 20)
+CPU DLL:         SARMCM3.DLL V5.16a
+Dialog DLL:      DCM.DLL V1.13.2.0
+Target DLL:      UL2CM3.DLL V1.155.12.0
+Dialog DLL:      TCM.DLL V1.14.5.0
+ 
+<h2>Project:</h2>
+C:\Keil_v5\perf_sim\Dhrystone\test.uvprojx
+Project File Date:  07/13/2016
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 (build 20)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+*** Note: Rebuilding project, since 'Options->Output->Create Batch File' is selected.
+Rebuild target 'Target 1'
+compiling main.c...
+api.h(24): warning:  #68-D: integer conversion resulted in a change of sign
+        if(offset<0 || offset>=
+HM_BUFSIZE/8-8)return -1;
+main.c(83): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
+        if (strcmp(StrParI1, StrParI2) > 0)
+main.c(83): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
+        if (strcmp(StrParI1, StrParI2) > 0)
+main.c(224): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *restrict"
+        strcpy(PtrGlb->StringComp, "DHRYSTONE PROGRAM, SOME STRING");
+main.c(225): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *restrict"
+        strcpy(String1Loc, "DHRYSTONE PROGRAM, 1'ST STRING"); /*GOOF*/
+main.c(233): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *restrict"
+                strcpy(String2Loc, "DHRYSTONE PROGRAM, 2'ND STRING");
+main.c(207): warning:  #177-D: variable "CharLoc" was declared but never referenced
+        REG unsigned char CharLoc;
+main.c(213): warning:  #177-D: variable "starttime" was declared but never referenced
+        long starttime;
+main.c(214): warning:  #177-D: variable "benchtime" was declared but never referenced
+        long benchtime;
+main.c(215): warning:  #177-D: variable "nulltime" was declared but never referenced
+        long nulltime;
+main.c(256): warning:  #177-D: variable "i" was declared but never referenced
+                 int i;
+main.c: 11 warnings, 0 errors
+assembling startup_ARMCM4.s...
+compiling system_ARMCM4.c...
+linking...
+Program Size: Code=1680 RO-data=224 RW-data=32 ZI-data=4888  
+".\Objects\Dhry_M4_100.axf" - 0 Error(s), 11 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.3.0.pack
+                ARM::CMSIS:CORE:4.1.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 4.1.0
+   * Component: Startup Version: 1.0.1
+
+<h2>Collection of Component include folders:</h2>
+  C:\Keil_v5\perf_sim\Dhrystone\RTE
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\Device\ARM\ARMCM4\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:4.1.0
+
+   * Component: ARM::Device:Startup:1.0.1
+      Source file:   Device\ARM\ARMCM4\Source\ARM\startup_ARMCM4.s
+      Source file:   Device\ARM\ARMCM4\Source\system_ARMCM4.c
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>

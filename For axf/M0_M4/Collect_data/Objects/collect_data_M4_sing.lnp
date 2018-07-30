@@ -1,0 +1,9 @@
+--cpu Cortex-M4
+".\objects\m0slave.o"
+".\objects\my_sensors.o"
+".\objects\startup_armcm4.o"
+".\objects\system_armcm4.o"
+--strict --scatter ".\my_sct.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\collect_data_M4_sing.map" -o .\Objects\collect_data_M4_sing.axf

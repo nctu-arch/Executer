@@ -1,0 +1,21 @@
+copy to M0
+qemu_4_M_semihost/cpu-exec.c:220
+*shm_M4_int  --> *shm_M0_int
+
+
+
+
+ //if(start_tracing){
+         while((*shm_head_index+1)%100!=*shm_tail_index){
+                 //printf("head %d\n",*shm_head_index);
+                 //printf("tail %d\n",*shm_tail_index);
+                 memcpy(&head,shm_head_index,sizeof(int));
+                 memcpy(&tail,shm_tail_index,sizeof(int));
+                 if((head+1)%100==tail)break;
+ 
+         }
+         printf("L1readhit %d, L1writehit %d, L2readhit %d, L2writehit %d\n",*shm_L1readhit, *shm_L1writehit, *shm_L2readhit, *shm_L2writehit);
+ //}
+
+
+add to trace_timestamp.c :336

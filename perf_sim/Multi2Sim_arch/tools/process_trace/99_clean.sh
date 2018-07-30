@@ -1,0 +1,16 @@
+rm test_C0
+rm test_C1
+rm test_C2
+rm test_C3
+rm test_I0
+rm test_I1
+rm test_I2
+rm test_I3
+rm test_traceI0
+rm test_traceI1
+rm test_traceI2
+rm test_traceI3
+rm test_trace0
+rm test_trace1
+rm test_trace2
+rm test_trace3

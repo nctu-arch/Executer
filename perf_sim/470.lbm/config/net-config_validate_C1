@@ -1,0 +1,39 @@
+[Network.net0]
+DefaultInputBufferSize = 2048 
+DefaultOutputBufferSize = 2048
+DefaultBandwidth = 64 
+
+[Network.net0.Node.sw0]
+Type = Bus
+
+[Network.net0.Node.C0L1I]
+Type = EndNode
+
+[Network.net0.Node.C0L1D]
+Type = EndNode
+
+[Network.net0.Node.L2]
+Type = EndNode
+
+[Network.net0.Link.sw0-C0L1I]
+Source = sw0
+Dest = C0L1I
+Type = Bidirectional
+
+[Network.net0.Link.sw0-C0L1D]
+Source = sw0
+Dest = C0L1D
+Type = Bidirectional
+
+[Network.net0.Link.sw0-L2]
+Source = sw0
+Dest = L2
+Type = Bidirectional
+
+
+
+
+
+
+
+

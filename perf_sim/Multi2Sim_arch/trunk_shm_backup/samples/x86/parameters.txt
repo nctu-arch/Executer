@@ -1,0 +1,6 @@
+Top_module.mem0.cpu_clock = 1.0
+Top_module.mem0.DRAMSimRunDir = DRAMSim2 
+Top_module.mem0.DRAMSimSystemInitFile = system.ini
+Top_module.mem0.DRAMSimMemInitFile = ini/DDR2_micron_16M_8b_x8_sg3E.ini
+Top_module.mem0.ResultsDirName = DRAMSim2_results
+Top_module.mem0.MemSize = 4096 

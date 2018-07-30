@@ -1,0 +1,71 @@
+[CacheGeometry geo-l1i]
+Sets = 256
+Assoc = 1 
+BlockSize = 64
+Latency = 2
+Policy = LRU
+Ports = 2
+
+[CacheGeometry geo-l1d]
+Sets = 64 
+Assoc = 4
+BlockSize = 64 
+Latency = 2
+Policy = LRU
+Ports = 2
+MSHR = 10
+
+[CacheGeometry geo-l2]
+Sets = 2048 
+Assoc = 8
+BlockSize = 64
+Latency = 12
+Policy = LRU
+Ports = 4 
+MSHR = 10
+
+[Module C0L1I]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0 
+LowNetworkNode = C0L1I 
+LowModules = L2 
+
+[Module C0L1D]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0 
+LowNetworkNode = C0L1D
+LowModules = L2
+
+[Module L2]
+Type = Cache
+Geometry = geo-l2
+HighNetwork = net0 
+HighNetworkNode = L2
+LowNetwork = net-l2-mm
+LowModules = MM
+
+[Module MM]
+Type = MainMemory
+BlockSize = 64
+Latency = 1 
+;EnableDram = T
+;DramBanks = 8
+;DramChannels = 2
+
+HighNetwork = net-l2-mm
+
+[Network net-l2-mm]
+DefaultInputBufferSize = 2048 
+DefaultOutputBufferSize = 2048
+DefaultBandwidth = 64 
+
+[Entry core-0]
+Arch = x86
+Core = 0
+Thread = 0
+DataModule = C0L1D
+InstModule = C0L1I
+
+

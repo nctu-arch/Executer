@@ -1,0 +1,7 @@
+#!/bin/sh
+
+
+export PATH=$PATH:/home/cws/perf_sim/Multi2Sim_arch/trunk/BIN/bin
+export LD_LIBRARY_PATH=/home/cws/perf_sim/Multi2Sim_arch/tools/DRAMSim2:/home/cws/perf_sim/Multi2Sim_arch/tools/systemc-2.3.0/BIN/lib-linux64
+export SYSTEMCROOT=/home/cws/perf_sim/Multi2Sim_arch/tools/systemc-2.3.0/BIN
+export DRAMSim2_LIB=/home/cws/perf_sim/Multi2Sim_arch/tools/DRAMSim2a

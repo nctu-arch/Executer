@@ -1,0 +1,6 @@
+#!/bin/bash
+make distclean
+libtoolize
+aclocal
+autoconf
+automake --add-missing

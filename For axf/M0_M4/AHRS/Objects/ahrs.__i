@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M0 -D__EVAL --li -g -O0 --apcs=interwork --split_sections -I..\ahrs_M4
+-I C:\Keil_v5\perf_sim\AHRS\RTE
+-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include
+-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\Device\ARM\ARMCM0\Include
+-D__UVISION_VERSION="516" -D_RTE_ -DARMCM0
+-o .\objects\ahrs.o --omf_browse .\objects\ahrs.crf --depend .\objects\ahrs.d "AHRS.c"

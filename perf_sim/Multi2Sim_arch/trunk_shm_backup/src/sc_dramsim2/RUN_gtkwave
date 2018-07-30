@@ -1,0 +1,2 @@
+#!/bin/bash
+gtkwave -o -t waveform.stems waveform.vcd waveform.sav &

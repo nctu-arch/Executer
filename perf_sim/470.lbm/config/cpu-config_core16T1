@@ -1,0 +1,5 @@
+[ General ]
+Cores = 16 
+Threads = 1
+WarmUp = 200000000   
+ForwardToParallel = 1

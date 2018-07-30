@@ -1,0 +1,9 @@
+
+
+./executor scenario/200/Only_M0.yaml power_lib/power.yaml > result/200/Only_M0.log
+wait
+./executor scenario/200/Only_M4.yaml power_lib/power.yaml > result/200/Only_M4.log
+wait
+./executor scenario/200/M0_50Hz_M4_100Hz.yaml power_lib/power.yaml > result/200/M0_50Hz_M4_100Hz_50.log
+wait
+./executor scenario/200/M0_100Hz_M4_100Hz.yaml power_lib/power.yaml > result/200/M0_100Hz_M4_100Hz_50.log

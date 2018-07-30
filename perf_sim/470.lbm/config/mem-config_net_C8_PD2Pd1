@@ -1,0 +1,226 @@
+[CacheGeometry geo-l1i]
+Sets = 256
+Assoc = 1 
+BlockSize = 64
+Latency = 2
+Policy = LRU
+Ports = 2
+
+
+[CacheGeometry geo-l1d]
+Sets = 64 
+Assoc = 4
+BlockSize = 64 
+Latency = 2
+Policy = LRU
+Ports = 2
+EnablePrefetcher = t
+PrefetcherType = STRIDE
+PrefetcherGHBSize = 256
+PrefetcherITSize = 64
+PrefetcherLookupDepth = 2
+Pf_degree = 2
+Pf_distance = 1
+
+[CacheGeometry geo-l2]
+Sets = 2048 
+Assoc = 8
+BlockSize = 64
+Latency = 20
+Policy = LRU
+Ports = 4 
+
+
+[Module C0L1I]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0 
+LowNetworkNode = C0L1I 
+LowModules = L2 
+
+[Module C0L1D]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0 
+LowNetworkNode = C0L1D
+LowModules = L2
+
+[Module C1L1I]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0
+LowNetworkNode = C1L1I
+LowModules = L2
+
+[Module C1L1D]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0
+LowNetworkNode = C1L1D
+LowModules = L2
+
+[Module C2L1I]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0
+LowNetworkNode = C2L1I
+LowModules = L2
+
+[Module C2L1D]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0
+LowNetworkNode = C2L1D
+LowModules = L2
+
+[Module C3L1I]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0
+LowNetworkNode = C3L1I
+LowModules = L2
+
+[Module C3L1D]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0
+LowNetworkNode = C3L1D
+LowModules = L2
+
+[Module C4L1I]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0 
+LowNetworkNode = C4L1I 
+LowModules = L2 
+
+[Module C4L1D]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0 
+LowNetworkNode = C4L1D
+LowModules = L2
+
+[Module C5L1I]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0
+LowNetworkNode = C5L1I
+LowModules = L2
+
+[Module C5L1D]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0
+LowNetworkNode = C5L1D
+LowModules = L2
+
+[Module C6L1I]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0
+LowNetworkNode = C6L1I
+LowModules = L2
+
+[Module C6L1D]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0
+LowNetworkNode = C6L1D
+LowModules = L2
+
+[Module C7L1I]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0
+LowNetworkNode = C7L1I
+LowModules = L2
+
+[Module C7L1D]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0
+LowNetworkNode = C7L1D
+LowModules = L2
+
+[Module L2]
+Type = Cache
+Geometry = geo-l2
+HighNetwork = net0 
+HighNetworkNode = L2
+LowNetwork = net-l2-mm
+LowModules = MM
+
+[Module MM]
+Type = MainMemory
+BlockSize = 64
+Latency = 1
+EnableDram = T
+DramBanks = 8
+DramChannels = 2
+
+HighNetwork = net-l2-mm
+
+[Network net-l2-mm]
+DefaultInputBufferSize = 1024 
+DefaultOutputBufferSize = 1024
+DefaultBandwidth = 8 
+
+[Entry core-0]
+Arch = x86
+Core = 0
+Thread = 0
+DataModule = C0L1D
+InstModule = C0L1I
+
+[Entry core-1]
+Arch = x86
+Core = 1
+Thread = 0
+DataModule = C1L1D
+InstModule = C1L1I
+
+[Entry core-2]
+Arch = x86
+Core = 2
+Thread = 0
+DataModule = C2L1D
+InstModule = C2L1I
+
+[Entry core-3]
+Arch = x86
+Core = 3
+Thread = 0
+DataModule = C3L1D
+InstModule = C3L1I
+
+[Entry core-4]
+Arch = x86
+Core = 4
+Thread = 0
+DataModule = C4L1D
+InstModule = C4L1I
+
+[Entry core-5]
+Arch = x86
+Core = 5
+Thread = 0
+DataModule = C5L1D
+InstModule = C5L1I
+
+[Entry core-6]
+Arch = x86
+Core = 6
+Thread = 0
+DataModule = C6L1D
+InstModule = C6L1I
+
+[Entry core-7]
+Arch = x86
+Core = 7
+Thread = 0
+DataModule = C7L1D
+InstModule = C7L1I
+
+
+

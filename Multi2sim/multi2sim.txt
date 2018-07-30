@@ -1,0 +1,28 @@
+In /home/hchung/Multi2Sim_arch
+1.	Compile systemC in 64 bits
+cd tools/systemc-2.3.0
+mkdir objdir
+cd objdir
+../configure --prefix=/home/hchung/perf_sim/Multi2Sim_arch/tools/systemc-2.3.0/BIN
+make
+make install
+2.	Compile DRAMSim2 in 64 bits
+cd DRAMSim2
+make
+3.	set environment  (.bashrc)
+export PATH=$PATH:/home/hchung/perf_sim/Multi2Sim_arch/trunk/BIN/bin
+export LD_LIBRARY_PATH=/home/hchung/perf_sim/Multi2Sim_arch/tools/DRAMSim2:/home/hchung/Multi2Sim_arch/tools/systemc-2.3.0/BIN/lib-linux64
+export SYSTEMCROOT=/home/hchung/perf_sim/Multi2Sim_arch/tools/systemc-2.3.0/BIN
+export DRAMSim2_LIB=/home/hchung/perf_sim/Multi2Sim_arch/tools/DRAMSim2
+
+source .bashrc
+4.	Compile Multi2Sim in 64 bits
+cd trunk
+mkdir BIN
+./CREATE_MAKEFILE
+./configure --enable-debug --prefix=/home/hchung/Multi2Sim_arch/trunk/BIN (original)
+./configure --enable-debug --prefix=/home/yhchiang/perf_sim/Multi2Sim_arch/trunk_shm/BIN (used by QEMU)
+make
+make install
+
+

@@ -1,0 +1,24 @@
+Dependencies for Project 'test', Target 'Target 1': (DO NOT MODIFY !)
+F (.\AHRS.h)(0x5713A976)()
+F (.\api.h)(0x577DCBE1)()
+F (.\Sensors_M0_batch.h)(0x577DD3A2)()
+F (.\m0slave.c)(0x577DD3BF)(--c99 -c --cpu Cortex-M4 -D__EVAL --li -g -O0 --apcs=interwork --split_sections -I..\ahrs_M4-I C:\Keil_v5\perf_sim\Collect_data\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\Device\ARM\ARMCM4\Include-D__UVISION_VERSION="516" -D_RTE_ -DARMCM4-o .\objects\m0slave.o --omf_browse .\objects\m0slave.crf --depend .\objects\m0slave.d)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55AEF5F2)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AEF5F2)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55AEF5F2)
+I (Sensors_M0_batch.h)(0x577DD3A2)
+F (.\My_sensors.c)(0x577DD32F)(--c99 -c --cpu Cortex-M4 -D__EVAL --li -g -O0 --apcs=interwork --split_sections -I..\ahrs_M4-I C:\Keil_v5\perf_sim\Collect_data\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\Device\ARM\ARMCM4\Include-D__UVISION_VERSION="516" -D_RTE_ -DARMCM4-o .\objects\my_sensors.o --omf_browse .\objects\my_sensors.crf --depend .\objects\my_sensors.d)
+I (AHRS.h)(0x5713A976)
+I (Sensors_M0_batch.h)(0x577DD3A2)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55AEF5F2)
+I (api.h)(0x577DCBE1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AEF5F2)
+F (RTE\Device\ARMCM4\startup_ARMCM4.s)(0x50B2CC4C)(--cpu Cortex-M4 --li --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil_v5\perf_sim\Collect_data\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\Device\ARM\ARMCM4\Include--pd "__UVISION_VERSION SETA 516" --pd "_RTE_ SETA 1" --pd "ARMCM4 SETA 1"--list .\listings\startup_armcm4.lst --xref -o .\objects\startup_armcm4.o --depend .\objects\startup_armcm4.d)
+F (RTE\Device\ARMCM4\system_ARMCM4.c)(0x53FEF2AA)(--c99 -c --cpu Cortex-M4 -D__EVAL --li -g -O0 --apcs=interwork --split_sections-I C:\Keil_v5\perf_sim\Collect_data\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\Device\ARM\ARMCM4\Include-D__UVISION_VERSION="516" -D_RTE_ -DARMCM4-o .\objects\system_armcm4.o --omf_browse .\objects\system_armcm4.crf --depend .\objects\system_armcm4.d)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\Device\ARM\ARMCM4\Include\ARMCM4.h)(0x540FF94C)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cm4.h)(0x55093C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AEF5F2)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmInstr.h)(0x55093C04)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmFunc.h)(0x55093C04)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include\core_cmSimd.h)(0x55093C04)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\Device\ARM\ARMCM4\Include\system_ARMCM4.h)(0x50B2CC4C)

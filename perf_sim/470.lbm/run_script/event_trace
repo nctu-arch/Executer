@@ -1,0 +1,121 @@
+Creating internal networks:
+	net-l2-mm
+
+Creating modules:
+	C3L1D
+	C3L1I
+	C0L1D
+	C0L1I
+	C2L1D
+	C2L1I
+	L2
+	C1L1D
+	MM
+	C1L1I
+
+Checking paths between caches and main memories:
+	  C3L1D
+	    L2
+	      MM
+	  C3L1I
+	    L2
+	      MM
+	  C0L1D
+	    L2
+	      MM
+	  C0L1I
+	    L2
+	      MM
+	  C2L1D
+	    L2
+	      MM
+	  C2L1I
+	    L2
+	      MM
+	  L2
+	    MM
+	  C1L1D
+	    L2
+	      MM
+	  MM
+	  C1L1I
+	    L2
+	      MM
+
+Processing entries to the memory system:
+
+	x86 Core 0, Thread 0
+		Entry for instructions -> C0L1I	id -> 0
+		Entry for data -> C0L1D	id -> 0
+
+	x86 Core 1, Thread 0
+		Entry for instructions -> C1L1I	id -> 1
+		Entry for data -> C1L1D	id -> 1
+
+	x86 Core 2, Thread 0
+		Entry for instructions -> C2L1I	id -> 2
+		Entry for data -> C2L1D	id -> 2
+
+	x86 Core 3, Thread 0
+		Entry for instructions -> C3L1I	id -> 3
+		Entry for data -> C3L1D	id -> 3
+
+Creating network switches and links for internal networks:
+	net-l2-mm.Switch -> L2 MM
+
+Checking accessibility to low and high modules:
+	C3L1D
+		Low modules: L2
+		High modules:
+	C3L1I
+		Low modules: L2
+		High modules:
+	C0L1D
+		Low modules: L2
+		High modules:
+	C0L1I
+		Low modules: L2
+		High modules:
+	C2L1D
+		Low modules: L2
+		High modules:
+	C2L1I
+		Low modules: L2
+		High modules:
+	L2
+		Low modules: MM
+		High modules: C3L1D C3L1I C0L1D C0L1I C2L1D C2L1I C1L1D C1L1I
+	C1L1D
+		Low modules: L2
+		High modules:
+	MM
+		Low modules:
+		High modules: L2
+	C1L1I
+		Low modules: L2
+		High modules:
+
+Creating directories:
+	C3L1D - 64x4x1 (64x4x0 effective) - 256 entries, 1 sub-blocks
+	C3L1I - 256x1x1 (256x1x0 effective) - 256 entries, 1 sub-blocks
+	C0L1D - 64x4x1 (64x4x0 effective) - 256 entries, 1 sub-blocks
+	C0L1I - 256x1x1 (256x1x0 effective) - 256 entries, 1 sub-blocks
+	C2L1D - 64x4x1 (64x4x0 effective) - 256 entries, 1 sub-blocks
+	C2L1I - 256x1x1 (256x1x0 effective) - 256 entries, 1 sub-blocks
+	L2 - 2048x8x10 (2048x8x8 effective) - 16384 entries, 1 sub-blocks
+	C1L1D - 64x4x1 (64x4x0 effective) - 256 entries, 1 sub-blocks
+	MM - 128x8x3 (128x8x1 effective) - 1024 entries, 1 sub-blocks
+	C1L1I - 256x1x1 (256x1x0 effective) - 256 entries, 1 sub-blocks
+
+Calculating module levels:
+	C3L1D -> level 1
+	C3L1I -> level 1
+	C0L1D -> level 1
+	C0L1I -> level 1
+	C2L1D -> level 1
+	C2L1I -> level 1
+	L2 -> level 2
+	C1L1D -> level 1
+	MM -> level 3
+	C1L1I -> level 1
+

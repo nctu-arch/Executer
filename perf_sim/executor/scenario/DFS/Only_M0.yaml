@@ -1,0 +1,83 @@
+
+scenario_param:
+      total tasks       : 1
+      total cores       : 2
+      total srams       : 1
+      total peripherals : 6
+      total sensors     : 3
+
+core_param    :
+    - id    : 0 #Cortex-M0
+      speed : 12 #MHz 
+
+sram_param    :
+    - id            : 0 
+      size          : 32 #KB
+      access cycle  : 2
+
+peripheral_param    :
+    - id    : 0 
+      name  : PLL
+
+    - id    : 1 
+      name  : IRC
+
+    - id    : 2 
+      name  : RTC
+
+    - id    : 3 
+      name  : Flash
+
+    - id    : 4 
+      name  : ADC
+
+    - id    : 5 
+      name  : I2C
+
+sensor_param    :
+    - id    : 0 
+      name  : accelerometer
+
+    - id    : 1 
+      name  : gyroscope
+
+    - id    : 2 
+      name  : magnetometer
+
+sleep_mode_param    :
+    - total mode     : 2
+    - mode           : 0
+      #-------------------TURN OFF COMPONENT----------------------------#
+      #core id        : 0
+      #periph id      : 0
+    
+    - mode           : 1
+      #-------------------TURN OFF COMPONENT----------------------------#
+      core id        : 0
+      periph id      : 0
+      periph id      : 1
+      periph id      : 3
+
+task_param    :
+    - id                    : 0
+      name                  : Dhrystone
+      axf file              : /home/cws/perf_sim/app/M0/AHRS_M0_2.axf
+      deadline              : 12.068 #ms
+      previous task id      : -1 #-1 means this task has no previous task
+      iteration             : 1
+      assigned sleep mode   : 1
+
+    - assigned core id      : 0
+      assigned core mode    : 2
+      
+    - assigned mem id       : 0
+      assigned mem mode     : 0 
+     
+    - assigned periph id    : 0
+    - assigned periph id    : 1
+    - assigned periph id    : 2
+    - assigned periph id    : 3
+      assigned periph mode  : 2
+
+
+

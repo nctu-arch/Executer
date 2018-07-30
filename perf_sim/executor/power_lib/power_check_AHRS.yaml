@@ -1,0 +1,153 @@
+############################################################################
+#NOTES:                                                                    #
+#THE ID IS ASSOCIATED WITH THE ID IN SCENARIO DESCRIPTION                  #
+#DIFFERENT MODES PROVIDE THE POWER IN DIFFERENT VOLTAGE OR FREQ            # 
+#                                                                          #
+############################################################################
+
+core_param              :
+    - DFVS_mode         : 3
+
+      #------------------------CORE POWER IN MODE 0----------------------------#
+    - mode              : 0         #100Mhz
+      #----------CORE 0------------#
+      core_id           : 0         #M0 (associated with core id in scenario description)
+      operating_voltage : 1         #V
+      active_current    : 1.37      #mA
+      sleep_current     : 0.14      #mA
+      transition_energy : 136.26    #nJ
+      transition_time   : 104.50    #us
+
+      #----------CORE 1------------#
+      core_id           : 1         #M4 (associated with core id in scenario description)
+      operating_voltage : 1         #V
+      active_current    : 4.85      #mA
+      sleep_current     : 0.58      #mA
+      transition_energy : 1466.72   #nJ
+      transition_time   : 329.11    #us
+
+      #------------------------CORE POWER IN MODE 1----------------------------#
+    - mode              : 1         #50Mhz
+      #----------CORE 0------------#
+      core_id           : 0         
+      operating_voltage : 1         #V
+      active_current    : 0.71      #mA
+      sleep_current     : 0.14      #mA
+      transition_energy : 136.26    #nJ
+      transition_time   : 200.58    #us
+   
+      #----------CORE 1------------#
+      core_id           : 1         
+      operating_voltage : 1         #V
+      active_current    : 2.53      #mA
+      sleep_current     : 0.58      #mA
+      transition_energy : 1466.72   #nJ
+      transition_time   : 631.59    #us
+
+      #------------------------CORE POWER IN MODE 2----------------------------#
+    - mode              : 2         #12Mhz
+      #----------CORE 0------------#
+      core_id           : 0         
+      operating_voltage : 1         #V
+      active_current    : 0.17      #mA
+      sleep_current     : 0.14      #mA
+      transition_energy : 136.26    #nJ
+      transition_time   : 200.58    #us
+   
+      #----------CORE 1------------#
+      core_id           : 1         
+      operating_voltage : 1         #V
+      active_current    : 0.60      #mA
+      sleep_current     : 0.58      #mA
+      transition_energy : 1466.72   #nJ
+      transition_time   : 631.59    #us
+
+memory_param            :
+    - DFVS_mode         : 1
+
+      #------------------------MEMORY POWER IN MODE 1----------------------------#
+    - mode              : 0
+      #---------MEM 0------------#
+      mem_id            : 0
+      operating_voltage : 1          #V
+      read_energy       : 0.045      #nJ
+      write_energy      : 0.047      #nJ
+
+    
+peripheral_param        :
+    - DFVS_mode         : 1
+
+      #------------------------PERIPHERAL POWER IN MODE 1------------------------#
+    - mode              : 0
+      #------------PLL------------#
+      periph_id         : 0
+      operating_voltage : 3.3
+      active_current    : 4.59      #mA
+      #active_current    : 2.29      #mA
+      sleep_current     : 0         #mA
+      transition_energy : 3.61      #uJ
+      transition_time   : 355       #us
+
+      #------------IRC------------#
+      periph_id         : 1
+      operating_voltage : 3.3
+      active_current    : 1.11       #mA
+      sleep_current     : 0         #mA
+      transition_energy : 1.07    #uJ
+      transition_time   : 150     #us
+
+      #------------RTC------------#
+      periph_id         : 2
+      operating_voltage : 3.3
+      active_current    : 0.01      #mA
+      sleep_current     : 0         #mA
+      transition_energy : 0.14      #uJ
+      transition_time   : 30        #us
+
+      #------------Flash------------#
+      periph_id         : 3
+      operating_voltage : 3.3
+      active_current    : 0.24      #mA
+      sleep_current     : 0         #mA
+      transition_energy : 0.2       #uJ
+      transition_time   : 15        #us
+
+      #------------ADC------------#
+      periph_id         : 4
+      operating_voltage : 3.3
+      active_current    : 0.06      #mA
+      sleep_current     : 0         #mA
+      transition_energy : 0.17      #uJ
+      transition_time   : 30        #us
+
+      #------------I2C------------#
+      periph_id         : 5
+      operating_voltage : 3.3
+      active_current    : 0.01      #mA
+      sleep_current     : 0         #mA
+      transition_energy : 0         #uJ
+      transition_time   : 0         #us
+
+sensor_param            :
+    - DFVS_mode         : 1
+
+      #------------------------SENSOR POWER IN MODE 1------------------------#
+    - mode              : 0
+      #-----------ACCELEROMETER----------#
+      sensor_id         : 0
+      operating_voltage : 3.6       #V
+      active_current    : 0.3       #mA
+      sleep_current     : 0         #mA
+
+      #-------------GYROSCOPE------------#
+      sensor_id         : 1
+      operating_voltage : 2.5       #V
+      active_current    : 6.31      #mA
+      sleep_current     : 0         #mA
+
+      #------------MAGNETOMETER-----------#
+      sensor_id         : 2
+      operating_voltage : 2.5       #V
+      active_current    : 0.08      #mA
+      sleep_current     : 0         #mA
+

@@ -1,0 +1,3 @@
+gpu.o: gpu.c gpu.h
+
+gpu.h:

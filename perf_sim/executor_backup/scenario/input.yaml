@@ -1,0 +1,93 @@
+
+scenario_param:
+    - loop              : 10
+      deadline          : 1000 #ms
+      total tasks       : 2
+      total cores       : 1
+      total srams       : 1
+      total peripherals : 6
+      total sensors     : 3
+
+core_param    :
+    - id    : 0 #Cortex-M0
+      speed : 50 #MHz 
+
+    - id    : 1 #Cortex-M4
+      speed : 100 #MHz
+
+sram_param    :
+    - id    : 0 
+      size  : 32 #KB 
+
+peripheral_param    :
+    - id    : 0 
+      name  : PLL
+
+    - id    : 1 
+      name  : IRC
+
+    - id    : 2 
+      name  : RTC
+
+    - id    : 3 
+      name  : Flash
+
+    - id    : 4 
+      name  : ADC
+
+    - id    : 5 
+      name  : I2C
+
+sensor_param    :
+    - id    : 0 
+      name  : accelerometer
+
+    - id    : 1 
+      name  : gyroscope
+
+    - id    : 2 
+      name  : magnetometer
+
+sleep_mode_param    :
+    - total mode     : 2
+    - mode           : 0
+      #-------------------TURN OFF COMPONENT----------------------------#
+      core id        : 0
+    
+    - mode           : 1
+      #-------------------TURN OFF COMPONENT----------------------------#
+      core id        : 0
+      periph id      : 0
+      periph id      : 4
+      periph id      : 5
+
+task_param    :
+    - id                    : 0
+      name                  : Collect data
+      axf file              : /home/cws/perf_sim/app/M0/collect_data_M0_sing.axf
+      period                : 5 #ms
+      iteration             : 200
+      assigned sleep mode   : 0
+      assigned core id      : 0
+      assigned mem id       : 0 
+      assigned periph id    : 0
+      assigned periph id    : 1
+      assigned periph id    : 2
+      assigned periph id    : 3
+      assigned periph id    : 4
+      assigned periph id    : 5
+
+    - id                    : 1
+      name                  : AHRS
+      axf file              : /home/cws/perf_sim/app/M0/AHRS_M0_sing.axf
+      period                : 5 #ms
+      iteration             : 200
+      assigned sleep mode   : 0
+      assigned core id      : 0
+      assigned mem id       : 0 
+      assigned periph id    : 0
+      assigned periph id    : 1
+      assigned periph id    : 2
+      assigned periph id    : 3
+
+

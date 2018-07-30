@@ -1,0 +1,14 @@
+#new build
+$./configure --target-list=arm-softmmu
+$make
+
+#build
+$make
+
+#run qemu
+A5:
+$./run_semi.sh apptorun
+M4:
+$./run_m4.sh  apptorun
+M0:
+$./run_m0.sh  apptorun

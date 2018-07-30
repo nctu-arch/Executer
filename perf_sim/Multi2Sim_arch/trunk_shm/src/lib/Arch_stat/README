@@ -1,0 +1,20 @@
+This is a simple counting library for simulation work.
+			by Tien-Fu Chen @ 2014
+			
+-- you don't have to declare count variables before you use!!
+-- Using count variables will remember the original condition expression
+       and your source file and line #.
+-- Any multiple counting calls to the same name will be merged together.
+   (One name will give a unique counter, no matter where you use)
+-- The final summary can give the average and variance (and non-zero count).
+-- enable it by defining Arch_stat (give -DArch_stat for gcc)
+      nothing happens if Arch_stat is not defined.
+      
+Usage:
+	stat_tick(Condition, Counter name): 
+			a simple counting
+	stat_variable(Condition, Accumulator name, variable): 
+			an accumlating function to sum up all variables
+	
+	stat_summary(): print out all statistic results, 
+			level>0 will give more detailed info

@@ -1,0 +1,271 @@
+/*
+ * Guest Command Realy - forward to host machine
+ *
+ * Copyright (c) 2010 pcchang
+ *
+ * This file is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ *
+ */
+
+#include <stdlib.h>
+#include "sysbus.h"
+#include "../cpu-all.h"
+#include "../trace_timestamp.h"
+#include "../Qemu_trace.h"
+#include "sysemu.h"
+
+#define DEBUG_NEW_DEV
+
+#ifdef DEBUG_NEW_DEV
+#define DPRINTF(fmt, ...) \
+do { printf("new-dev: " fmt , ## __VA_ARGS__); } while (0)
+#else
+#define DPRINTF(fmt, ...) do {} while(0)
+#endif
+
+/* Write buffer */
+#define WRITE_BUF_BASE   0x00
+#define WRITE_BUF_SIZE   256
+
+/* Read buffer */
+#define READ_BUF_BASE    (WRITE_BUF_BASE + WRITE_BUF_SIZE)
+#define READ_BUF_SIZE    256
+
+//ctrl06
+//#define TRACE_TO_FILE
+extern int      start_tracing;
+extern int      *shm_ptr;
+extern FILE 	*trace_log_file;
+extern uint64_t sim_time;
+typedef struct {
+    SysBusDevice busdev;
+    uint8_t read_buffer[READ_BUF_SIZE];
+    uint8_t write_buffer[WRITE_BUF_SIZE];
+} new_dev_state;
+
+static uint32_t new_dev_readb(void *opaque, target_phys_addr_t offset)
+{
+    new_dev_state *s = (new_dev_state *)opaque;
+
+    if (offset < READ_BUF_BASE || offset >= READ_BUF_BASE + READ_BUF_SIZE) {
+        hw_error("new_dev_readb: Bad offset 0x%x\n", (int)offset);
+        return 0;
+    }
+
+    return ldub_p(&s->read_buffer[offset]);
+}
+
+static uint32_t new_dev_readw(void *opaque, target_phys_addr_t offset)
+{
+    new_dev_state *s = (new_dev_state *)opaque;
+
+    if (offset < READ_BUF_BASE || offset + 1 >= READ_BUF_BASE + READ_BUF_SIZE) {
+        hw_error("new_dev_readw: Bad offset 0x%x\n", (int)offset);
+        return 0;
+    }
+
+    return lduw_be_p(&s->read_buffer[offset]);
+}
+
+static uint32_t new_dev_readl(void *opaque, target_phys_addr_t offset)
+{
+    new_dev_state *s = (new_dev_state *)opaque;
+
+    if (offset < READ_BUF_BASE || offset + 3 >= READ_BUF_BASE + READ_BUF_SIZE) {
+        hw_error("new_dev_readl: Bad offset 0x%x\n", (int)offset);
+        return 0;
+    }
+
+    return ldl_be_p(&s->read_buffer[offset]);
+}
+
+static void new_dev_writeb(void * opaque, target_phys_addr_t offset,
+                        uint32_t value)
+{
+    new_dev_state *s = (new_dev_state *)opaque;
+   
+	
+	if (offset < WRITE_BUF_BASE || offset >= WRITE_BUF_BASE + WRITE_BUF_SIZE) {
+        hw_error("_writeb: Bad offset 0x%x\n", (int)offset);
+        return;
+    }
+
+    s->write_buffer[offset] = (uint8_t)value;
+    if ((uint8_t)value == '\0') {//sue7785
+        DPRINTF("%s\n", s->write_buffer);
+        if(s->write_buffer[0]=='a'  &&  s->write_buffer[1]=='\0')
+        {
+			CPUState *env;
+			for(env=first_cpu;env;env=env->next_cpu)tb_flush(env);
+			start_tracing = 1;
+            DPRINTF("start trace log....\n");
+#ifdef TRACE_TO_FILE
+			printf("trace to file init\n");
+			TRACE_out_init("my_qemu_trace.trc"); //ctrl06
+#endif
+        }
+	else if(s->write_buffer[0]=='b'  &&  s->write_buffer[1]=='\0')
+	{
+		start_tracing = 0;
+		CPUState *env;
+		for(env=first_cpu;env;env=env->next_cpu)tb_flush(env);
+
+
+		my_trace_end();
+
+		for(env=first_cpu;env;env=env->next_cpu){
+			DPRINTF("instruction count : %lu\nsim cycle: %lu\n",env->inst_count,sim_time);
+			env->inst_count=0;
+			sim_time=0;
+		}
+
+#ifdef TRACE_TO_FILE
+		TRACE_out_done(); //ctrl06
+#endif
+	}
+	else if(s->write_buffer[0]=='c'  &&  s->write_buffer[1]=='\0')
+	{
+		my_trace_init();
+	}
+    }
+}
+
+static void new_dev_writew(void * opaque, target_phys_addr_t offset,
+                        uint32_t value)
+{
+    int index;
+    new_dev_state *s = (new_dev_state *)opaque;
+
+    if (offset < WRITE_BUF_BASE || offset + 1 >= WRITE_BUF_BASE + WRITE_BUF_SIZE) {
+        hw_error("host_relay_writeb: Bad offset 0x%x\n", (int)offset);
+        return;
+    }
+
+    stw_be_p(&s->write_buffer[offset], value);
+    for(index = 0; index <= 1; index++) {
+        if(s->write_buffer[offset+index] == '\0') {
+            DPRINTF("%s\n", s->write_buffer);
+			if(s->write_buffer[0]=='a'  &&  s->write_buffer[1]=='\0')
+	        {
+				start_tracing = 1;
+        	    DPRINTF("start trace log....\n");
+#ifdef TRACE_TO_FILE
+				TRACE_out_init("my_qemu_trace.trc"); //ctrl06
+#endif
+     	   	}
+       		else if(s->write_buffer[0]=='b'  &&  s->write_buffer[1]=='\0')
+        	{
+				start_tracing = 0;
+			
+				//share memory
+				while(1){
+		 			if( shm_ptr[shm_head]!= shm_ptr[shm_tail] ){
+						shm_ptr[ shm_ptr[shm_tail] ] = -1;
+						DPRINTF(" End shm[%d] = %d\n",shm_ptr[shm_tail],shm_ptr[ shm_ptr[shm_tail] ]);
+						shm_ptr[ shm_tail ]=shm_ptr[ shm_tail ]+2;
+						shm_ptr[ shm_tail ]%= shm_max;
+						break;
+					}
+				}
+
+				DPRINTF("end trace log....\n");
+#ifdef TRACE_TO_FILE
+				TRACE_out_done(); //ctrl06
+#endif
+        	}
+			else if(s->write_buffer[0]=='c'  &&  s->write_buffer[1]=='\0')
+			{
+				my_trace_init();
+			}
+            return;
+        }
+    }
+}
+
+static void new_dev_writel(void * opaque, target_phys_addr_t offset,
+                        uint32_t value)
+{
+    int index;
+    new_dev_state *s = (new_dev_state *)opaque;
+
+    if (offset < WRITE_BUF_BASE || offset + 3 >= WRITE_BUF_BASE + WRITE_BUF_SIZE) {
+        hw_error("host_relay_writeb: Bad offset 0x%x\n", (int)offset);
+        return;
+    }
+
+    stl_be_p(&s->write_buffer[offset], value);
+    for(index = 0; index <= 3; index++) {
+        if(s->write_buffer[offset+index] == '\0') {
+            DPRINTF("%s\n", s->write_buffer);
+    		if(s->write_buffer[0]=='a'  &&  s->write_buffer[1]=='\0')
+	        {
+				start_tracing = 1;
+        	    DPRINTF("start trace log....\n");
+#ifdef TRACE_TO_FILE
+				TRACE_out_init("my_qemu_trace.trc"); //ctrl06
+#endif
+     	   	}
+       		else if(s->write_buffer[0]=='b'  &&  s->write_buffer[1]=='\0')
+        	{
+				start_tracing = 0;
+			
+				//share memory
+				while(1){
+		 			if( shm_ptr[shm_head]!= shm_ptr[shm_tail] ){
+						shm_ptr[ shm_ptr[shm_tail] ] = -1;
+						DPRINTF(" End shm[%d] = %d\n",shm_ptr[shm_tail],shm_ptr[ shm_ptr[shm_tail] ]);
+						shm_ptr[ shm_tail ]=shm_ptr[ shm_tail ]+2;
+						shm_ptr[ shm_tail ]%= shm_max;
+						break;
+					}
+				}
+
+				DPRINTF("end trace log....\n");
+#ifdef TRACE_TO_FILE
+				TRACE_out_done(); //ctrl06
+#endif
+        	}
+			else if(s->write_buffer[0]=='c'  &&  s->write_buffer[1]=='\0')
+			{
+				my_trace_init();
+			}
+            return;
+        }
+    }
+}
+
+static CPUWriteMemoryFunc * const  new_dev_writefn[] = {
+    new_dev_writeb,
+    new_dev_writew,
+    new_dev_writel
+};
+
+static CPUReadMemoryFunc * const  new_dev_readfn[] = {
+    new_dev_readb,
+    new_dev_readw,
+    new_dev_readl
+};
+
+static int new_dev_init(SysBusDevice *dev)
+{
+    int iomemtype;
+    new_dev_state *s = FROM_SYSBUS(new_dev_state, dev);
+
+    iomemtype = cpu_register_io_memory(new_dev_readfn, new_dev_writefn, s,DEVICE_NATIVE_ENDIAN);
+    if (iomemtype == -1) {
+        hw_error("new_dev_init: Can't register I/O memory\n");
+    }
+    //cpu_register_physical_memory(0xfff00000, 0x100, iomemtype);
+
+    sysbus_init_mmio(dev, 0x1000, iomemtype);
+    return 0;
+}
+
+static void new_dev_register_devices(void)
+{
+    sysbus_register_dev("new_dev", sizeof(new_dev_state), new_dev_init);
+}
+
+device_init(new_dev_register_devices)

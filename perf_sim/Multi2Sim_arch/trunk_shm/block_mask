@@ -1,0 +1,359 @@
+Binary file bin/m2s matches
+src/mem-system/command.c:220:	if (!IN_RANGE(set, 0, mod->cache->num_sets - 1))
+src/mem-system/command.c:223:	if (!IN_RANGE(way, 0, mod->cache->assoc - 1))
+src/mem-system/module.c:390:	tag = addr & ~cache->block_mask;
+src/mem-system/module.c:394:		set = ((tag >> cache->log_block_size) / num_mods) % cache->num_sets;
+src/mem-system/module.c:398:		set = (tag >> cache->log_block_size) % cache->num_sets;
+src/mem-system/module.c:405:	for (way = 0; way < cache->assoc; way++)
+src/mem-system/module.c:407:		blk = &cache->sets[set].blocks[way];
+src/mem-system/module.c:422:	if (way == cache->assoc)
+src/mem-system/module.c:433:	PTR_ASSIGN(state_ptr, cache->sets[set].blocks[way].state);
+src/mem-system/module.c:442:	//if (mod->cache->prefetcher && mod_find_block(mod, addr, &set, &way, NULL, NULL))
+src/mem-system/module.c:443:	if (mod_find_block(mod, addr, &set, &way, NULL, NULL))//cjc_20121211 remove condition "mod->cache->prefetcher"
+src/mem-system/module.c:445:		mod->cache->sets[set].blocks[way].prefetched = val;
+src/mem-system/module.c:454:	//if (mod->cache->prefetcher && mod_find_block(mod, addr, &set, &way, NULL, NULL))
+src/mem-system/module.c:455:	if (mod_find_block(mod, addr, &set, &way, NULL, NULL))//cjc_20121211 remove condition "mod->cache->prefetcher"
+src/mem-system/module.c:457:		return mod->cache->sets[set].blocks[way].prefetched;
+src/mem-system/module.c:1043:	for (way = 0; way < cache->assoc; way++)
+src/mem-system/module.c:1045:		blk = &cache->sets[set].blocks[way];
+src/mem-system/module.c:1059:                mod->cache->sets[set].blocks[way].pf_owner = val;
+src/mem-system/module.c:1070:                return mod->cache->sets[set].blocks[way].pf_owner;
+src/mem-system/module.c:1083:                mod->cache->sets[set].blocks[way].owner = val;
+src/mem-system/module.c:1094:                return mod->cache->sets[set].blocks[way].owner;
+src/mem-system/module.c:1106:	for(set = 0; set < cache->num_sets; set++)
+src/mem-system/module.c:1107:		for(way = 0; way < cache->assoc; way++)
+src/mem-system/module.c:1109:			cache->sets[set].blocks[way].prefetched = 0;
+src/mem-system/module.c:1110:			cache->sets[set].blocks[way].dead_block_state = reused;
+src/mem-system/module.c:1128:        set = cache->num_sets;
+src/mem-system/module.c:1129:        way = cache->assoc;
+src/mem-system/module.c:1148:			//sharing_counter[cache->sets[i].blocks[j].state] += (sharer > 1)?1:0;
+src/mem-system/module.c:1150:                        counter[cache->sets[i].blocks[j].state]++;
+src/mem-system/module.c:1155:				sharing_counter[cache->sets[i].blocks[j].state] += 1;
+src/mem-system/prefetcher.c:303:	struct prefetcher_t *pref = target_mod->cache->prefetcher;
+src/mem-system/prefetcher.c:309:	if(target_mod->cache->prefetcher->type == prefetcher_type_stride || target_mod->cache->prefetcher->type == prefetcher_type_intel_ip)//cjc_20121210 stride prefetcher
+src/mem-system/prefetcher.c:499:		//if (mod->cache->prefetcher->L1_DCU_hint == 1)
+src/mem-system/prefetcher.c:524:	pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:587:	pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:717:	if(!target_mod->cache->prefetcher)
+src/mem-system/prefetcher.c:719:	if(target_mod->cache->prefetcher->type==prefetcher_type_stride)
+src/mem-system/prefetcher.c:725:			//if (!stack->client_info||target_mod->cache->prefetcher->pf_degree==0)//cjc_20121210 it has no pc
+src/mem-system/prefetcher.c:730:		tag = (stack->addr )&( ~(target_mod->cache->block_mask));
+src/mem-system/prefetcher.c:733:		if(target_mod->cache->prefetcher->stride_chain)
+src/mem-system/prefetcher.c:742:				degree = target_mod->cache->prefetcher->pf_degree;
+src/mem-system/prefetcher.c:753:				//nxt_entry = prefetcher_get_nxt_entry(target_mod->cache->prefetcher, &first,i);
+src/mem-system/prefetcher.c:757:					entry[i+1] = prefetcher_get_nxt_entry(target_mod->cache->prefetcher, &prediction[i],entry[i]);
+src/mem-system/prefetcher.c:802:			distance = target_mod->cache->prefetcher->pf_distance;
+src/mem-system/prefetcher.c:803:			//degree = target_mod->cache->prefetcher->pf_degree;
+src/mem-system/prefetcher.c:805:			degree = calc_degree(target_mod->cache->prefetcher->pf_degree,fine.degree,pc);
+src/mem-system/prefetcher.c:838:	else if (target_mod->cache->prefetcher->type == prefetcher_type_stream)
+src/mem-system/prefetcher.c:848:			STREAM_SET_LAST_ACCESS(entry,(stack->tag>>target_mod->cache->prefetcher->log_block_size));
+src/mem-system/prefetcher.c:856:	else if ( target_mod->cache->prefetcher->type ==prefetcher_type_dcu)
+src/mem-system/prefetcher.c:861:	else if ( target_mod->cache->prefetcher->type ==prefetcher_type_intel_ip)
+src/mem-system/prefetcher.c:871:	if (target_mod->cache->prefetcher->type == prefetcher_type_ghb_pc_cs)
+src/mem-system/prefetcher.c:877:	else if(target_mod->cache->prefetcher->type == prefetcher_type_ghb_pc_dc)
+src/mem-system/prefetcher.c:879:		assert(target_mod->cache->prefetcher->type == prefetcher_type_ghb_pc_dc);
+src/mem-system/prefetcher.c:884:	else if(target_mod->cache->prefetcher->type == prefetcher_type_ghb_pc_dc_mg)//cjc_20130305
+src/mem-system/prefetcher.c:886:		assert(target_mod->cache->prefetcher->type == prefetcher_type_ghb_pc_dc_mg);
+src/mem-system/prefetcher.c:913:		esim_schedule_event(EV_THROTTLE_NEW_COUNTER, target_mod->cache->throttle,0);//cjc_20121217 notify throttle
+src/mem-system/prefetcher.c:924:	if (!target_mod->cache->prefetcher)
+src/mem-system/prefetcher.c:928:	if(target_mod->cache->prefetcher->type==prefetcher_type_stride)
+src/mem-system/prefetcher.c:934:			//if (!stack->client_info||target_mod->cache->prefetcher->pf_degree==0)//cjc_20121210 it has no pc
+src/mem-system/prefetcher.c:939:		tag = (stack->addr )&( ~(target_mod->cache->block_mask));
+src/mem-system/prefetcher.c:943:		if(target_mod->cache->prefetcher->stride_chain)
+src/mem-system/prefetcher.c:951:				degree = target_mod->cache->prefetcher->pf_degree;
+src/mem-system/prefetcher.c:962:				//nxt_entry = prefetcher_get_nxt_entry(target_mod->cache->prefetcher, &first,i);
+src/mem-system/prefetcher.c:966:					entry[i+1] = prefetcher_get_nxt_entry(target_mod->cache->prefetcher, &prediction[i],entry[i]);
+src/mem-system/prefetcher.c:1013:			distance = target_mod->cache->prefetcher->pf_distance;
+src/mem-system/prefetcher.c:1014:			//degree = target_mod->cache->prefetcher->pf_degree;
+src/mem-system/prefetcher.c:1016:			degree = calc_degree(target_mod->cache->prefetcher->pf_degree,fine.degree,pc);
+src/mem-system/prefetcher.c:1046:	else if (target_mod->cache->prefetcher->type == prefetcher_type_stream)
+src/mem-system/prefetcher.c:1056:                        STREAM_SET_LAST_ACCESS(entry,(stack->tag>>target_mod->cache->prefetcher->log_block_size));
+src/mem-system/prefetcher.c:1065:	else if ( target_mod->cache->prefetcher->type ==prefetcher_type_dcu)
+src/mem-system/prefetcher.c:1070:	else if ( target_mod->cache->prefetcher->type ==prefetcher_type_intel_ip)
+src/mem-system/prefetcher.c:1092:		if (target_mod->cache->prefetcher->type == prefetcher_type_ghb_pc_cs)
+src/mem-system/prefetcher.c:1098:		else if(target_mod->cache->prefetcher->type == prefetcher_type_ghb_pc_dc)
+src/mem-system/prefetcher.c:1100:			assert(target_mod->cache->prefetcher->type == prefetcher_type_ghb_pc_dc);
+src/mem-system/prefetcher.c:1107:			assert(target_mod->cache->prefetcher->type == prefetcher_type_ghb_pc_dc_mg);
+src/mem-system/prefetcher.c:1121:	pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:1130:	pf_debug(" %lld %s: pc=%x\taddr=%x\tcache_hit=%d\n",mod_current_esim_cycle(),mod->cache->name,pc,addr,cache_hit);
+src/mem-system/prefetcher.c:1343:	pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:1377:	pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:1563:  pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:1664:	  if (!target_mod->cache->prefetcher)
+src/mem-system/prefetcher.c:1668:	  if(target_mod->cache->prefetcher->type==prefetcher_type_stride)
+src/mem-system/prefetcher.c:1682:	if (!target_mod->cache->prefetcher)
+src/mem-system/prefetcher.c:1685:	pref = target_mod->cache->prefetcher;
+src/mem-system/prefetcher.c:1696:		tag = (stack->addr )&( ~(target_mod->cache->block_mask));
+src/mem-system/prefetcher.c:1701:		//degree = target_mod->cache->prefetcher->pf_degree;
+src/mem-system/prefetcher.c:1703:		degree = calc_degree(target_mod->cache->prefetcher->pf_degree,fine.degree,pc);
+src/mem-system/prefetcher.c:1704:		distance = target_mod->cache->prefetcher->pf_distance;
+src/mem-system/prefetcher.c:1726:				get_it_index_tag(target_mod->cache->prefetcher,stack,&it_index,&it_tag);
+src/mem-system/prefetcher.c:1765:	pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:1800:	pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:1979:	pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:1994:	cache->FDP_filter.pollution_filter[index] = (is_set)?'1':'0';
+src/mem-system/prefetcher.c:2000:		cache->FDP_filter.pollution_filter[i] = '0';
+src/mem-system/prefetcher.c:2024:	value = cache->FDP_filter.pollution_filter[index];
+src/mem-system/prefetcher.c:2029:	cache->FDP_filter.pollution_filter[index]='0';
+src/mem-system/prefetcher.c:2164:	pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:2351:	pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:2418:	block_size = mod->cache->block_size;
+src/mem-system/prefetcher.c:2419:	pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:2543:	pref = mod->cache->prefetcher;
+src/mem-system/prefetcher.c:2570:		if (mod->cache->prefetcher->L2_DCU_ActbyHint == 1)
+src/mem-system/prefetcher.c:2583:			if (mod->cache->prefetcher->L2_DCU_ActbyHint == 1)
+src/mem-system/prefetcher.c:2596:					if (mod->cache->prefetcher->L2_DCU_ActbyHint == 1)
+src/mem-system/prefetcher.c:2609:						if (mod->cache->prefetcher->L1_DCU_hint == 1)
+src/mem-system/prefetcher.c:2617:							if (mod->cache->prefetcher->L1_DCU_hint_coreid == 1)
+src/mem-system/prefetcher.c:3099:							if (mod->cache->prefetcher->L2_DCU_ActbyHint == 0)
+src/mem-system/prefetcher.c:3101:								if( mod->cache->prefetcher->dcu_bidirection == 0){
+src/mem-system/prefetcher.c:3281:	pref = mod->cache->prefetcher;
+src/mem-system/mem-system.c:349:			set_num =  cache->num_sets;
+src/mem-system/mem-system.c:351:				fprintf(f, "set_%d      = %lld\n", j, cache->num_of_access_on_set[j]);
+src/mem-system/mem-system.c:397:			fprintf(f, "%s_Sets = %d\n", mod->name, cache->num_sets);
+src/mem-system/mem-system.c:398:			fprintf(f, "%s_Assoc = %d\n", mod->name, cache->assoc);
+src/mem-system/mem-system.c:399:			fprintf(f, "%s_Policy = %s\n", mod->name, str_map_value(&cache_policy_map, cache->policy));
+src/mem-system/mem-system.c:759:		if(mod->cache->prefetcher)
+src/mem-system/mem-system.c:762:			throttle_dump_report(f,mod->cache->throttle);
+src/mem-system/nmoesi-protocol.c:172:			//stack->tag = stack->addr & ~mod->pf_cache->block_mask;
+src/mem-system/nmoesi-protocol.c:176:    		if(mod->data_mod && (mod->cache->prefetcher != NULL))prefetcher_access_dcu(stack, mod); //before coalesce training prefetcher
+src/mem-system/nmoesi-protocol.c:212:		if(esim_warm_up_finish&&mod->cache->throttle->status==throttle_working_status_idle)
+src/mem-system/nmoesi-protocol.c:213:			esim_schedule_event(EV_THROTTLE_START,mod->cache->throttle,0);
+src/mem-system/nmoesi-protocol.c:283:				tag = stack->addr & ~mod->pf_cache->block_mask;
+src/mem-system/nmoesi-protocol.c:574:		if(esim_warm_up_finish&&mod->cache->throttle->status==throttle_working_status_idle)
+src/mem-system/nmoesi-protocol.c:575:			esim_schedule_event(EV_THROTTLE_START,mod->cache->throttle,0);
+src/mem-system/nmoesi-protocol.c:602:				int mask = ~mod->cache->block_mask;
+src/mem-system/nmoesi-protocol.c:652:				tag = stack->addr & ~mod->pf_cache->block_mask;
+src/mem-system/nmoesi-protocol.c:1388:		esim_schedule_event(EV_THROTTLE_NEW_COUNTER, mod->cache->throttle,0);//cjc_20121217 notify throttle
+src/mem-system/nmoesi-protocol.c:1455:		//esim_schedule_event(EV_THROTTLE_NEW_COUNTER, mod->cache->throttle,0);//cjc_20121217 notify throttle
+src/mem-system/nmoesi-protocol.c:1633:			stack->tag = stack->addr & ~mod->pf_cache->block_mask;
+src/mem-system/nmoesi-protocol.c:1807:        //mod->cache->num_of_access_on_set[stack->set]++; //porshe:20130219 profiling cache accesses distribution of cache lines
+src/mem-system/nmoesi-protocol.c:2000:            	//	mod->cache->num_of_access_on_set[stack->set]++; //porshe:20130222 profiling cache accesses distribution of cache lines
+src/mem-system/nmoesi-protocol.c:2029:		if (mod->cache->prefetcher == 1 && mod->cache->prefetcher->L1_DCU_hint == 1)
+src/mem-system/nmoesi-protocol.c:2048:            			mod->cache->num_of_access_on_set[stack->set]++; //porshe:20130222 profiling cache accesses distribution of cache lines
+src/mem-system/nmoesi-protocol.c:2140:					//if(high_mod->cache->throttle)
+src/mem-system/nmoesi-protocol.c:2142:					if(high_mod->cache->prefetcher)
+src/mem-system/nmoesi-protocol.c:2143:						esim_schedule_event(EV_THROTTLE_EVENT_TRIGGER, high_mod->cache->throttle,0);
+src/mem-system/nmoesi-protocol.c:2147:			/*if(mod->level==1&&mod->cache->prefetcher&&((mod->cache_evict_block %mod->one_fourth_block_mask)==0))//cjc_20130717 for event-throttling
+src/mem-system/nmoesi-protocol.c:2149:				esim_schedule_event(EV_THROTTLE_EVENT_TRIGGER, mod->cache->throttle,0);
+src/mem-system/nmoesi-protocol.c:2166:					esim_schedule_event(EV_THROTTLE_NEW_COUNTER, mod->cache->throttle,0);
+src/mem-system/nmoesi-protocol.c:2176:					esim_schedule_event(EV_THROTTLE_NEW_COUNTER, mod->cache->throttle,0);
+src/mem-system/nmoesi-protocol.c:2797:				//if (mod->cache->prefetcher)
+src/mem-system/nmoesi-protocol.c:2799:				//	if (mod->cache->prefetcher->L1_DCU_hint == 1)
+src/mem-system/nmoesi-protocol.c:2899:			//if (mod->cache->prefetcher)
+src/mem-system/nmoesi-protocol.c:2901:			//	if (mod->cache->prefetcher->L1_DCU_hint == 1)
+src/mem-system/nmoesi-protocol.c:2955:			//if (mod->cache->prefetcher)
+src/mem-system/nmoesi-protocol.c:2957:			//	if (mod->cache->prefetcher->L1_DCU_hint == 1)
+src/mem-system/nmoesi-protocol.c:3680:				//if (mod->cache->prefetcher)
+src/mem-system/nmoesi-protocol.c:3682:				//	if (mod->cache->prefetcher->L1_DCU_hint == 1)
+src/mem-system/nmoesi-protocol.c:3717:			//if (mod->cache->prefetcher)
+src/mem-system/nmoesi-protocol.c:3719:			//	if (mod->cache->prefetcher->L1_DCU_hint == 1)
+src/mem-system/cache.c:142:	cache->name = xstrdup(name);
+src/mem-system/cache.c:143:	cache->num_sets = num_sets;
+src/mem-system/cache.c:144:	cache->block_size = block_size;
+src/mem-system/cache.c:145:	cache->assoc = assoc;
+src/mem-system/cache.c:146:	cache->policy = policy;
+src/mem-system/cache.c:147:	cache->num_of_access_on_set = xcalloc(num_sets, sizeof(long long)); //porshe:20130219 profiling cache accesses distribution of cache lines
+src/mem-system/cache.c:153:	cache->log_block_size = log_base2(block_size);
+src/mem-system/cache.c:154:	cache->block_mask = block_size - 1;
+src/mem-system/cache.c:156:	cache->sets = xcalloc(num_sets, sizeof(struct cache_set_t));
+src/mem-system/cache.c:160:		cache->sets[set].blocks = xcalloc(assoc, sizeof(struct cache_block_t));
+src/mem-system/cache.c:161:		cache->sets[set].way_head = &cache->sets[set].blocks[0];
+src/mem-system/cache.c:162:		cache->sets[set].way_tail = &cache->sets[set].blocks[assoc - 1];
+src/mem-system/cache.c:165:			block = &cache->sets[set].blocks[way];
+src/mem-system/cache.c:167:			block->way_prev = way ? &cache->sets[set].blocks[way - 1] : NULL;
+src/mem-system/cache.c:168:			block->way_next = way < assoc - 1 ? &cache->sets[set].blocks[way + 1] : NULL;
+src/mem-system/cache.c:182:	for (set = 0; set < cache->num_sets; set++)
+src/mem-system/cache.c:183:		free(cache->sets[set].blocks);
+src/mem-system/cache.c:184:	free(cache->num_of_access_on_set);
+src/mem-system/cache.c:185:	free(cache->sets);
+src/mem-system/cache.c:186:	free(cache->name);
+src/mem-system/cache.c:187:	if (cache->prefetcher)
+src/mem-system/cache.c:188:		prefetcher_free(cache->prefetcher);
+src/mem-system/cache.c:189:	if(cache->throttle)
+src/mem-system/cache.c:190:		throttle_free(cache->throttle);//cjc_20121215
+src/mem-system/cache.c:200:	PTR_ASSIGN(set_ptr, (addr >> cache->log_block_size) % cache->num_sets);
+src/mem-system/cache.c:201:	PTR_ASSIGN(tag_ptr, addr & ~cache->block_mask);
+src/mem-system/cache.c:202:	PTR_ASSIGN(offset_ptr, addr & cache->block_mask);
+src/mem-system/cache.c:217:	tag = addr & ~cache->block_mask;
+src/mem-system/cache.c:218:	set = (addr >> cache->log_block_size) % cache->num_sets;
+src/mem-system/cache.c:221:	for (way = 0; way < cache->assoc; way++)
+src/mem-system/cache.c:222:		if (cache->sets[set].blocks[way].tag == tag && cache->sets[set].blocks[way].state)
+src/mem-system/cache.c:226:	if (way == cache->assoc)
+src/mem-system/cache.c:231:	PTR_ASSIGN(state_ptr, cache->sets[set].blocks[way].state);
+src/mem-system/cache.c:241:	assert(set >= 0 && set < cache->num_sets);
+src/mem-system/cache.c:242:	assert(way >= 0 && way < cache->assoc);
+src/mem-system/cache.c:245:			cache->name, set, way, tag,
+src/mem-system/cache.c:248:	if (cache->policy == cache_policy_fifo
+src/mem-system/cache.c:249:			&& cache->sets[set].blocks[way].tag != tag)
+src/mem-system/cache.c:250:		cache_update_waylist(&cache->sets[set],
+src/mem-system/cache.c:251:				&cache->sets[set].blocks[way],
+src/mem-system/cache.c:253:	cache->sets[set].blocks[way].tag = tag;
+src/mem-system/cache.c:254:	cache->sets[set].blocks[way].state = state;
+src/mem-system/cache.c:260:	assert(set >= 0 && set < cache->num_sets);
+src/mem-system/cache.c:261:	assert(way >= 0 && way < cache->assoc);
+src/mem-system/cache.c:262:	PTR_ASSIGN(tag_ptr, cache->sets[set].blocks[way].tag);
+src/mem-system/cache.c:263:	PTR_ASSIGN(state_ptr, cache->sets[set].blocks[way].state);
+src/mem-system/cache.c:273:	assert(set >= 0 && set < cache->num_sets);
+src/mem-system/cache.c:274:	assert(way >= 0 && way < cache->assoc);
+src/mem-system/cache.c:279:	move_to_head = cache->policy == cache_policy_lru ||
+src/mem-system/cache.c:280:		(cache->policy == cache_policy_fifo && !cache->sets[set].blocks[way].state);
+src/mem-system/cache.c:281:	if (move_to_head && cache->sets[set].blocks[way].way_prev)
+src/mem-system/cache.c:282:		cache_update_waylist(&cache->sets[set],
+src/mem-system/cache.c:283:				&cache->sets[set].blocks[way],
+src/mem-system/cache.c:296:	assert(set >= 0 && set < cache->num_sets);
+src/mem-system/cache.c:298:	   for (block = cache->sets[set].way_tail; block; block = block->way_prev)
+src/mem-system/cache.c:305:	if (cache->policy == cache_policy_lru ||
+src/mem-system/cache.c:306:			cache->policy == cache_policy_fifo)
+src/mem-system/cache.c:308:		int way = cache->sets[set].way_tail->way;
+src/mem-system/cache.c:309:		cache_update_waylist(&cache->sets[set], cache->sets[set].way_tail, 
+src/mem-system/cache.c:316:	assert(cache->policy == cache_policy_random);
+src/mem-system/cache.c:318:	return random() % cache->assoc;
+src/mem-system/cache.c:327:	block = &cache->sets[set].blocks[way];
+src/mem-system/cache.c:332:	assert(set >= 0 && set < cache->num_sets);
+src/mem-system/cache.c:333:	assert(way >= 0 && way < cache->assoc);
+src/mem-system/cache.c:334:	cache->sets[set].blocks[way].victim_tag= cache->sets[set].blocks[way].tag;
+src/mem-system/cache.c:335:	return cache->sets[set].blocks[way].tag;
+src/mem-system/cache.c:339:	assert(set >= 0 && set < cache->num_sets);
+src/mem-system/cache.c:340:	assert(way >= 0 && way < cache->assoc);
+src/mem-system/cache.c:342:	cache->sets[set].blocks[way].inserted_cycle = cycle_time;
+src/mem-system/cache.c:346:	assert(set >= 0 && set < cache->num_sets);
+src/mem-system/cache.c:347:	assert(way >= 0 && way < cache->assoc);
+src/mem-system/cache.c:348:	assert(cache->sets[set].blocks[way].inserted_cycle);
+src/mem-system/cache.c:349:	return cache->sets[set].blocks[way].inserted_cycle;
+src/mem-system/cache.c:353:	assert(set >= 0 && set < cache->num_sets);
+src/mem-system/cache.c:354:	assert(way >= 0 && way < cache->assoc);
+src/mem-system/cache.c:355:	//return cache->sets[set].blocks[way].flag_dead_blck;
+src/mem-system/cache.c:357:	return cache->sets[set].blocks[way].dead_block_state;
+src/mem-system/cache.c:365:	assert(set >= 0 && set < cache->num_sets);
+src/mem-system/cache.c:366:	assert(way >= 0 && way < cache->assoc);
+src/mem-system/cache.c:367:	//cache->sets[set].blocks[way].flag_dead_blck = flag;
+src/mem-system/cache.c:369:	cache->sets[set].blocks[way].dead_block_state = flag;
+src/mem-system/cache.c:374:	assert(set >= 0 && set < cache->num_sets);
+src/mem-system/cache.c:375:	assert(way >= 0 && way < cache->assoc);	
+src/mem-system/cache.c:376:	cache_update_waylist(&cache->sets[set],
+src/mem-system/cache.c:377:			&cache->sets[set].blocks[way],
+src/mem-system/cache.c:383:	assert(set >= 0 && set < cache->num_sets);
+src/mem-system/cache.c:384:	assert(way >= 0 && way < cache->assoc);
+src/mem-system/cache.c:385:	cache->sets[set].blocks[way].stack=stack;
+src/mem-system/cache.c:391:	assert(set >= 0 && set < cache->num_sets);
+src/mem-system/cache.c:392:	assert(way >= 0 && way < cache->assoc);
+src/mem-system/cache.c:393:	return cache->sets[set].blocks[way].stack;
+src/mem-system/cache.c:404:	set = cache->num_sets;
+src/mem-system/cache.c:405:	way = cache->assoc;
+src/mem-system/cache.c:416:			//state = cache->sets[i].blocks[j].state;
+src/mem-system/cache.c:417:			counter[cache->sets[i].blocks[j].state]++;
+Binary file src/mem-system/prefetcher.o matches
+Binary file src/mem-system/libmemsystem.a matches
+src/mem-system/config.c:798:                mod->cache->prefetcher = prefetcher_create(prefetcher_ghb_size,pf_distance,prefetcher_stride_degree,prefetcher_type);
+src/mem-system/config.c:799:        	mod->cache->prefetcher->lower_level_insertion =lower_level_insertion;
+src/mem-system/config.c:800:		mod->cache->prefetcher->pf_degree = prefetcher_stride_degree;
+src/mem-system/config.c:805:		mod->cache->prefetcher = prefetcher_create(prefetcher_ghb_size, prefetcher_it_size,
+src/mem-system/config.c:807:		mod->cache->prefetcher->lower_level_insertion =lower_level_insertion;
+src/mem-system/config.c:808:		mod->cache->prefetcher->pf_degree = prefetcher_stride_degree;
+src/mem-system/config.c:809:		mod->cache->prefetcher->pf_distance = pf_distance;
+src/mem-system/config.c:810:		mod->cache->prefetcher->fine_grained_ctrl = fine_grained_ctrl;
+src/mem-system/config.c:811:		mod->cache->prefetcher->stride_chain = stride_chain;
+src/mem-system/config.c:812:		mod->cache->prefetcher->dcu_bidirection = dcu_bidirection;
+src/mem-system/config.c:814:		mod->cache->prefetcher->L1_DCU_hint = L1_DCU_hint;
+src/mem-system/config.c:815:		mod->cache->prefetcher->L1_DCU_hint_coreid = L1_DCU_hint_coreid;
+src/mem-system/config.c:816:		mod->cache->prefetcher->L1_DCU_hint_prefetch_distance = L1_DCU_hint_prefetch_distance;
+src/mem-system/config.c:819:		mod->cache->prefetcher->L2_DCU_ActbyHint = L2_DCU_ActbyHint;
+src/mem-system/config.c:822:		mod->cache->prefetcher->L1_DCU_hint_L2_prefetch_only_be_triggered_by_hint = L1_DCU_hint_L2_prefetch_only_be_triggered_by_hint;
+src/mem-system/config.c:825:		mod->cache->prefetcher->stride_coreid_match = stride_coreid_match;
+src/mem-system/config.c:827:		mod->cache->prefetcher->log_block_size = mod->cache->log_block_size;
+src/mem-system/config.c:857:	mod->cache->throttle=throttle_create(mod->name,mod->cache->prefetcher,throttle_type,throttle_period,&hw_counter);	
+src/mem-system/config.c:858:	mod->cache->throttle->decision_method = throttle_mothod;
+src/mem-system/config.c:1723:				mod->name, mod->cache->num_sets, mod->cache->assoc,
+src/mem-system/config.c:1724:				mod->cache->block_size, mod->sub_block_size, mod->dir->num_nodes,
+Binary file src/mem-system/cache.o matches
+Binary file src/libm2s.a matches
+Binary file src/trace_driven/libtracedriven.a matches
+Binary file src/m2s.o matches
+Binary file src/arch/x86/timing/libtiming.a matches
+Binary file src/arch/x86/timing/trace-cache.o matches
+src/arch/x86/timing/trace-cache.h:34:	((struct x86_trace_cache_entry_t *) (((unsigned char *) trace_cache->entry) + \
+src/arch/x86/timing/cpu-fetch.c:201:			X86_THREAD.trace_cache->num_fetched_uinst++;
+src/arch/x86/timing/cpu-recover.c:68:			X86_THREAD.trace_cache->num_squashed_uinst++;
+src/arch/x86/timing/cpu-dispatch.c:111:			X86_THREAD.trace_cache->num_dispatched_uinst++;
+src/arch/x86/timing/trace-cache.c:131:	trace_cache->thread = thread;
+src/arch/x86/timing/trace-cache.c:134:	trace_cache->name = xstrdup(name);
+src/arch/x86/timing/trace-cache.c:135:	trace_cache->entry = xcalloc(x86_trace_cache_num_sets * x86_trace_cache_assoc,
+src/arch/x86/timing/trace-cache.c:137:	trace_cache->temp = xcalloc(1, X86_TRACE_CACHE_ENTRY_SIZE);
+src/arch/x86/timing/trace-cache.c:156:	free(trace_cache->name);
+src/arch/x86/timing/trace-cache.c:157:	free(trace_cache->entry);
+src/arch/x86/timing/trace-cache.c:158:	free(trace_cache->temp);
+src/arch/x86/timing/trace-cache.c:174:	fprintf(f, "TraceCache.Accesses = %lld\n", trace_cache->accesses);
+src/arch/x86/timing/trace-cache.c:175:	fprintf(f, "TraceCache.Hits = %lld\n", trace_cache->hits);
+src/arch/x86/timing/trace-cache.c:176:	fprintf(f, "TraceCache.HitRatio = %.4g\n", trace_cache->accesses ? (double)
+src/arch/x86/timing/trace-cache.c:177:		trace_cache->hits / trace_cache->accesses : 0.0);
+src/arch/x86/timing/trace-cache.c:178:	fprintf(f, "TraceCache.Fetched = %lld\n", trace_cache->num_fetched_uinst);
+src/arch/x86/timing/trace-cache.c:179:	fprintf(f, "TraceCache.Dispatched = %lld\n", trace_cache->num_dispatched_uinst);
+src/arch/x86/timing/trace-cache.c:180:	fprintf(f, "TraceCache.Issued = %lld\n", trace_cache->num_issued_uinst);
+src/arch/x86/timing/trace-cache.c:181:	fprintf(f, "TraceCache.Committed = %lld\n", trace_cache->num_committed_uinst);
+src/arch/x86/timing/trace-cache.c:182:	fprintf(f, "TraceCache.Squashed = %lld\n", trace_cache->num_squashed_uinst);
+src/arch/x86/timing/trace-cache.c:184:		trace_cache->trace_length_count ? (double) trace_cache->trace_length_acc /
+src/arch/x86/timing/trace-cache.c:185:			trace_cache->trace_length_count : 0);
+src/arch/x86/timing/trace-cache.c:216:	assert(trace_cache->thread->ctx && trace_cache->thread->ctx->mem);
+src/arch/x86/timing/trace-cache.c:217:	mem = trace_cache->thread->ctx->mem;
+src/arch/x86/timing/trace-cache.c:278:	struct x86_trace_cache_entry_t *trace = trace_cache->temp;
+src/arch/x86/timing/trace-cache.c:350:	memset(trace_cache->temp, 0, X86_TRACE_CACHE_ENTRY_SIZE);
+src/arch/x86/timing/trace-cache.c:365:	trace_cache->trace_length_acc += found_entry->uop_count;
+src/arch/x86/timing/trace-cache.c:366:	trace_cache->trace_length_count++;
+src/arch/x86/timing/trace-cache.c:372:	struct x86_trace_cache_entry_t *trace = trace_cache->temp;
+src/arch/x86/timing/trace-cache.c:455:	trace_cache->accesses++;
+src/arch/x86/timing/trace-cache.c:457:		trace_cache->hits++;
+src/arch/x86/timing/cpu-commit.c:137:			X86_THREAD.trace_cache->num_committed_uinst++;
+src/arch/x86/timing/cpu-commit.c:154:					if(X86_THREAD.data_mod->cache->prefetcher)
+src/arch/x86/timing/cpu-commit.c:156:						fprintf(MPKI," pf_degree=%d\n",X86_THREAD.data_mod->cache->prefetcher->pf_degree);
+src/arch/x86/timing/cpu-commit.c:162:				//esim_schedule_event(EV_THROTTLE_EVENT_TRIGGER, X86_THREAD.data_mod->cache->throttle,0);
+src/arch/x86/timing/cpu-issue.c:104:			X86_THREAD.trace_cache->num_issued_uinst++;
+src/arch/x86/timing/cpu-issue.c:185:			X86_THREAD.trace_cache->num_issued_uinst++;
+src/arch/x86/timing/cpu-issue.c:273:			X86_THREAD.trace_cache->num_issued_uinst++;
+src/arch/x86/timing/cpu-issue.c:345:			X86_THREAD.trace_cache->num_issued_uinst++;
+src/m2s.c:1355:		if (!strcmp(argv[argi], "--cache-debug"))
+Binary file src/.m2s.c.swn matches
+configure:898:  -cache-file | --cache-file | --cache-fil | --cache-fi \
+configure:899:  | --cache-f | --cache- | --cache | --cach | --cac | --ca | --c)
+configure:901:  -cache-file=* | --cache-file=* | --cache-fil=* | --cache-fi=* \
+configure:902:  | --cache-f=* | --cache-=* | --cache=* | --cach=* | --cac=* | --ca=* | --c=*)
+configure:1370:      --cache-file=FILE   cache test results in FILE [disabled]
+configure:1371:  -C, --config-cache      alias for \`--cache-file=config.cache'
+INSTALL:34:and enabled with `--cache-file=config.cache' or simply `-C') that saves
+INSTALL:339:`--cache-file=FILE'
+INSTALL:346:     Alias for `--cache-file=config.cache'.
+autom4te.cache/output.1:902:  -cache-file | --cache-file | --cache-fil | --cache-fi \
+autom4te.cache/output.1:903:  | --cache-f | --cache- | --cache | --cach | --cac | --ca | --c)
+autom4te.cache/output.1:905:  -cache-file=* | --cache-file=* | --cache-fil=* | --cache-fi=* \
+autom4te.cache/output.1:906:  | --cache-f=* | --cache-=* | --cache=* | --cach=* | --cac=* | --ca=* | --c=*)
+autom4te.cache/output.1:1374:      --cache-file=FILE   cache test results in FILE [disabled]
+autom4te.cache/output.1:1375:  -C, --config-cache      alias for \`--cache-file=config.cache'
+autom4te.cache/output.3:898:  -cache-file | --cache-file | --cache-fil | --cache-fi \
+autom4te.cache/output.3:899:  | --cache-f | --cache- | --cache | --cach | --cac | --ca | --c)
+autom4te.cache/output.3:901:  -cache-file=* | --cache-file=* | --cache-fil=* | --cache-fi=* \
+autom4te.cache/output.3:902:  | --cache-f=* | --cache-=* | --cache=* | --cach=* | --cac=* | --ca=* | --c=*)
+autom4te.cache/output.3:1370:      --cache-file=FILE   cache test results in FILE [disabled]
+autom4te.cache/output.3:1371:  -C, --config-cache      alias for \`--cache-file=config.cache'
+autom4te.cache/output.4:898:  -cache-file | --cache-file | --cache-fil | --cache-fi \
+autom4te.cache/output.4:899:  | --cache-f | --cache- | --cache | --cach | --cac | --ca | --c)
+autom4te.cache/output.4:901:  -cache-file=* | --cache-file=* | --cache-fil=* | --cache-fi=* \
+autom4te.cache/output.4:902:  | --cache-f=* | --cache-=* | --cache=* | --cach=* | --cac=* | --ca=* | --c=*)
+autom4te.cache/output.4:1370:      --cache-file=FILE   cache test results in FILE [disabled]
+autom4te.cache/output.4:1371:  -C, --config-cache      alias for \`--cache-file=config.cache'
+autom4te.cache/output.2:898:  -cache-file | --cache-file | --cache-fil | --cache-fi \
+autom4te.cache/output.2:899:  | --cache-f | --cache- | --cache | --cach | --cac | --ca | --c)
+autom4te.cache/output.2:901:  -cache-file=* | --cache-file=* | --cache-fil=* | --cache-fi=* \
+autom4te.cache/output.2:902:  | --cache-f=* | --cache-=* | --cache=* | --cach=* | --cac=* | --ca=* | --c=*)
+autom4te.cache/output.2:1370:      --cache-file=FILE   cache test results in FILE [disabled]
+autom4te.cache/output.2:1371:  -C, --config-cache      alias for \`--cache-file=config.cache'
+autom4te.cache/output.0:902:  -cache-file | --cache-file | --cache-fil | --cache-fi \
+autom4te.cache/output.0:903:  | --cache-f | --cache- | --cache | --cach | --cac | --ca | --c)
+autom4te.cache/output.0:905:  -cache-file=* | --cache-file=* | --cache-fil=* | --cache-fi=* \
+autom4te.cache/output.0:906:  | --cache-f=* | --cache-=* | --cache=* | --cach=* | --cac=* | --ca=* | --c=*)
+autom4te.cache/output.0:1374:      --cache-file=FILE   cache test results in FILE [disabled]
+autom4te.cache/output.0:1375:  -C, --config-cache      alias for \`--cache-file=config.cache'
+Binary file BIN/bin/m2s matches
+Binary file BIN/lib/libm2s.a matches
+Binary file BIN/lib/libtiming.a matches
+Binary file BIN/lib/libtracedriven.a matches
+Binary file BIN/lib/libmemsystem.a matches

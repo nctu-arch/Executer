@@ -1,0 +1,13 @@
+WarmUp = 0 (default)
+x86_cpu_warmup_count
+                    0: no warm up
+number of instruction: warm up number of instruction
+
+############################################
+
+ForwardToParallel
+x86_cpu_forward_to_parallel
+default	0: no forwarding
+	1: forward until context >= x86_cpu_num_cores ( Cores in cpu-config)
+
+############################################

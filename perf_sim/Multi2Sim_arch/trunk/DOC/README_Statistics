@@ -1,0 +1,78 @@
+step2	R_hit_on_self_l1_lat
+step3	R_hit_on_remote_l1_lat
+step4	R_hit_on_l2_lat
+step5	R_hit_on_memory
+step6	R_l1_wo_depend_hit_num
+step7	R_l1_w_depend_hit_num
+step8	R_l1_remote_hit_num
+step9	R_l2_hit_num
+step10	R_mm_hit_num
+step11	W_hit_on_self_l1_lat
+step12	W_hit_on_remote_l1_lat
+step13	W_hit_on_l2_lat
+step14	W_hit_on_memory
+step15	W_l1_wo_depend_hit_num
+step16	W_l1_w_depend_hit_num
+step17	W_l1_remote_hit_num
+step18	W_l2_hit_num
+step19	W_mm_hit_num
+step20	Pf_already_in_cache
+step21	Pf_indentified
+step22	Pf_hit_on_chip
+step23	Pf_hits
+step24	Pf_pollution
+step25	Pf_late
+step26	Pf_hit_by_other_core
+step27	Pf_retry
+step28	Pf_late_cycle
+step29	Pf_early_cycle
+step30	Accesses
+step31	Hits
+step32	Misses
+step33	HitRatio
+step34	Evictions
+step35	Retries
+step36	CommittedInstructionsPerCycle	
+step37	Transfers	*
+step38	AverageMessageSize	*
+step39	AverageLatency	*
+step40	msg_size_8B_num	*
+step41	msg_size_72B_num	*
+step42	Pf_already_in_MSHR
+step43	Pf_already_in_cache
+step44	Pf_issued
+step45	Pf_late_load
+step46	Pf_late_store
+step47	Pf_late_cycle
+step48	Pf_late_cycle_load
+step49	Pf_late_cycle_store
+step50	Pf_hit_by_upper_level
+step51	Pf_hit_by_other_core
+step52	Pf_early_cycle_upper_level
+step53	Cache_dead_block
+
+step54	Pf_ideal_cache_victim
+step55	Pf_ideal_wait_cycle
+step56	Pf_ideal_l1_retry
+step57	Pf_ideal_l2_retry
+step58	Pf_ideal_access_count
+step59	Pf_ideal_latency
+step60	Pf_ideal_skipped_mem_access
+
+step61	L2_HitRatio
+
+step62	Thr_degree1
+	Thr_degree2
+	Thr_degree3
+	Thr_degree4
+	Thr_degree_total
+
+step63	Thr_destination_cur_level
+	Thr_destination_lower_level
+	Thr_destination_total
+
+step70	L2_HitRatio
+
+/home/ic/My_Multi2Sim/LAB_SVN/Multi2Sim_RUN_STEP/FASTFORWARD/step9_large_FF.py
+
+

@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M0 -D__EVAL --li -g -O0 --apcs=interwork --split_sections
+-I C:\Keil_v5\perf_sim\Collect_data\RTE
+-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include
+-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\Device\ARM\ARMCM0\Include
+-D__UVISION_VERSION="516" -D_RTE_ -DARMCM0
+-o .\objects\system_armcm0.o --omf_browse .\objects\system_armcm0.crf --depend .\objects\system_armcm0.d "RTE\Device\ARMCM0\system_ARMCM0.c"

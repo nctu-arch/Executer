@@ -1,0 +1,43 @@
+EnablePrefetcher = t
+t: prefetch on
+f: prefetch off
+
+PrefetcherType = STRIDE
+STRIDE: Use stride prefetch
+
+PrefetcherGHBSize = 256
+Entries count in stride table 
+
+PrefetcherITSize = 64
+No use in stride prefetcher
+
+PrefetcherLookupDepth = 2
+No use in stride prefetcher
+
+Pf_degree = 1
+	default = 0
+
+Pf_distance = 1
+
+
+===IdealPfCache===
+
+(IdealPfCache, IdealPfCacheContention, IdealPfCachePollution, IdealPfLatencyHiding)
+	default = 0
+
+=IdealPfCache=IdealPfCacheContention=IdealPfCachePollution=IdealPfLatencyHiding=
+=     0	     =		X	    =		X	  =         X          = Normal		
+
+
+
+
+===Throttle===
+must EnablePrefetcher = t
+ThrottleType = (NONE/CYCLE/EVENT)
+	default = NONE; disable throttle
+		  EVENT; use 1/4 L2-block count eviction as a trigger event
+PfAccuracyRatio = 0.6
+	default = 0.6,determine high or low of pf_accuracy
+ThrottlePeriod = 50000
+	default = 50000, use for  ThrottleType==CYCLE
+

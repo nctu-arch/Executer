@@ -1,0 +1,6 @@
+--cpu Cortex-M0 --li --pd "__EVAL SETA 1" -g --apcs=interwork 
+-I C:\Keil_v5\perf_sim\AHRS_for_MICRO\RTE
+-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include
+-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.3.0\Device\ARM\ARMCM0\Include
+--pd "__UVISION_VERSION SETA 516" --pd "_RTE_ SETA 1" --pd "ARMCM0 SETA 1"
+--list .\listings\startup_armcm0.lst --xref -o .\objects\startup_armcm0.o --depend .\objects\startup_armcm0.d "RTE\Device\ARMCM0\startup_ARMCM0.s"

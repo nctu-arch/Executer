@@ -1,0 +1,8 @@
+--cpu Cortex-M0
+".\objects\main.o"
+".\objects\startup_armcm0.o"
+".\objects\system_armcm0.o"
+--strict --scatter ".\my_sct.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\AHRS_M0_50.map" -o .\Objects\AHRS_M0_50.axf

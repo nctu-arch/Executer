@@ -1,0 +1,326 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           ARM
+  Version:                           0x1
+  Entry point address:               0xc1
+  Start of program headers:          21896 (bytes into file)
+  Start of section headers:          21928 (bytes into file)
+  Flags:                             0x5000202, has entry point, Version5 EABI, <unknown>
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         1
+  Size of section headers:           40 (bytes)
+  Number of section headers:         16
+  Section header string table index: 15
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] ER_IROM1          PROGBITS        00000000 000034 000304 00  AX  0   0  4
+  [ 2] RW_IRAM1          PROGBITS        00020000 000338 000050 00  WA  0   0  4
+  [ 3] RW_IRAM1          NOBITS          00020050 000388 001060 00  WA  0   0  8
+  [ 4] .debug_abbrev     PROGBITS        00000000 000388 0005c4 00      0   0  1
+  [ 5] .debug_frame      PROGBITS        00000000 00094c 000328 00      0   0  1
+  [ 6] .debug_info       PROGBITS        00000000 000c74 000cf8 00      0   0  1
+  [ 7] .debug_line       PROGBITS        00000000 00196c 000360 00      0   0  1
+  [ 8] .debug_loc        PROGBITS        00000000 001ccc 00014c 00      0   0  1
+  [ 9] .debug_macinfo    PROGBITS        00000000 001e18 0008cc 00      0   0  1
+  [10] .debug_pubnames   PROGBITS        00000000 0026e4 0001f9 00      0   0  1
+  [11] .symtab           SYMTAB          00000000 0028e0 001020 10     12 141  4
+  [12] .strtab           STRTAB          00000000 003900 001070 00      0   0  1
+  [13] .note             NOTE            00000000 004970 00001c 00      0   0  4
+  [14] .comment          PROGBITS        00000000 00498c 000b60 00      0   0  1
+  [15] .shstrtab         STRTAB          00000000 0054ec 00009c 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings)
+  I (info), L (link order), G (group), x (unknown)
+  O (extra OS processing required) o (OS specific), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x000034 0x00000000 0x00000000 0x00354 0x013b4 RWE 0x8
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     ER_IROM1 
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+There are no unwind sections in this file.
+
+Symbol table '.symtab' contains 258 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 NOTYPE  LOCAL  DEFAULT    1 $d.realdata
+     2: 000000c0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+     3: 000000fc     0 NOTYPE  LOCAL  DEFAULT    1 $d
+     4: 00000104     0 NOTYPE  LOCAL  DEFAULT    1 $t
+     5: 00000182     0 NOTYPE  LOCAL  DEFAULT    1 $d
+     6: 0000019c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+     7: 000001f4     0 NOTYPE  LOCAL  DEFAULT    1 $d
+     8: 000001f8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+     9: 00000200     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    10: 00000204     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    11: 00000278     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    12: 00000280     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    13: 000002b2     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    14: 000002c0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    15: 000002dc     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    16: 000002e4     0 NOTYPE  LOCAL  DEFAULT    1 $d.realdata
+    17: 00020000     0 NOTYPE  LOCAL  DEFAULT    2 $d.realdata
+    18: 00000000     0 FILE    LOCAL  DEFAULT  ABS m0slave.c
+    19: 00000280     0 SECTION LOCAL  DEFAULT    1 i.main
+    20: 00020000    68 SECTION LOCAL  DEFAULT    2 .data
+    21: 00000000     0 FILE    LOCAL  DEFAULT  ABS My_sensors.c
+    22: 00000206     0 SECTION LOCAL  DEFAULT    1 i.Read_Accel
+    23: 00000226     0 SECTION LOCAL  DEFAULT    1 i.Read_Compass
+    24: 0000024e     0 SECTION LOCAL  DEFAULT    1 i.Read_Gyro
+    25: 000002c0     0 SECTION LOCAL  DEFAULT    1 i.shm_write
+    26: 00020044     8 SECTION LOCAL  DEFAULT    2 .data
+    27: 00000000     0 FILE    LOCAL  DEFAULT  ABS RTE\Device\ARMCM0\startup
+    28: 00020cb0  1024 SECTION LOCAL  DEFAULT    3 STACK
+    29: 00020cb0  1024 OBJECT  LOCAL  DEFAULT    3 Stack_Mem
+    30: 000210b0     0 OBJECT  LOCAL  DEFAULT    3 __initial_sp
+    31: 000200b0  3072 SECTION LOCAL  DEFAULT    3 HEAP
+    32: 000200b0  3072 OBJECT  LOCAL  DEFAULT    3 Heap_Mem
+    33: 00000000   192 SECTION LOCAL  DEFAULT    1 RESET
+    34: 00000164    56 SECTION LOCAL  DEFAULT    1 .text
+    35: 00000000     0 FILE    LOCAL  DEFAULT  ABS RTE\\Device\\ARMCM0\\syst
+    36: 00000000     0 FILE    LOCAL  DEFAULT  ABS RTE\Device\ARMCM0\system_
+    37: 00000270     0 SECTION LOCAL  DEFAULT    1 i.SystemInit
+    38: 0002004c     4 SECTION LOCAL  DEFAULT    2 .data
+    39: 00000000     0 FILE    LOCAL  DEFAULT  ABS dc.s
+    40: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/heapaux.c
+    41: 0000019c     0 SECTION LOCAL  DEFAULT    1 .text
+    42: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/startup.s
+    43: 000000c0     8 SECTION LOCAL  DEFAULT    1 !!!main
+    44: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/kernel.s
+    45: 00000144     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$rtentry$$00
+    46: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/kernel.s
+    47: 00000144     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$rtentry$$00
+    48: 0000014a     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$rtentry$$00
+    49: 0000014a     4 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$rtentry$$00
+    50: 0000014e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$rtentry$$00
+    51: 0000014e     8 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$rtentry$$00
+    52: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/kernel.s
+    53: 00000144     6 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$rtentry$$00
+    54: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/sys.s
+    55: 000001a2    62 SECTION LOCAL  DEFAULT    1 .text
+    56: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/stdlib.c
+    57: 000001e0     0 SECTION LOCAL  DEFAULT    1 .text
+    58: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/boardlib.s
+    59: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/boardlib.s
+    60: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/boardlib.s
+    61: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/libinit.s
+    62: 0000013c     2 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    63: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/sys.s
+    64: 000001f0     8 SECTION LOCAL  DEFAULT    1 .text
+    65: 00020050    96 SECTION LOCAL  DEFAULT    3 .bss
+    66: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/sys.s
+    67: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/kernel.s
+    68: 00000156     2 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$rtexit$$000
+    69: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/libinit.s
+    70: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    71: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    72: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    73: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    74: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    75: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    76: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    77: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    78: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    79: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    80: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    81: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    82: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    83: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    84: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    85: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    86: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    87: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    88: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    89: 0000013e     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    90: 0000013e     2 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libinit$$00
+    91: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/kernel.s
+    92: 00000158     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$rtexit$$000
+    93: 00000158     4 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$rtexit$$000
+    94: 0000015c     6 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$rtexit$$000
+    95: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/armsys.c
+    96: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../fplib/cfplib/fpinit.c
+    97: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/sysapp.c
+    98: 000001f8     0 SECTION LOCAL  DEFAULT    1 .text
+    99: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/boardlib.s
+   100: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/armsys.c
+   101: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/armsys.c
+   102: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/libinit.s
+   103: 00000140     2 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libshutdown
+   104: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/sysapp.c
+   105: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/sys.s
+   106: 00000204     2 SECTION LOCAL  DEFAULT    1 .text
+   107: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/sys.s
+   108: 00000206     0 SECTION LOCAL  DEFAULT    1 .text
+   109: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/heapalloc.c
+   110: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   111: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   112: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/libinit.s
+   113: 00000142     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libshutdown
+   114: 00000142     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libshutdown
+   115: 00000142     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libshutdown
+   116: 00000142     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libshutdown
+   117: 00000142     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libshutdown
+   118: 00000142     0 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libshutdown
+   119: 00000142     2 SECTION LOCAL  DEFAULT    1 .ARM.Collect$$libshutdown
+   120: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/rt.s
+   121: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   122: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   123: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   124: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   125: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/sysapp.c
+   126: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.s
+   127: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   128: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   129: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   130: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   131: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   132: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   133: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   134: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/signal.c
+   135: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/scatterp.s
+   136: 000000c8    60 SECTION LOCAL  DEFAULT    1 !!!scatter
+   137: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/handlers.s
+   138: 00000104    26 SECTION LOCAL  DEFAULT    1 !!handler_copy
+   139: 00000000     0 FILE    LOCAL  DEFAULT  ABS ../clib/angel/handlers.s
+   140: 00000120    28 SECTION LOCAL  DEFAULT    1 !!handler_zi
+   141: 00000000     0 NOTYPE  GLOBAL HIDDEN   ABS BuildAttributes$$THM_ISAv
+   142: 00000000     0 NOTYPE  GLOBAL HIDDEN   ABS __ARM_use_no_argv
+   143: 00000000     4 OBJECT  GLOBAL HIDDEN     1 __Vectors
+   144: 000000c0     0 OBJECT  GLOBAL HIDDEN     1 __Vectors_End
+   145: 000000c0     0 NOTYPE  GLOBAL HIDDEN   ABS __Vectors_Size
+   146: 000000c1     8 FUNC    GLOBAL HIDDEN     1 __main
+   147: 000000c9     0 FUNC    GLOBAL HIDDEN     1 __scatterload
+   148: 000000c9    52 FUNC    GLOBAL HIDDEN     1 __scatterload_rt2
+   149: 000000c9     0 FUNC    GLOBAL HIDDEN     1 __scatterload_rt2_thumb_o
+   150: 000000d9     0 FUNC    GLOBAL HIDDEN     1 __scatterload_null
+   151: 00000105    26 FUNC    GLOBAL HIDDEN     1 __scatterload_copy
+   152: 00000121    28 FUNC    GLOBAL HIDDEN     1 __scatterload_zeroinit
+   153: 0000013d     0 FUNC    GLOBAL DEFAULT    1 __rt_lib_init
+   154: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_alloca_1
+   155: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_argv_1
+   156: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_atexit_1
+   157: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_clock_1
+   158: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_cpp_1
+   159: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_exceptions_
+   160: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_fp_1
+   161: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_fp_trap_1
+   162: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_getenv_1
+   163: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_heap_1
+   164: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_lc_collate_
+   165: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_lc_ctype_1
+   166: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_lc_monetary
+   167: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_lc_numeric_
+   168: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_lc_time_1
+   169: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_preinit_1
+   170: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_rand_1
+   171: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_return
+   172: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_signal_1
+   173: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_stdio_1
+   174: 0000013f     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_init_user_alloc_
+   175: 00000141     0 FUNC    GLOBAL DEFAULT    1 __rt_lib_shutdown
+   176: 00000143     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_shutdown_cpp_1
+   177: 00000143     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_shutdown_fp_trap
+   178: 00000143     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_shutdown_heap_1
+   179: 00000143     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_shutdown_return
+   180: 00000143     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_shutdown_signal_
+   181: 00000143     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_shutdown_stdio_1
+   182: 00000143     0 FUNC    GLOBAL HIDDEN     1 __rt_lib_shutdown_user_al
+   183: 00000145     0 FUNC    GLOBAL HIDDEN     1 __rt_entry
+   184: 00000145     0 FUNC    GLOBAL HIDDEN     1 __rt_entry_presh_1
+   185: 00000145     0 FUNC    GLOBAL HIDDEN     1 __rt_entry_sh
+   186: 0000014b     0 FUNC    GLOBAL HIDDEN     1 __rt_entry_li
+   187: 0000014b     0 FUNC    GLOBAL HIDDEN     1 __rt_entry_postsh_1
+   188: 0000014f     0 FUNC    GLOBAL HIDDEN     1 __rt_entry_main
+   189: 0000014f     0 FUNC    GLOBAL HIDDEN     1 __rt_entry_postli_1
+   190: 00000157     0 FUNC    GLOBAL DEFAULT    1 __rt_exit
+   191: 00000159     0 FUNC    GLOBAL HIDDEN     1 __rt_exit_ls
+   192: 00000159     0 FUNC    GLOBAL HIDDEN     1 __rt_exit_prels_1
+   193: 0000015d     0 FUNC    GLOBAL HIDDEN     1 __rt_exit_exit
+   194: 00000165     8 FUNC    WEAK   HIDDEN     1 Reset_Handler
+   195: 0000016d     2 FUNC    WEAK   HIDDEN     1 NMI_Handler
+   196: 0000016f     2 FUNC    WEAK   HIDDEN     1 HardFault_Handler
+   197: 00000171     2 FUNC    WEAK   HIDDEN     1 SVC_Handler
+   198: 00000173     2 FUNC    WEAK   HIDDEN     1 PendSV_Handler
+   199: 00000175     2 FUNC    WEAK   HIDDEN     1 SysTick_Handler
+   200: 00000177     0 FUNC    WEAK   HIDDEN     1 AACI_IRQHandler
+   201: 00000177     0 FUNC    WEAK   HIDDEN     1 CAN_IRQHandler
+   202: 00000177     0 FUNC    WEAK   HIDDEN     1 CHLCD_IRQHandler
+   203: 00000177     0 FUNC    WEAK   HIDDEN     1 CLCD_IRQHandler
+   204: 00000177     0 FUNC    WEAK   HIDDEN     1 CPU_CLCD_IRQHandler
+   205: 00000177     0 FUNC    WEAK   HIDDEN     1 ENET_IRQHandler
+   206: 00000177     0 FUNC    WEAK   HIDDEN     1 FLEXRAY_IRQHandler
+   207: 00000177     0 FUNC    WEAK   HIDDEN     1 I2C_IRQHandler
+   208: 00000177     0 FUNC    WEAK   HIDDEN     1 LIN_IRQHandler
+   209: 00000177     0 FUNC    WEAK   HIDDEN     1 MCIA_IRQHandler
+   210: 00000177     0 FUNC    WEAK   HIDDEN     1 MCIB_IRQHandler
+   211: 00000177     0 FUNC    WEAK   HIDDEN     1 RTC_IRQHandler
+   212: 00000177     0 FUNC    WEAK   HIDDEN     1 SPI_IRQHandler
+   213: 00000177     0 FUNC    WEAK   HIDDEN     1 TIM0_IRQHandler
+   214: 00000177     0 FUNC    WEAK   HIDDEN     1 TIM2_IRQHandler
+   215: 00000177     0 FUNC    WEAK   HIDDEN     1 UART0_IRQHandler
+   216: 00000177     0 FUNC    WEAK   HIDDEN     1 UART1_IRQHandler
+   217: 00000177     0 FUNC    WEAK   HIDDEN     1 UART2_IRQHandler
+   218: 00000177     0 FUNC    WEAK   HIDDEN     1 UART3_IRQHandler
+   219: 00000177     0 FUNC    WEAK   HIDDEN     1 UART4_IRQHandler
+   220: 00000177     0 FUNC    WEAK   HIDDEN     1 USBDC_IRQHandler
+   221: 00000177     0 FUNC    WEAK   HIDDEN     1 USBHC_IRQHandler
+   222: 00000177     0 FUNC    WEAK   HIDDEN     1 WDT_IRQHandler
+   223: 00000179    10 FUNC    GLOBAL HIDDEN     1 __user_initial_stackheap
+   224: 0000019d     2 FUNC    GLOBAL HIDDEN     1 __use_two_region_memory
+   225: 0000019f     2 FUNC    GLOBAL DEFAULT    1 __rt_heap_escrow$2region
+   226: 000001a1     2 FUNC    GLOBAL DEFAULT    1 __rt_heap_expand$2region
+   227: 000001a3    62 FUNC    GLOBAL DEFAULT    1 __user_setup_stackheap
+   228: 000001e1    16 FUNC    GLOBAL DEFAULT    1 exit
+   229: 000001f1     8 FUNC    WEAK   DEFAULT    1 __user_libspace
+   230: 000001f1     0 FUNC    WEAK   DEFAULT    1 __user_perproc_libspace
+   231: 000001f1     0 FUNC    WEAK   DEFAULT    1 __user_perthread_libspace
+   232: 000001f9     8 FUNC    GLOBAL DEFAULT    1 _sys_exit
+   233: 00000205     0 FUNC    GLOBAL HIDDEN     1 __I$use$semihosting
+   234: 00000205     2 FUNC    GLOBAL HIDDEN     1 __use_no_semihosting_swi
+   235: 00000207    32 FUNC    GLOBAL HIDDEN     1 Read_Accel
+   236: 00000207     0 FUNC    GLOBAL HIDDEN     1 __semihosting_library_fun
+   237: 00000227    40 FUNC    GLOBAL HIDDEN     1 Read_Compass
+   238: 0000024f    32 FUNC    GLOBAL HIDDEN     1 Read_Gyro
+   239: 00000271     8 FUNC    GLOBAL HIDDEN     1 SystemInit
+   240: 00000281    50 FUNC    GLOBAL HIDDEN     1 main
+   241: 000002c1    28 FUNC    GLOBAL HIDDEN     1 shm_write
+   242: 000002e4     0 NOTYPE  GLOBAL HIDDEN     1 Region$$Table$$Base
+   243: 00000304     0 NOTYPE  GLOBAL HIDDEN     1 Region$$Table$$Limit
+   244: 00020000     4 OBJECT  GLOBAL HIDDEN     2 wait_M4
+   245: 00020004     1 OBJECT  GLOBAL HIDDEN     2 sequenceComplete
+   246: 00020008    36 OBJECT  GLOBAL HIDDEN     2 SENSOR_SIGN
+   247: 0002002c     4 OBJECT  GLOBAL HIDDEN     2 rawADC
+   248: 00020030     4 OBJECT  GLOBAL HIDDEN     2 counter
+   249: 00020034     4 OBJECT  GLOBAL HIDDEN     2 LEDstate
+   250: 00020038     4 OBJECT  GLOBAL HIDDEN     2 loop
+   251: 0002003c     4 OBJECT  GLOBAL HIDDEN     2 pbatch
+   252: 00020040     4 OBJECT  GLOBAL HIDDEN     2 bfull
+   253: 00020044     4 OBJECT  GLOBAL HIDDEN     2 shm
+   254: 00020048     4 OBJECT  GLOBAL HIDDEN     2 sema
+   255: 0002004c     4 OBJECT  GLOBAL HIDDEN     2 SystemCoreClock
+   256: 00020050    96 OBJECT  GLOBAL DEFAULT    3 __libspace_start
+   257: 000200b0     0 OBJECT  GLOBAL DEFAULT    3 __temporary_stack_top$lib
+
+No version information found in this file.
+
+Notes at offset 0x00004970 with length 0x0000001c:
+  Owner		Data size	Description
+  ARM		0x0000000c	Unknown note type: (0x40000000)

@@ -1,0 +1,177 @@
+/*
+ * QEMU SPI bus interface.
+ *
+ */
+
+#include "spi.h"
+
+static struct BusInfo spi_bus_info = {
+    .name = "SPI",
+    .size = sizeof(spi_bus)
+};
+
+static const VMStateDescription vmstate_spi_bus = {
+    .name = "spi_bus",
+    .version_id = 1,
+    .minimum_version_id = 1,
+    .minimum_version_id_old = 1,
+    .fields = (VMStateField[]){
+        VMSTATE_UINT8(cur_slave, spi_bus),
+	VMSTATE_END_OF_LIST()
+    }
+};
+
+spi_bus *spi_init_bus(DeviceState *parent, int num_slaves, const char *name)
+{
+    spi_bus *bus;
+
+    bus = FROM_QBUS(spi_bus, qbus_create(&spi_bus_info, parent, name));
+    if(num_slaves >= SPI_BUS_NO_CS){
+        hw_error("too many slaves on spi bus: %d\n",num_slaves);
+    }
+    bus->num_slaves = num_slaves;
+    bus->slaves = qemu_mallocz(sizeof(*bus->slaves) * num_slaves);
+    //bus->slaves = g_malloc0(sizeof(*bus->slaves) * num_slaves);
+    vmstate_register(NULL, -1, &vmstate_spi_bus, bus);
+    return bus;
+}
+
+int spi_attach_slave(spi_bus * bus, SPISlave *slave, int cs)
+{
+    if(bus->slaves[cs]){
+        return 1;
+    }
+    bus->slaves[cs] = slave;
+    return 0;
+}
+
+int spi_set_cs(spi_bus *bus, int cs)
+{
+    SPISlave *dev;
+    SPISlaveClass *klass;
+
+    if(bus->cur_slave == cs){
+        return 0;
+    }
+
+    if(bus->cur_slave != SPI_BUS_NO_CS){
+        dev = bus->slaves[bus->cur_slave];
+	dev->cs = 0;
+	klass = SPI_SLAVE_GET_CLASS(dev);
+	klass->cs(dev,0);
+    }
+
+    if(cs >= bus->num_slaves && cs != SPI_BUS_NO_CS){
+        hw_error("attempted to assert non existent spi CS line: %d\n",cs);
+    }
+
+    bus->cur_slave = (uint8_t)cs;
+
+    if(cs != SPI_BUS_NO_CS){
+        dev = bus->slaves[cs];
+	dev->cs = 1;
+	klass = SPI_SLAVE_GET_CLASS(dev);
+	klass->cs(dev,1);
+    }
+    return 0;
+}
+
+int spi_get_cs(spi_bus *bus)
+{
+    return bus->cur_slave;
+}
+
+SpiSlaveState spi_get_state(spi_bus *bus)
+{
+    SPISlave *dev;
+    //SPISlaveClass *klass;
+
+    if(bus->cur_slave == SPI_BUS_NO_CS){
+        return SPI_NO_CS;	    
+    }
+    dev = bus->slaves[bus->cur_slave];
+    //klass = SPI_SLAVE_GET_CLASS(dev);
+
+    return dev->info->get_state(dev);//klass->get_state(dev);
+
+}
+SpiSlaveState spi_send(spi_bus *bus, uint32_t data, int len)
+{
+    SPISlave *dev;
+    //SPISlaveClass *klass;
+
+    if(bus->cur_slave == SPI_BUS_NO_CS){
+        return SPI_NO_CS;
+    }
+    dev = bus->slaves[bus->cur_slave];
+    //klass = SPI_SLAVE_GET_CLASS(dev);
+
+    return dev->info->send(dev,data,len);//klass->send(dev, data, len);
+}
+
+SpiSlaveState spi_recv(spi_bus *bus, uint32_t *data)
+{
+    SPISlave *dev;
+    //SPISlaveClass *klass;
+
+    if(bus->cur_slave == SPI_BUS_NO_CS){
+        return SPI_NO_CS;
+    }
+    dev = bus->slaves[bus->cur_slave];
+    //klass = SPI_SLAVE_GET_CLASS(dev);
+
+    return dev->info->recv(dev,data);//klass->recv(dev, data);
+}
+
+const VMStateDescription vmstate_spi_slave = {
+    .name = "SPISlave",
+    .version_id = 1,
+    .minimum_version_id = 1,
+    .minimum_version_id_old = 1,
+    .fields = (VMStateField[]){
+        VMSTATE_UINT8(cs, SPISlave),
+	VMSTATE_END_OF_LIST()
+    }
+};
+
+static int spi_slave_qdev_init(DeviceState *dev, DeviceInfo *base)
+{
+    SPISlave *s = SPI_SLAVE_FROM_QDEV(dev);
+    //SPISlaveClass *sc = SPI_SLAVE_GET_CLASS(s);
+    SPISlaveInfo *info = container_of(base, SPISlaveInfo, qdev);
+
+    s->info = info;
+
+    return info->init(s);//sc->init(s);
+}
+
+/*static void spi_slave_class_init(ObjectClass *klass, void *data)
+{
+    DeviceClass *k = DEVICE_CLASS(klass);
+    k->init = spi_slave_qdev_init;
+    k->bus_info = &spi_bus_info;
+}*/
+void spi_register_slave(SPISlaveInfo *info)
+{
+    assert(info->qdev.size >= sizeof(SPISlave));
+    info->qdev.init = spi_slave_qdev_init;
+    info->qdev.bus_info = &spi_bus_info;
+    qdev_register(&info->qdev);
+}
+
+/*static TypeInfo spi_slave_type_info = {
+    .name = TYPE_SPI_SLAVE,
+    .parent = TYPE_DEVICE,
+    .instance_size = sizeof(SPISlave),
+    .abstract = true,
+    .class_size = sizeof(SPISlaveClass),
+    .class_init = spi_slave_class_init,
+};*/
+
+static void spi_slave_register_types(void)
+{
+    //type_register_static(&spi_slave_type_info);
+    sysbus_register_dev("spi_slave", sizeof(SpiSlaveState), spi_slave_qdev_init/*spi_slave_class_init*/);
+}
+//type_init(spi_slave_register_types)
+device_init(spi_slave_register_types)

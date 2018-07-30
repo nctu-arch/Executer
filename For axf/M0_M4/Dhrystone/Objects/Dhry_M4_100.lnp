@@ -1,0 +1,8 @@
+--cpu Cortex-M4
+".\objects\main.o"
+".\objects\startup_armcm4.o"
+".\objects\system_armcm4.o"
+--strict --scatter ".\my_sct.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\Dhry_M4_100.map" -o .\Objects\Dhry_M4_100.axf

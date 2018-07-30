@@ -1,0 +1,3 @@
+#!/bin/bash
+ln -s /home/cws/perf_sim/Multi2Sim_arch/trunk_shm/src/sc_dramsim2/parameters.txt ./
+ln -s /home/cws/perf_sim/Multi2Sim_arch/trunk_shm/src/sc_dramsim2/DRAMSim2 ./

@@ -1,0 +1,4 @@
+#include <stdlib.h>
+#include "sysbus.h"
+#include "../cpu-all.h"
+int new_machine_init();

@@ -1,0 +1,280 @@
+-------------------SCENARIO DESCRIPTION!------------------
+scenario_param
+	loop = 10
+	total tasks = 1
+	total cores = 2
+	total srams = 1
+	total peripherals = 6
+	total peripherals = 3
+core_param
+	core0_id = 0
+	core0_speed = 100
+
+sram_param
+	sram0_id = 0
+	sram0_size = 32
+	sram0 access cycle = 2
+
+peripheral_param
+	periph_id = 0
+	periph_name = PLL
+
+	periph_id = 1
+	periph_name = IRC
+
+	periph_id = 2
+	periph_name = RTC
+
+	periph_id = 3
+	periph_name = Flash
+
+	periph_id = 4
+	periph_name = ADC
+
+	periph_id = 5
+	periph_name = I2C
+
+sensor_param
+	sensor_id = 0
+	sensor_name = accelerometer
+
+	sensor_id = 1
+	sensor_name = gyroscope
+
+	sensor_id = 2
+	sensor_name = magnetometer
+
+sleep_mode_param
+	total sleep mode = 2
+
+
+	sleep mode 1 turn off core 0
+	sleep mode 1 turn off PLL
+	sleep mode 1 turn off IRC
+	sleep mode 1 turn off Flash
+	sleep mode 1 turn off ADC
+	sleep mode 1 turn off I2C
+task_param
+
+	task0_id = 0
+	task0 name = Collect data
+	task0 axf_file = /home/cws/perf_sim/app/M0/collect_data_M0_sing.axf
+	Collect data deadline = 0.807300
+	Collect data previous task id = -1
+	Collect data iteration = 1
+	Collect data use sleep mode 0
+	Collect data assigned to core 0
+	Collect data running with core mode 0
+	Collect data use mem 0
+	Collect data running with mem mode 0
+	Collect data use periph PLL
+	Collect data use periph IRC
+	Collect data use periph RTC
+	Collect data use periph Flash
+	Collect data use periph ADC
+	Collect data use periph I2C
+	Collect data running with periph mode 0
+----------------------POWER TABLE!------------------------
+core_param
+	DFVS_mode = 3
+	mode 0
+		core id = 0
+		operating voltage of mode 0 of core 0 = 1.000 V
+		active_current of mode 0 of core 0 = 1.370 mA
+		sleep_current of mode 0 of core 0 = 1.190 mA
+		transition_energy of mode 0 of core 0  = 136.260 nJ
+		transition_time of mode 0 of core 0 = 104.500 us
+
+		core id = 1
+		operating voltage of mode 0 of core 1 = 1.000 V
+		active_current of mode 0 of core 1 = 4.850 mA
+		sleep_current of mode 0 of core 1 = 4.140 mA
+		transition_energy of mode 0 of core 1  = 1466.720 nJ
+		transition_time of mode 0 of core 1 = 329.110 us
+
+	mode 1
+		core id = 0
+		operating voltage of mode 1 of core 0 = 1.000 V
+		active_current of mode 1 of core 0 = 0.710 mA
+		sleep_current of mode 1 of core 0 = 0.620 mA
+		transition_energy of mode 1 of core 0  = 136.260 nJ
+		transition_time of mode 1 of core 0 = 200.580 us
+
+		core id = 1
+		operating voltage of mode 1 of core 1 = 1.000 V
+		active_current of mode 1 of core 1 = 2.530 mA
+		sleep_current of mode 1 of core 1 = 2.160 mA
+		transition_energy of mode 1 of core 1  = 1466.720 nJ
+		transition_time of mode 1 of core 1 = 631.590 us
+
+	mode 2
+		core id = 0
+		operating voltage of mode 2 of core 0 = 1.000 V
+		active_current of mode 2 of core 0 = 0.170 mA
+		sleep_current of mode 2 of core 0 = 0.140 mA
+		transition_energy of mode 2 of core 0  = 136.260 nJ
+		transition_time of mode 2 of core 0 = 200.580 us
+
+		core id = 1
+		operating voltage of mode 2 of core 1 = 1.000 V
+		active_current of mode 2 of core 1 = 0.600 mA
+		sleep_current of mode 2 of core 1 = 0.580 mA
+		transition_energy of mode 2 of core 1  = 1466.720 nJ
+		transition_time of mode 2 of core 1 = 631.590 us
+
+memory_param
+	DFVS_mode = 1
+	mode 0
+		mem id = 0
+		operating voltage of mode 0 of mem 0 = 1.000 V
+		read energy of mode 0 of mem 0 = 0.450 nJ
+		write energy of mode 0 of mem 0= 0.470 nJ
+peripheral_param
+	DFVS_mode = 1
+	mode 0
+		periph id = 0
+		operating voltage of mode 0 of periph 0  = 3.300 V
+		active current of mode 0 of periph 0 = 4.590 mA
+		sleep current of mode 0 of periph 0 = 0.000 mA
+		transition energy of mode 0 of periph 0  = 3.610 uJ
+		transition time of mode 0 of periph 0  = 355.000 us
+
+		periph id = 1
+		operating voltage of mode 0 of periph 1  = 3.300 V
+		active current of mode 0 of periph 1 = 1.110 mA
+		sleep current of mode 0 of periph 1 = 0.000 mA
+		transition energy of mode 0 of periph 1  = 1.070 uJ
+		transition time of mode 0 of periph 1  = 150.000 us
+
+		periph id = 2
+		operating voltage of mode 0 of periph 2  = 3.300 V
+		active current of mode 0 of periph 2 = 0.010 mA
+		sleep current of mode 0 of periph 2 = 0.000 mA
+		transition energy of mode 0 of periph 2  = 0.140 uJ
+		transition time of mode 0 of periph 2  = 30.000 us
+
+		periph id = 3
+		operating voltage of mode 0 of periph 3  = 3.300 V
+		active current of mode 0 of periph 3 = 0.240 mA
+		sleep current of mode 0 of periph 3 = 0.000 mA
+		transition energy of mode 0 of periph 3  = 0.200 uJ
+		transition time of mode 0 of periph 3  = 15.000 us
+
+		periph id = 4
+		operating voltage of mode 0 of periph 4  = 3.300 V
+		active current of mode 0 of periph 4 = 0.060 mA
+		sleep current of mode 0 of periph 4 = 0.000 mA
+		transition energy of mode 0 of periph 4  = 0.170 uJ
+		transition time of mode 0 of periph 4  = 30.000 us
+
+		periph id = 5
+		operating voltage of mode 0 of periph 5  = 3.300 V
+		active current of mode 0 of periph 5 = 0.010 mA
+		sleep current of mode 0 of periph 5 = 0.000 mA
+		transition energy of mode 0 of periph 5  = 0.000 uJ
+		transition time of mode 0 of periph 5  = 0.000 us
+
+sensor_param
+	DFVS_mode = 1
+	mode 0
+		sensor id = 0
+		operating voltage of mode 0 of sensor 0 = 3.600 V
+		active current of mode 0 of sensor 0 = 0.300 mA
+		sleep current of mode 0 of sensor 0 = 0.000 mA
+
+		sensor id = 1
+		operating voltage of mode 0 of sensor 1 = 2.500 V
+		active current of mode 0 of sensor 1 = 6.310 mA
+		sleep current of mode 0 of sensor 1 = 0.000 mA
+
+		sensor id = 2
+		operating voltage of mode 0 of sensor 2 = 2.500 V
+		active current of mode 0 of sensor 2 = 0.080 mA
+		sleep current of mode 0 of sensor 2 = 0.000 mA
+
+tb total cycle cnt = 599, load = 43, store = 22
+
+SIMULATOR RESULT:Collect data run with core 0 : cycles 599 load 43 store 22
+--------------------PERFORMANCE RESULT!--------------------
+
+-----------------------TASK 0-------------------
+Task Collect data (task id 0) running with core 0 and mem 0 
+	 task execution time is 7.29000 us
+	 task remaining time is 800.01000 us
+	 task transition time is 0.00000 us
+------CORE 0-----
+	 core active time is 807.30000 us
+	 core sleep time is 0.00000 us
+	 core transition time is 0.00000 us
+------MEM 0-----
+	 mem active time is 1.30000 us
+	 mem sleep time is 0.00000 us
+	 mem transition time is 0.00000 us
+-------PLL-------
+	 PLL active time is 7.29000 us
+	 PLL sleep time is 800.01000 us
+	 PLL transition time is 0.00000 us
+-------IRC-------
+	 IRC active time is 7.29000 us
+	 IRC sleep time is 800.01000 us
+	 IRC transition time is 0.00000 us
+-------RTC-------
+	 RTC active time is 7.29000 us
+	 RTC sleep time is 800.01000 us
+	 RTC transition time is 0.00000 us
+-------Flash-------
+	 Flash active time is 7.29000 us
+	 Flash sleep time is 800.01000 us
+	 Flash transition time is 0.00000 us
+-------ADC-------
+	 ADC active time is 7.29000 us
+	 ADC sleep time is 800.01000 us
+	 ADC transition time is 0.00000 us
+-------I2C-------
+	 I2C active time is 7.29000 us
+	 I2C sleep time is 800.01000 us
+	 I2C transition time is 0.00000 us
+----------------------END OF TASK 0-------------------
+----------------------ENERGY RESULT!--------------------
+
+-----------------------TASK 0-------------------
+Task Collect data (task id 0) running with core 0 and mem 0 with peripherals:
+- PLL
+- IRC
+- RTC
+- Flash
+- ADC
+- I2C
+------CORE 0-----
+	 core active energy is 0.00111 mJ
+	 core sleep energy is 0.00000 mJ
+	 core transition energy is 0.00014 mJ
+------MEM 0-----
+	 mem active energy is 0.00003 mJ
+	 mem sleep energy is 0.00000 mJ
+	 mem transition energy is 0.00000 mJ
+-------PLL-------
+	 PLL active energy is 0.00011 mJ
+	 PLL sleep energy is 0.01212 mJ
+	 PLL transition energy is 0.00000 mJ
+-------IRC-------
+	 IRC active energy is 0.00003 mJ
+	 IRC sleep energy is 0.00293 mJ
+	 IRC transition energy is 0.00000 mJ
+-------RTC-------
+	 RTC active energy is 0.00000 mJ
+	 RTC sleep energy is 0.00003 mJ
+	 RTC transition energy is 0.00000 mJ
+-------Flash-------
+	 Flash active energy is 0.00001 mJ
+	 Flash sleep energy is 0.00063 mJ
+	 Flash transition energy is 0.00000 mJ
+-------ADC-------
+	 ADC active energy is 0.00000 mJ
+	 ADC sleep energy is 0.00016 mJ
+	 ADC transition energy is 0.00000 mJ
+-------I2C-------
+	 I2C active energy is 0.00000 mJ
+	 I2C sleep energy is 0.00003 mJ
+	 I2C transition energy is 0.00000 mJ
+----------------------END OF TASK 0-------------------

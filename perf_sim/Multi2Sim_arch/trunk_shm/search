@@ -1,0 +1,9 @@
+Binary file ./BIN/bin/m2s matches
+Binary file ./BIN/lib/libtracedriven.a matches
+Binary file ./bin/m2s matches
+./src/trace_driven/Makefile.am:4:	trace_driven.cpp \
+./src/trace_driven/.deps/trace_driven.Po:1:trace_driven.o: trace_driven.c /usr/include/stdc-predef.h \
+Binary file ./src/trace_driven/trace_driven.o matches
+./src/trace_driven/Makefile.in:349:	trace_driven.cpp \
+Binary file ./src/trace_driven/libtracedriven.a matches
+./src/trace_driven/Makefile:349:	trace_driven.cpp \
